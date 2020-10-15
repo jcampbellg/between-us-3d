@@ -48,12 +48,13 @@ GameObject:
   - component: {fileID: 543714690375816497}
   - component: {fileID: 1924879477825613453}
   - component: {fileID: 8127740358713731428}
-  - component: {fileID: 5043507564768378999}
   - component: {fileID: 4203354839292279431}
-  - component: {fileID: 5314483116555267927}
+  - component: {fileID: 1719869282529364466}
+  - component: {fileID: 6116708057245324832}
+  - component: {fileID: 7058907123719779968}
   m_Layer: 0
   m_Name: Crew
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,46 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
---- !u!114 &5043507564768378999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889430009027583195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 741bbe11f5357b44593b15c0d11b16bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
-  excludeOwnerUpdate: 1
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
-  lastPosition: {x: 0, y: 0, z: 0}
-  lastRotation: {x: 0, y: 0, z: 0, w: 0}
-  lastScale: {x: 0, y: 0, z: 0}
-  start:
-    timeStamp: 0
-    localPosition: {x: 0, y: 0, z: 0}
-    localRotation: {x: 0, y: 0, z: 0, w: 0}
-    localScale: {x: 0, y: 0, z: 0}
-    movementSpeed: 0
-  goal:
-    timeStamp: 0
-    localPosition: {x: 0, y: 0, z: 0}
-    localRotation: {x: 0, y: 0, z: 0, w: 0}
-    localScale: {x: 0, y: 0, z: 0}
-    movementSpeed: 0
 --- !u!114 &4203354839292279431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +190,7 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 1
   animator: {fileID: 543714690375816499}
---- !u!114 &5314483116555267927
+--- !u!114 &1719869282529364466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,37 +199,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 1889430009027583195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65214da13a861f4a8ae309d3daea1c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 94c5660e50a45a84d8ccb4ed3fe30e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  bodyRenderer: {fileID: 2461590626053880112}
+  skin: {fileID: 0}
+--- !u!114 &6116708057245324832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889430009027583195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 1
-  excludeOwnerUpdate: 1
-  syncPosition: 0
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 0
-  interpolateRotation: 1
-  interpolateScale: 0
+  localPositionSensitivity: 0.001
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+--- !u!114 &7058907123719779968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889430009027583195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
-  lastPosition: {x: 0, y: 0, z: 0}
-  lastRotation: {x: 0, y: 0, z: 0, w: 0}
-  lastScale: {x: 0, y: 0, z: 0}
-  start:
-    timeStamp: 0
-    localPosition: {x: 0, y: 0, z: 0}
-    localRotation: {x: 0, y: 0, z: 0, w: 0}
-    localScale: {x: 0, y: 0, z: 0}
-    movementSpeed: 0
-  goal:
-    timeStamp: 0
-    localPosition: {x: 0, y: 0, z: 0}
-    localRotation: {x: 0, y: 0, z: 0, w: 0}
-    localScale: {x: 0, y: 0, z: 0}
-    movementSpeed: 0
   target: {fileID: 8806195435386731877}
 --- !u!1 &3295625425442438731
 GameObject:

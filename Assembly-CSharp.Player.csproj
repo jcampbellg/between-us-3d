@@ -57,8 +57,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LookAround.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
-    <Compile Include="Assets\Scripts\BeetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Client.cs" />
+    <Compile Include="Assets\Scripts\BeetweenUsNetworkManager.cs" />
+    <Compile Include="Assets\Scripts\Skin.cs" />
+    <Compile Include="Assets\Scripts\SkinRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

@@ -13,7 +13,10 @@ public class LookAround : MonoBehaviour
 
 	private void Start()
 	{
-        Cursor.lockState = CursorLockMode.Locked;
+        if (canUse)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 	}
 	void Update()
     {

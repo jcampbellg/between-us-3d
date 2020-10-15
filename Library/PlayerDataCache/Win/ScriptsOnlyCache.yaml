@@ -5,10 +5,13 @@ ScriptsOnlyBuild:
     - Client
     - LookAround
     - Move
+    - Skin
+    - SkinRenderer
     Mirror.Components.dll:
-    - Mirror.Experimental.NetworkTransform
-    - Mirror.Experimental.NetworkTransformChild
     - Mirror.NetworkAnimator
+    - Mirror.NetworkPingDisplay
+    - Mirror.NetworkTransform
+    - Mirror.NetworkTransformChild
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.TelepathyTransport
@@ -44,13 +47,20 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector3
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
+    - UnityEngine.Rendering.Volume
+    - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
+    - UnityEngine.Rendering.Universal.Bloom
+    - UnityEngine.Rendering.Universal.ColorAdjustments
     - UnityEngine.Rendering.Universal.ForwardRendererData
     - UnityEngine.Rendering.Universal.PostProcessData
+    - UnityEngine.Rendering.Universal.Tonemapping
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
+    - UnityEngine.Rendering.Universal.Vignette
+    - UnityEngine.Rendering.Universal.WhiteBalance
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -64,6 +74,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
@@ -78,7 +90,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/Server.unity:
+    Assets/Scenes/GameScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -87,21 +99,33 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
       Script: {instanceID: 0}
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
     - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11952}
@@ -120,85 +144,109 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12008}
+      Script: {instanceID: 12014}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12308}
+      Script: {instanceID: 12174}
     - Class: 114
-      Script: {instanceID: 12316}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12354}
+      Script: {instanceID: 12360}
     - Class: 114
-      Script: {instanceID: 12574}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12628}
+      Script: {instanceID: 12580}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12634}
     - Class: 114
-      Script: {instanceID: 12938}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 13234}
+      Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 13250}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13306}
+      Script: {instanceID: 13256}
     - Class: 114
-      Script: {instanceID: 13384}
+      Script: {instanceID: 13312}
     - Class: 114
-      Script: {instanceID: 13684}
+      Script: {instanceID: 13390}
     - Class: 114
-      Script: {instanceID: 13958}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 13690}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 13962}
     - Class: 114
-      Script: {instanceID: 14234}
+      Script: {instanceID: 14016}
     - Class: 114
-      Script: {instanceID: 14626}
+      Script: {instanceID: 14092}
     - Class: 114
-      Script: {instanceID: 14706}
+      Script: {instanceID: 14238}
     - Class: 114
-      Script: {instanceID: 15032}
+      Script: {instanceID: 14568}
     - Class: 114
-      Script: {instanceID: 15112}
+      Script: {instanceID: 14630}
     - Class: 114
-      Script: {instanceID: 15136}
+      Script: {instanceID: 14710}
     - Class: 114
-      Script: {instanceID: 15282}
+      Script: {instanceID: 14762}
     - Class: 114
-      Script: {instanceID: 15292}
+      Script: {instanceID: 15036}
     - Class: 114
-      Script: {instanceID: 15334}
+      Script: {instanceID: 15116}
     - Class: 114
-      Script: {instanceID: 15342}
+      Script: {instanceID: 15140}
     - Class: 114
-      Script: {instanceID: 15744}
+      Script: {instanceID: 15296}
     - Class: 114
-      Script: {instanceID: 15840}
+      Script: {instanceID: 15338}
     - Class: 114
-      Script: {instanceID: 15906}
+      Script: {instanceID: 15346}
     - Class: 114
-      Script: {instanceID: 16170}
+      Script: {instanceID: 15406}
     - Class: 114
-      Script: {instanceID: 16414}
+      Script: {instanceID: 15660}
     - Class: 114
-      Script: {instanceID: 16472}
+      Script: {instanceID: 15748}
     - Class: 114
-      Script: {instanceID: 16724}
+      Script: {instanceID: 15844}
+    - Class: 114
+      Script: {instanceID: 15910}
+    - Class: 114
+      Script: {instanceID: 16006}
+    - Class: 114
+      Script: {instanceID: 16176}
+    - Class: 114
+      Script: {instanceID: 16314}
+    - Class: 114
+      Script: {instanceID: 16420}
+    - Class: 114
+      Script: {instanceID: 16478}
+    - Class: 114
+      Script: {instanceID: 16598}
     - Class: 114
       Script: {instanceID: 16730}
     - Class: 114
-      Script: {instanceID: 16808}
+      Script: {instanceID: 16736}
     - Class: 114
-      Script: {instanceID: 16968}
+      Script: {instanceID: 16776}
     - Class: 114
-      Script: {instanceID: 16976}
+      Script: {instanceID: 16814}
     - Class: 114
-      Script: {instanceID: 20454}
+      Script: {instanceID: 16852}
     - Class: 114
-      Script: {instanceID: 33090}
+      Script: {instanceID: 16930}
+    - Class: 114
+      Script: {instanceID: 16960}
+    - Class: 114
+      Script: {instanceID: 16964}
+    - Class: 114
+      Script: {instanceID: 16978}
+    - Class: 114
+      Script: {instanceID: 16986}
+    - Class: 114
+      Script: {instanceID: 52508}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -211,6 +259,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 205
+      Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
@@ -218,6 +268,10 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -268,6 +322,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 2cb85097bd451bae61ff71e703256582
+    assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
+    namespaceName: UnityEngine.Rendering.Universal
+    className: UniversalRenderPipelineAsset
   - hash:
       serializedVersion: 2
       Hash: 016664814c823cfc5ac199e835dc335b
@@ -748,12 +808,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror.Experimental
     className: NetworkRigidbody
-  - hash:
-      serializedVersion: 2
-      Hash: 2cb85097bd451bae61ff71e703256582
-    assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
-    namespaceName: UnityEngine.Rendering.Universal
-    className: UniversalRenderPipelineAsset
   - hash:
       serializedVersion: 2
       Hash: 5e1eefcd5106de6c2e85908a3b2d3f04
@@ -1242,6 +1296,12 @@ ScriptsOnlyBuild:
     className: NetworkLogSettings
   - hash:
       serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Client
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleAdditiveScenes
@@ -1488,6 +1548,12 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: e79e0f6af70d8842204fa5e79e5e648a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BeetweenUsNetworkManager
+  - hash:
+      serializedVersion: 2
       Hash: 0c05f2bfb402def3f0a85a62a2323c7f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1504,6 +1570,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ToggleGroup
+  - hash:
+      serializedVersion: 2
+      Hash: d036e39090a52f9e43b1520d47c6c788
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Skin
   - hash:
       serializedVersion: 2
       Hash: 4c790fa3b7c93033baa4406ca5ac8c04
@@ -1548,17 +1620,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: b2b4a4bf81317f3c08703a1773162a08
+      Hash: c808837ddd729d832a254e02944dffe9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: BeetweenUsNetworkManager
-  - hash:
-      serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Client
+    className: SkinRenderer
   platform: 5
   scenePathNames:
-  - Assets/Scenes/Server.unity
+  - Assets/Scenes/GameScene.unity
   playerPath: C:/Users/jcamp/Desktop/Builds/Server/between-us-3d.exe
