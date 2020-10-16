@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Mirror;
 
 public class BeetweenUsNetworkManager : NetworkManager
 {
 	public List<Skin> skins;
+	public TMP_InputField ip;
+	public GameObject pauseMenu;
 	public override void OnServerAddPlayer(NetworkConnection conn)
 	{
 		GameObject newPlayer = Instantiate(playerPrefab);
@@ -20,6 +23,26 @@ public class BeetweenUsNetworkManager : NetworkManager
 		player.GetComponent<SkinRenderer>().skin = skin;
 		skins.RemoveAt(n);
 	}
+
+	public override void OnClientConnect(NetworkConnection conn)
+	{
+		pauseMenu.SetActive(true);
+		base.OnClientConnect(conn);
+	}
+
+	public void OnEndEdit()
+	{
+		networkAddress = ip.text;
+	}
+	public void SelectFirstSkin(GameObject player)
+	{
+		int n = 0;
+		Skin newSkin = skins[n];
+		Skin oldSkin = player.GetComponent<SkinRenderer>().skin;
+		player.GetComponent<SkinRenderer>().skin = newSkin;
+		skins.RemoveAt(n);
+		skins.Add(oldSkin);
+	}
 	public override void OnServerDisconnect(NetworkConnection conn)
 	{
 		NetworkIdentity identity = conn.identity;
@@ -30,6 +53,7 @@ public class BeetweenUsNetworkManager : NetworkManager
 		{
 			if (player.GetComponent<NetworkIdentity>().netId == netId)
 			{
+				// Player Who Left The Game
 				skins.Add(player.GetComponent<SkinRenderer>().skin);
 			}
 		}

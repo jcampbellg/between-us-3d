@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class LookAround : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    public Settings settings;
     public Animator animator;
     public Transform bone;
     public bool canUse = false;
 
     float xRotation = 0f;
 
-	private void Start()
-	{
-        if (canUse)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-	}
 	void Update()
     {
         if (canUse)
         {
+            float mouseSensitivity = settings.mouseSensitivity;
             Transform cam = Camera.main.transform;
             Transform camPivot = Camera.main.transform.parent;
 
