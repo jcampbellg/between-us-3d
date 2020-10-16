@@ -9,7 +9,6 @@ public class Skin : ScriptableObject
     public string skinName;
     public Texture texture;
     public Texture logo;
-    public bool inUse;
     public void SetSkin(Renderer bodyRenderer)
     {
         bodyRenderer.material.SetTexture("_BaseMap", texture);

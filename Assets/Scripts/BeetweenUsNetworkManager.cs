@@ -6,15 +6,33 @@ using Mirror;
 
 public class BeetweenUsNetworkManager : NetworkManager
 {
+	public Settings settings;
 	public List<Skin> skins;
-	public TMP_InputField ip;
-	public GameObject pauseMenu;
+	public TMP_InputField ipInput;
+	public TMP_InputField playerNameInput;
+	public GameObject clickableCanvas;
+	public string playerName = "";
+
+	public override void Start()
+	{
+		settings.Restart();
+		base.Start();
+	}
 	public override void OnServerAddPlayer(NetworkConnection conn)
 	{
 		GameObject newPlayer = Instantiate(playerPrefab);
 		newPlayer.transform.position = Vector3.zero;
 		SelectRandomSkin(newPlayer);
+		SetPlayerName(newPlayer);
 		NetworkServer.AddPlayerForConnection(conn, newPlayer);
+	}
+	void SetPlayerName(GameObject player)
+	{
+		if (playerName == "")
+		{
+			playerName = "Player " + numPlayers+1;
+		}
+		player.GetComponent<Client>().playerName = playerName;
 	}
 	void SelectRandomSkin(GameObject player)
 	{
@@ -23,16 +41,20 @@ public class BeetweenUsNetworkManager : NetworkManager
 		player.GetComponent<SkinRenderer>().skin = skin;
 		skins.RemoveAt(n);
 	}
-
 	public override void OnClientConnect(NetworkConnection conn)
 	{
-		pauseMenu.SetActive(true);
+		clickableCanvas.SetActive(true);
+		
 		base.OnClientConnect(conn);
 	}
 
-	public void OnEndEdit()
+	public void OnEndEditIp()
 	{
-		networkAddress = ip.text;
+		networkAddress = ipInput.text;
+	}
+	public void OnEndEditPlayerName()
+	{
+		playerName = playerNameInput.text;
 	}
 	public void SelectFirstSkin(GameObject player)
 	{
@@ -42,6 +64,10 @@ public class BeetweenUsNetworkManager : NetworkManager
 		player.GetComponent<SkinRenderer>().skin = newSkin;
 		skins.RemoveAt(n);
 		skins.Add(oldSkin);
+	}
+	public override void OnStartServer()
+	{
+		base.OnStartServer();
 	}
 	public override void OnServerDisconnect(NetworkConnection conn)
 	{

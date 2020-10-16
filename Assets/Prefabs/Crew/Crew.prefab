@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6031440111245707552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6116708057245324832}
   - component: {fileID: 7058907123719779968}
   - component: {fileID: 1157697163243911599}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crew
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -278,6 +278,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  canvas: {fileID: 1079011654540044009}
+  playerName: 
 --- !u!114 &4203354839292279431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,12 +361,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6faca1e4a0bf043b73138072415c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickDistance: 3.5
+  clickActionDistance: 2.5
   clickableObjects:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   info: {fileID: 734953391366457264}
   settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  pointerCanvas: {fileID: 1079011654540044009}
+  canUse: 0
 --- !u!1 &3109856129864255258
 GameObject:
   m_ObjectHideFlags: 0

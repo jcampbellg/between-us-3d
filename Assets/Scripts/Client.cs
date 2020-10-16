@@ -6,6 +6,9 @@ using Mirror;
 public class Client : NetworkBehaviour
 {
     public Settings settings;
+    public GameObject canvas;
+    [SyncVar]
+    public string playerName = "";
     void Start()
     {
         if (isLocalPlayer)
@@ -14,11 +17,36 @@ public class Client : NetworkBehaviour
             GetComponent<LookAround>().canUse = true;
             GetComponent<Pointer>().canUse = true;
             Cursor.lockState = CursorLockMode.Locked;
+
+            GameObject networkManager = GameObject.FindGameObjectWithTag("GameController");
+            string inputName = networkManager.GetComponent<BeetweenUsNetworkManager>().playerName;
+
+            if ( inputName != "")
+			{
+                CmdUpdateSettings();
+			}
+            canvas.SetActive(true);
         }
     }
-	private void Update()
+    [Command]
+	public void CmdUpdatePlayerName(string inputName)
 	{
-        if (isLocalPlayer && Input.GetButtonDown("Cancel"))
+        playerName = inputName;
+	}
+
+    [Command]
+    public void CmdUpdateSettings()
+    {
+        RpcUpdateSettings(settings.fogDistance);
+    }
+    [ClientRpc]
+    public void RpcUpdateSettings(float fog)
+	{
+        settings.UpdateSettings(fog);
+	}
+    private void Update()
+	{
+        if (isLocalPlayer)
         {
             if (settings.isMenuOpen)
             {
@@ -32,6 +60,7 @@ public class Client : NetworkBehaviour
             }
         }
     }
+    
     public void ChangeSkin()
 	{
         CmdChangeSkin();
@@ -41,5 +70,22 @@ public class Client : NetworkBehaviour
     {
         GameObject networkManager = GameObject.FindGameObjectWithTag("GameController");
         networkManager.GetComponent<BeetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
+    }
+
+    public void ChangeFog(float newFog)
+	{
+        CmdChangeFog(newFog);
+
+    }
+    [Command]
+    void CmdChangeFog(float newFog)
+	{
+        RpcChangeFog(newFog);
+        settings.ChangeFog(newFog);
+    }
+    [ClientRpc]
+    void RpcChangeFog(float newFog)
+	{
+        settings.ChangeFog(newFog);
     }
 }

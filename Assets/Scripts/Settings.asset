@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2a966ef541ae45afddc7abc4d83a9, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  mouseSensitivity: 2604.4944
-  isMenuOpen: 0
-  isPauseOpen: 0
+  mouseSensitivity: 800
+  isMenuOpen: 1
+  isPauseOpen: 1
   isTaskOpen: 0
+  fogDistance: 0.4
+  clickPlayerDistance: 1

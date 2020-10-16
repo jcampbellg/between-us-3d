@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class TaskController : MonoBehaviour
 {
+	public Settings settings;
     public Task task;
+	public GameObject panelToOpen;
     public void ActionTask(GameObject client)
 	{
 		switch (task.id)
@@ -14,6 +16,12 @@ public class TaskController : MonoBehaviour
 				client.GetComponent<Client>().ChangeSkin();
 				break;
 			case Task.Tasks.changeSettings:
+				if (panelToOpen)
+				{
+					settings.OpenTask();
+					panelToOpen.SetActive(true);
+					panelToOpen.GetComponent<GameSettingsUI>().client = client;
+				}
 				break;
 			default:
 				break;

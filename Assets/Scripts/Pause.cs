@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    public GameObject pauseCanvas;
+    public GameObject pausePanel;
     public Settings settings;
     public Slider slider;
     void Update()
@@ -15,7 +15,7 @@ public class Pause : MonoBehaviour
             bool active = !settings.isPauseOpen;
             settings.isPauseOpen = active;
             settings.isMenuOpen = active;
-            pauseCanvas.SetActive(active);
+            pausePanel.SetActive(active);
             if (active)
             {
                 Cursor.lockState = CursorLockMode.None;

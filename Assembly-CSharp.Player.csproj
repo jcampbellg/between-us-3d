@@ -55,6 +55,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\TaskController.cs" />
     <Compile Include="Assets\Scripts\Pointer.cs" />
     <Compile Include="Assets\Scripts\LookAround.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
@@ -65,7 +66,7 @@
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BeetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Scripts\TaskController.cs" />
+    <Compile Include="Assets\Scripts\GameSettingsUI.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
