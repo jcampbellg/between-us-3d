@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class GameSettingsUI : MonoBehaviour
 {
 	public Settings settings;
-	public Slider slider;
+	public Slider fogDistance;
+	public Slider playerSpeed;
 	public GameObject client;
 	private void Update()
 	{
@@ -21,14 +22,23 @@ public class GameSettingsUI : MonoBehaviour
 	}
 	private void OnEnable()
 	{
-		slider.value = settings.fogDistance;
+		fogDistance.value = settings.fogDistance;
+		playerSpeed.value = settings.playerSpeed;
 	}
 	public void ChangeFogDistance()
 	{
-		settings.fogDistance = slider.value;
+		settings.fogDistance = fogDistance.value;
 		if (client)
 		{
-			client.GetComponent<Client>().ChangeFog(settings.fogDistance);
+			client.GetComponent<Client>().ChangeFog();
+		}
+	}
+	public void ChangePlayerSpeed()
+	{
+		settings.playerSpeed = playerSpeed.value;
+		if (client)
+		{
+			client.GetComponent<Client>().ChangePlayerSpeed();
 		}
 	}
 }

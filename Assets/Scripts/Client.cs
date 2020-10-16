@@ -37,12 +37,12 @@ public class Client : NetworkBehaviour
     [Command]
     public void CmdUpdateSettings()
     {
-        RpcUpdateSettings(settings.fogDistance);
+        RpcUpdateSettings(settings.fogDistance, settings.playerSpeed);
     }
     [ClientRpc]
-    public void RpcUpdateSettings(float fog)
+    public void RpcUpdateSettings(float fog, float playerSpeed)
 	{
-        settings.UpdateSettings(fog);
+        settings.UpdateSettings(fog, playerSpeed);
 	}
     private void Update()
 	{
@@ -72,9 +72,9 @@ public class Client : NetworkBehaviour
         networkManager.GetComponent<BeetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
     }
 
-    public void ChangeFog(float newFog)
+    public void ChangeFog()
 	{
-        CmdChangeFog(newFog);
+        CmdChangeFog(settings.fogDistance);
 
     }
     [Command]
@@ -87,5 +87,21 @@ public class Client : NetworkBehaviour
     void RpcChangeFog(float newFog)
 	{
         settings.ChangeFog(newFog);
+    }
+
+    public void ChangePlayerSpeed()
+	{
+        CmdChangePlayerSpeed(settings.playerSpeed);
+    }
+    [Command]
+    void CmdChangePlayerSpeed(float newSpeed)
+    {
+        RpcChangePlayerSpeed(newSpeed);
+        settings.playerSpeed = newSpeed;
+    }
+    [ClientRpc]
+    void RpcChangePlayerSpeed(float newSpeed)
+    {
+        settings.playerSpeed = newSpeed;
     }
 }

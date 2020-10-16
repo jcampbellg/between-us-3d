@@ -11,6 +11,7 @@ public class Settings : ScriptableObject
     public bool isTaskOpen;
     public float fogDistance = 0.09f;
     public float clickPlayerDistance = 17.0f;
+    public float playerSpeed = 10.0f;
 
     public void Restart()
 	{
@@ -18,7 +19,9 @@ public class Settings : ScriptableObject
         isMenuOpen = false;
         isPauseOpen = false;
         isTaskOpen = false;
+
         ChangeFog(0.09f);
+        playerSpeed = 10.0f;
     }
 
     public void OpenTask()
@@ -39,8 +42,9 @@ public class Settings : ScriptableObject
         RenderSettings.fogDensity = newFog;
         clickPlayerDistance = ((0.4f - newFog) / 0.4f * 13f)+2.5f;
     }
-    public void UpdateSettings(float fog)
+    public void UpdateSettings(float _fogDistance, float _playerSpeed)
 	{
-        ChangeFog(fog);
-	}
+        ChangeFog(_fogDistance);
+        playerSpeed = _playerSpeed;
+    }
 }

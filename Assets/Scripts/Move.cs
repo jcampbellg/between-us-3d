@@ -5,14 +5,15 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public CharacterController characterController;
+    public Settings settings;
     public Animator animator;
-    public float speed = 5f;
     public bool canUse = false;
 
     void Update()
     {
         if (canUse)
         {
+            float speed = settings.playerSpeed;
             Vector3 move = GetInputMovement();
 
             characterController.Move(move * speed * Time.deltaTime);

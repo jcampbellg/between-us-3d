@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 4623190277759735649}
+  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
   animator: {fileID: 543714690375816499}
-  speed: 10
   canUse: 0
 --- !u!114 &1924879477825613453
 MonoBehaviour:
