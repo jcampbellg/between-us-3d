@@ -3996,6 +3996,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83880acbd3d925c41bd5b2169ec07fac, type: 2}
   - {fileID: 11400000, guid: cc37d9cb71cb3de45a92dd4e9b1da477, type: 2}
   - {fileID: 11400000, guid: e17a2c2da333f534bb89321f0cc87274, type: 2}
+  - {fileID: 11400000, guid: 06cff1c446277ff4baf714cf0ee83648, type: 2}
   ipInput: {fileID: 1198525441}
   playerNameInput: {fileID: 1919497936}
   clickableCanvas: {fileID: 557681747}

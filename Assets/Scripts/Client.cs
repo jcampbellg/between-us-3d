@@ -23,8 +23,9 @@ public class Client : NetworkBehaviour
 
             if ( inputName != "")
 			{
-                CmdUpdateSettings();
-			}
+                CmdUpdatePlayerName(inputName);
+            }
+            CmdUpdateSettings();
             canvas.SetActive(true);
         }
     }
