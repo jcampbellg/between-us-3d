@@ -32,6 +32,18 @@ public class Pause : MonoBehaviour
         settings.mouseSensitivity = slider.value;
     }
 
+    public void ToggleFullscreen()
+	{
+        if (!Screen.fullScreen)
+		{
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+		}
+        else
+		{
+            Screen.fullScreen = false;
+		}
+	}
+
     public void ExitGame()
 	{
         Application.Quit();

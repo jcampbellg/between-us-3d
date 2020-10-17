@@ -1710,4 +1710,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jcamp/Desktop/Builds/Client/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/Builds/Server/between-us-3d.exe
