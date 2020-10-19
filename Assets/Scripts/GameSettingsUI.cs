@@ -30,7 +30,7 @@ public class GameSettingsUI : MonoBehaviour
 		settings.fogDensity = fogDistance.value;
 		if (client)
 		{
-			client.GetComponent<Client>().ChangeSetting(Settings.Setting.fogDensity);
+			client.GetComponent<ClientController>().ChangeSetting(Settings.Setting.fogDensity);
 		}
 	}
 	public void ChangePlayerSpeed()
@@ -38,7 +38,7 @@ public class GameSettingsUI : MonoBehaviour
 		settings.playerSpeed = playerSpeed.value;
 		if (client)
 		{
-			client.GetComponent<Client>().ChangeSetting(Settings.Setting.playerSpeed);
+			client.GetComponent<ClientController>().ChangeSetting(Settings.Setting.playerSpeed);
 		}
 	}
 }

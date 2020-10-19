@@ -64,7 +64,7 @@ public class Pointer : MonoBehaviour
     {
         GameObject player = hit.transform.gameObject;
 
-        string playerName = player.GetComponent<Client>().playerName;
+        string playerName = player.GetComponent<ClientController>().playerName;
         info.text = playerName;
     }
 }

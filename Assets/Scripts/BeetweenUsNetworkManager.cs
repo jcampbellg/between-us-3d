@@ -32,7 +32,7 @@ public class BeetweenUsNetworkManager : NetworkManager
 		{
 			playerName = "Player " + numPlayers+1;
 		}
-		player.GetComponent<Client>().playerName = playerName;
+		player.GetComponent<ClientController>().playerName = playerName;
 	}
 	void SelectRandomSkin(GameObject player)
 	{

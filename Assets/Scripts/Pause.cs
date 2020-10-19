@@ -16,14 +16,6 @@ public class Pause : MonoBehaviour
             settings.isPauseOpen = active;
             settings.isMenuOpen = active;
             pausePanel.SetActive(active);
-            if (active)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-			else
-			{
-                Cursor.lockState = CursorLockMode.Locked;
-            }
         }
     }
 
