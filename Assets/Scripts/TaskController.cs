@@ -13,7 +13,7 @@ public class TaskController : MonoBehaviour
 		switch (task.id)
 		{
 			case Task.Tasks.changeSkin:
-				client.GetComponent<Client>().ChangeSkin();
+				client.GetComponent<Client>().ActionTask(task.id);
 				break;
 			case Task.Tasks.changeSettings:
 				if (panelToOpen)

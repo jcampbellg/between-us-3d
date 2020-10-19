@@ -22,15 +22,15 @@ public class GameSettingsUI : MonoBehaviour
 	}
 	private void OnEnable()
 	{
-		fogDistance.value = settings.fogDistance;
+		fogDistance.value = settings.fogDensity;
 		playerSpeed.value = settings.playerSpeed;
 	}
 	public void ChangeFogDistance()
 	{
-		settings.fogDistance = fogDistance.value;
+		settings.fogDensity = fogDistance.value;
 		if (client)
 		{
-			client.GetComponent<Client>().ChangeFog();
+			client.GetComponent<Client>().ChangeSetting(Settings.Setting.fogDensity);
 		}
 	}
 	public void ChangePlayerSpeed()
@@ -38,7 +38,7 @@ public class GameSettingsUI : MonoBehaviour
 		settings.playerSpeed = playerSpeed.value;
 		if (client)
 		{
-			client.GetComponent<Client>().ChangePlayerSpeed();
+			client.GetComponent<Client>().ChangeSetting(Settings.Setting.playerSpeed);
 		}
 	}
 }

@@ -38,7 +38,7 @@ public class Client : NetworkBehaviour
     [Command]
     public void CmdUpdateSettings()
     {
-        RpcUpdateSettings(settings.fogDistance, settings.playerSpeed);
+        RpcUpdateSettings(settings.fogDensity, settings.playerSpeed);
     }
     [ClientRpc]
     public void RpcUpdateSettings(float fog, float playerSpeed)
@@ -62,10 +62,18 @@ public class Client : NetworkBehaviour
         }
     }
     
-    public void ChangeSkin()
+    // Tasks
+    public void ActionTask(Task.Tasks id)
 	{
-        CmdChangeSkin();
-    }
+		switch (id)
+		{
+			case Task.Tasks.changeSkin:
+                CmdChangeSkin();
+                break;
+			default:
+				break;
+		}
+	}
     [Command]
     void CmdChangeSkin()
     {
@@ -73,36 +81,50 @@ public class Client : NetworkBehaviour
         networkManager.GetComponent<BeetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
     }
 
-    public void ChangeFog()
+    public void ChangeSetting(Settings.Setting id)
 	{
-        CmdChangeFog(settings.fogDistance);
-
+		switch (id)
+		{
+			case Settings.Setting.fogDensity:
+                CmdChangeFloatSetting(id, settings.fogDensity);
+                break;
+			case Settings.Setting.playerSpeed:
+                CmdChangeFloatSetting(id, settings.playerSpeed);
+                break;
+			default:
+				break;
+		}
+		
     }
     [Command]
-    void CmdChangeFog(float newFog)
+    void CmdChangeFloatSetting(Settings.Setting id, float value)
 	{
-        RpcChangeFog(newFog);
-        settings.ChangeFog(newFog);
+        switch (id)
+        {
+            case Settings.Setting.fogDensity:
+                settings.ChangeFog(value);
+                break;
+            case Settings.Setting.playerSpeed:
+                settings.playerSpeed = value;
+                break;
+            default:
+                break;
+        }
+        RpcChangeFloatSetting(id, value);
     }
     [ClientRpc]
-    void RpcChangeFog(float newFog)
+    void RpcChangeFloatSetting(Settings.Setting id, float value)
 	{
-        settings.ChangeFog(newFog);
-    }
-
-    public void ChangePlayerSpeed()
-	{
-        CmdChangePlayerSpeed(settings.playerSpeed);
-    }
-    [Command]
-    void CmdChangePlayerSpeed(float newSpeed)
-    {
-        RpcChangePlayerSpeed(newSpeed);
-        settings.playerSpeed = newSpeed;
-    }
-    [ClientRpc]
-    void RpcChangePlayerSpeed(float newSpeed)
-    {
-        settings.playerSpeed = newSpeed;
+        switch (id)
+        {
+            case Settings.Setting.fogDensity:
+                settings.ChangeFog(value);
+                break;
+            case Settings.Setting.playerSpeed:
+                settings.playerSpeed = value;
+                break;
+            default:
+                break;
+        }
     }
 }
