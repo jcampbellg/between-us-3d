@@ -41,6 +41,7 @@ public class WiresUI : MonoBehaviour
 			colorsLeft.RemoveAt(n);
 
 			wires[i].GetComponent<Image>().color = color;
+			RestartWire(wires[i]);
 		}
 	}
 
@@ -67,12 +68,17 @@ public class WiresUI : MonoBehaviour
 	{
 		if (wireDragging)
 		{
-			RectTransform rect = wireDragging.GetComponent<RectTransform>();
-			rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 10);
-			rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 10);
-			rect.SetPositionAndRotation(rect.position, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+			RestartWire(wireDragging);
 			wireDragging = null;
 		}
+	}
+
+	void RestartWire(GameObject wire)
+	{
+		RectTransform rect = wire.GetComponent<RectTransform>();
+		rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 10);
+		rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 10);
+		rect.SetPositionAndRotation(rect.position, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
 	}
 
 	public void OnWireDrop(GameObject end)

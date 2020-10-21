@@ -17,6 +17,7 @@ public class TaskController : MonoBehaviour
 				break;
 			case Task.Tasks.changeSettings:
 			case Task.Tasks.fixWires:
+			case Task.Tasks.unlockButtons:
 				if (panelToOpen)
 				{
 					settings.OpenTask();

@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - Task
     - TaskController
     - TaskUI
+    - UnlockUI
     - WiresUI
     Mirror.Components.dll:
     - Mirror.NetworkAnimator
@@ -242,75 +243,77 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15154}
     - Class: 114
-      Script: {instanceID: 15234}
+      Script: {instanceID: 15184}
     - Class: 114
-      Script: {instanceID: 15240}
+      Script: {instanceID: 15236}
     - Class: 114
-      Script: {instanceID: 15258}
+      Script: {instanceID: 15242}
     - Class: 114
-      Script: {instanceID: 15270}
+      Script: {instanceID: 15260}
     - Class: 114
-      Script: {instanceID: 15420}
+      Script: {instanceID: 15272}
     - Class: 114
-      Script: {instanceID: 15466}
+      Script: {instanceID: 15422}
     - Class: 114
-      Script: {instanceID: 15474}
+      Script: {instanceID: 15468}
     - Class: 114
-      Script: {instanceID: 15536}
+      Script: {instanceID: 15476}
     - Class: 114
-      Script: {instanceID: 15756}
+      Script: {instanceID: 15538}
     - Class: 114
-      Script: {instanceID: 15802}
+      Script: {instanceID: 15758}
     - Class: 114
-      Script: {instanceID: 15896}
+      Script: {instanceID: 15804}
     - Class: 114
-      Script: {instanceID: 15994}
+      Script: {instanceID: 15898}
     - Class: 114
-      Script: {instanceID: 16060}
+      Script: {instanceID: 15996}
     - Class: 114
-      Script: {instanceID: 16160}
+      Script: {instanceID: 16062}
     - Class: 114
-      Script: {instanceID: 16334}
+      Script: {instanceID: 16162}
     - Class: 114
-      Script: {instanceID: 16396}
+      Script: {instanceID: 16336}
     - Class: 114
-      Script: {instanceID: 16472}
+      Script: {instanceID: 16398}
     - Class: 114
-      Script: {instanceID: 16530}
+      Script: {instanceID: 16474}
     - Class: 114
-      Script: {instanceID: 16576}
+      Script: {instanceID: 16532}
     - Class: 114
-      Script: {instanceID: 16636}
+      Script: {instanceID: 16578}
     - Class: 114
-      Script: {instanceID: 16760}
+      Script: {instanceID: 16638}
     - Class: 114
-      Script: {instanceID: 16826}
+      Script: {instanceID: 16762}
     - Class: 114
-      Script: {instanceID: 16896}
+      Script: {instanceID: 16828}
     - Class: 114
-      Script: {instanceID: 16902}
+      Script: {instanceID: 16898}
     - Class: 114
-      Script: {instanceID: 16934}
+      Script: {instanceID: 16904}
     - Class: 114
-      Script: {instanceID: 16942}
+      Script: {instanceID: 16936}
     - Class: 114
-      Script: {instanceID: 16982}
+      Script: {instanceID: 16944}
     - Class: 114
-      Script: {instanceID: 17020}
+      Script: {instanceID: 16984}
     - Class: 114
-      Script: {instanceID: 17024}
+      Script: {instanceID: 17022}
     - Class: 114
-      Script: {instanceID: 17100}
+      Script: {instanceID: 17026}
     - Class: 114
-      Script: {instanceID: 17128}
+      Script: {instanceID: 17102}
     - Class: 114
-      Script: {instanceID: 17132}
+      Script: {instanceID: 17130}
     - Class: 114
-      Script: {instanceID: 17146}
+      Script: {instanceID: 17134}
     - Class: 114
-      Script: {instanceID: 17154}
+      Script: {instanceID: 17148}
     - Class: 114
-      Script: {instanceID: 37496}
+      Script: {instanceID: 17156}
+    - Class: 114
+      Script: {instanceID: 43354}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1016,6 +1019,12 @@ ScriptsOnlyBuild:
     className: InputField
   - hash:
       serializedVersion: 2
+      Hash: f8df3ab9bf3cd172b08c5910439543d7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TaskUI
+  - hash:
+      serializedVersion: 2
       Hash: 908b3077da284d11de0450423ca1808e
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1490,10 +1499,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: f8df3ab9bf3cd172b08c5910439543d7
+      Hash: 66a31f10419a532336b6ea1df306c5d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: TaskUI
+    className: UnlockUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity

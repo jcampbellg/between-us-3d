@@ -63,13 +63,14 @@
     <Compile Include="Assets\Scripts\GameSettingsUI.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
     <Compile Include="Assets\Scripts\Settings.cs" />
+    <Compile Include="Assets\Tasks\TaskUI.cs" />
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\ClientController.cs" />
     <Compile Include="Assets\Scripts\SkinRenderer.cs" />
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BeetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Tasks\TaskUI.cs" />
+    <Compile Include="Assets\Tasks\UnlockUI.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

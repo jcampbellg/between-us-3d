@@ -9,7 +9,8 @@ public class Task : ScriptableObject
 	{
 		changeSkin,
 		changeSettings,
-		fixWires
+		fixWires,
+		unlockButtons
 	};
 
     public string label;
