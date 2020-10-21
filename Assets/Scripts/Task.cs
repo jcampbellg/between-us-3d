@@ -8,7 +8,8 @@ public class Task : ScriptableObject
     public enum Tasks
 	{
 		changeSkin,
-		changeSettings
+		changeSettings,
+		fixWires
 	};
 
     public string label;
