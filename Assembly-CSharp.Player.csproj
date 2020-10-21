@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TaskController.cs" />
+    <Compile Include="Assets\Tasks\WiresUI.cs" />
     <Compile Include="Assets\Scripts\Pointer.cs" />
     <Compile Include="Assets\Scripts\LookAround.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BeetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Tasks\WiresUI.cs" />
+    <Compile Include="Assets\Tasks\TaskUI.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

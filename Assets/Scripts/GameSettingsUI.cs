@@ -5,28 +5,20 @@ using UnityEngine.UI;
 
 public class GameSettingsUI : MonoBehaviour
 {
-	public Settings settings;
 	public Slider fogDistance;
 	public Slider playerSpeed;
-	public GameObject client;
-	private void Update()
-	{
-		if (settings.isTaskOpen)
-		{
-			if (Input.GetButtonDown("Cancel"))
-			{
-				settings.CloseTask();
-				gameObject.SetActive(false);
-			}
-		}
-	}
+
 	private void OnEnable()
 	{
+		Settings settings = this.GetComponent<TaskUI>().settings;
 		fogDistance.value = settings.fogDensity;
 		playerSpeed.value = settings.playerSpeed;
 	}
 	public void ChangeFogDistance()
 	{
+		Settings settings = this.GetComponent<TaskUI>().settings;
+		GameObject client = this.GetComponent<TaskUI>().client;
+
 		settings.fogDensity = fogDistance.value;
 		if (client)
 		{
@@ -35,6 +27,9 @@ public class GameSettingsUI : MonoBehaviour
 	}
 	public void ChangePlayerSpeed()
 	{
+		Settings settings = this.GetComponent<TaskUI>().settings;
+		GameObject client = this.GetComponent<TaskUI>().client;
+
 		settings.playerSpeed = playerSpeed.value;
 		if (client)
 		{

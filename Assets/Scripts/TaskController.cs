@@ -16,11 +16,12 @@ public class TaskController : MonoBehaviour
 				client.GetComponent<ClientController>().ActionTask(task.id);
 				break;
 			case Task.Tasks.changeSettings:
+			case Task.Tasks.fixWires:
 				if (panelToOpen)
 				{
 					settings.OpenTask();
+					panelToOpen.GetComponent<TaskUI>().client = client;
 					panelToOpen.SetActive(true);
-					panelToOpen.GetComponent<GameSettingsUI>().client = client;
 				}
 				break;
 			default:

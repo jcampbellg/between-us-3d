@@ -808,7 +808,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18228
+  m_Name: pb_Mesh18264
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3163,7 +3163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &272519884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3266,7 +3266,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18048
+  m_Name: pb_Mesh18084
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4164,9 +4164,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -35}
+  m_AnchoredPosition: {x: -14.9999695, y: -34.999992}
   m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465330854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4863,7 +4863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &557681748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5372,9 +5372,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -125}
+  m_AnchoredPosition: {x: -14.9999695, y: -125}
   m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574832465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10154,7 +10154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
   task: {fileID: 11400000, guid: 2d01c5bee516ab74fba103daaddd820f, type: 2}
-  panelToOpen: {fileID: 0}
+  panelToOpen: {fileID: 1874861659}
 --- !u!1001 &910606409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10875,7 +10875,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18778
+  m_Name: pb_Mesh18828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12213,7 +12213,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17834
+  m_Name: pb_Mesh17850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14024,9 +14024,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -215}
+  m_AnchoredPosition: {x: -14.9999695, y: -215}
   m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401161848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14191,9 +14191,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -170}
+  m_AnchoredPosition: {x: -14.9999695, y: -170}
   m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425052435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14679,6 +14679,7 @@ GameObject:
   - component: {fileID: 1458819377}
   - component: {fileID: 1458819380}
   - component: {fileID: 1458819379}
+  - component: {fileID: 1458819381}
   - component: {fileID: 1458819378}
   m_Layer: 5
   m_Name: Game Settings Panel
@@ -14764,6 +14765,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458819376}
   m_CullTransparentMesh: 0
+--- !u!114 &1458819381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458819376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93a5d0a0d15e9347b480027611375c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  client: {fileID: 0}
 --- !u!1 &1468564574
 GameObject:
   m_ObjectHideFlags: 0
@@ -17009,7 +17024,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18138
+  m_Name: pb_Mesh18170
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19522,6 +19537,7 @@ GameObject:
   - component: {fileID: 1874861660}
   - component: {fileID: 1874861663}
   - component: {fileID: 1874861662}
+  - component: {fileID: 1874861664}
   - component: {fileID: 1874861661}
   m_Layer: 5
   m_Name: Fix Wires Panel
@@ -19529,7 +19545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1874861660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19595,12 +19611,7 @@ MonoBehaviour:
   - {r: 0.6039216, g: 0.83137256, b: 0.49019608, a: 1}
   - {r: 0.5106192, g: 0.42041522, b: 0.7941176, a: 1}
   - {r: 0.11764706, g: 0.1254902, b: 0.16470589, a: 1}
-  colorsList:
-  - {r: 0.11764706, g: 0.1254902, b: 0.16470589, a: 1}
-  - {r: 0.9529412, g: 0.62352943, b: 0.28627452, a: 1}
-  - {r: 0.9372549, g: 0.49803922, b: 0.5137255, a: 1}
-  - {r: 0.6039216, g: 0.83137256, b: 0.49019608, a: 1}
-  - {r: 0.5106192, g: 0.42041522, b: 0.7941176, a: 1}
+  colorsLeft: []
   wireDragging: {fileID: 0}
 --- !u!114 &1874861662
 MonoBehaviour:
@@ -19640,6 +19651,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874861659}
   m_CullTransparentMesh: 0
+--- !u!114 &1874861664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874861659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93a5d0a0d15e9347b480027611375c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  client: {fileID: 0}
 --- !u!1 &1882455407
 GameObject:
   m_ObjectHideFlags: 0
@@ -19927,9 +19952,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -80}
+  m_AnchoredPosition: {x: -14.9999695, y: -80}
   m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892665370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20096,7 +20121,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18954
+  m_Name: pb_Mesh19004
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
