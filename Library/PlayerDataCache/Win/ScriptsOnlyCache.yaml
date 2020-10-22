@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - ClientController
     - GameSettingsUI
     - LookAround
+    - MapUI
     - Move
     - Pause
     - Pointer
@@ -104,6 +105,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
@@ -237,6 +239,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14744}
     - Class: 114
+      Script: {instanceID: 14764}
+    - Class: 114
       Script: {instanceID: 14824}
     - Class: 114
       Script: {instanceID: 14880}
@@ -277,43 +281,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16398}
     - Class: 114
-      Script: {instanceID: 16474}
+      Script: {instanceID: 16414}
     - Class: 114
-      Script: {instanceID: 16532}
+      Script: {instanceID: 16476}
     - Class: 114
-      Script: {instanceID: 16578}
+      Script: {instanceID: 16534}
     - Class: 114
-      Script: {instanceID: 16638}
+      Script: {instanceID: 16580}
     - Class: 114
-      Script: {instanceID: 16762}
+      Script: {instanceID: 16640}
     - Class: 114
-      Script: {instanceID: 16828}
+      Script: {instanceID: 16764}
     - Class: 114
-      Script: {instanceID: 16898}
+      Script: {instanceID: 16830}
     - Class: 114
-      Script: {instanceID: 16904}
+      Script: {instanceID: 16900}
     - Class: 114
-      Script: {instanceID: 16936}
+      Script: {instanceID: 16906}
     - Class: 114
-      Script: {instanceID: 16944}
+      Script: {instanceID: 16938}
     - Class: 114
-      Script: {instanceID: 16984}
+      Script: {instanceID: 16946}
     - Class: 114
-      Script: {instanceID: 17022}
+      Script: {instanceID: 16986}
     - Class: 114
-      Script: {instanceID: 17026}
+      Script: {instanceID: 17024}
     - Class: 114
-      Script: {instanceID: 17102}
+      Script: {instanceID: 17028}
     - Class: 114
-      Script: {instanceID: 17130}
+      Script: {instanceID: 17104}
     - Class: 114
-      Script: {instanceID: 17134}
+      Script: {instanceID: 17132}
     - Class: 114
-      Script: {instanceID: 17148}
+      Script: {instanceID: 17136}
     - Class: 114
-      Script: {instanceID: 17156}
+      Script: {instanceID: 17150}
     - Class: 114
-      Script: {instanceID: 43354}
+      Script: {instanceID: 17158}
+    - Class: 114
+      Script: {instanceID: 36880}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -833,7 +839,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: 5bbef20ccbc377f0a58e8d7a20f1cc60
+      Hash: 44469191d6ea24804fdd2f5a00ebe7d0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -1217,7 +1223,7 @@ ScriptsOnlyBuild:
     className: NetworkLogSettings
   - hash:
       serializedVersion: 2
-      Hash: ff7ccaf55a7c20f4d3d9fd979ce4552f
+      Hash: fb9e56d4cc5f7f8b58196a4338cfc222
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientController
@@ -1263,6 +1269,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 66a31f10419a532336b6ea1df306c5d3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnlockUI
   - hash:
       serializedVersion: 2
       Hash: c042aadbc09f16545c490ddfea25c79e
@@ -1415,7 +1427,7 @@ ScriptsOnlyBuild:
     className: FreeCamera
   - hash:
       serializedVersion: 2
-      Hash: 7b11fad50a45b280c0efd42d83df96cd
+      Hash: 040311d695c8ec73b43ecc9fc94e4890
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pause
@@ -1499,11 +1511,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 66a31f10419a532336b6ea1df306c5d3
+      Hash: 5975121764d07cd1fee4483ad707464c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: UnlockUI
+    className: MapUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe

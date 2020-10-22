@@ -14,6 +14,7 @@ public class Settings : ScriptableObject
     public bool isMenuOpen;
     public bool isPauseOpen;
     public bool isTaskOpen;
+    public bool isMapOpen;
     public float fogDensity = 0.09f;
     public float clickPlayerDistance = 17.0f;
     public float playerSpeed = 10.0f;
@@ -24,6 +25,7 @@ public class Settings : ScriptableObject
         isMenuOpen = false;
         isPauseOpen = false;
         isTaskOpen = false;
+        isMapOpen = false;
 
         ChangeFog(0.09f);
         playerSpeed = 10.0f;

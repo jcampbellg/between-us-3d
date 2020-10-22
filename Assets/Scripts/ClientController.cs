@@ -7,6 +7,7 @@ public class ClientController : NetworkBehaviour
 {
     public Settings settings;
     public GameObject canvas;
+    public GameObject mapCanvas;
     [SyncVar]
     public string playerName = "";
     void Start()
@@ -27,6 +28,9 @@ public class ClientController : NetworkBehaviour
             }
             CmdUpdateSettings();
             canvas.SetActive(true);
+            mapCanvas.SetActive(true);
+
+            GameObject.FindGameObjectWithTag("MenuController").GetComponent<Pause>().client = this.gameObject;
         }
     }
     [Command]
@@ -53,13 +57,11 @@ public class ClientController : NetworkBehaviour
             {
                 GetComponent<Move>().canUse = false;
                 GetComponent<LookAround>().canUse = false;
-                Cursor.lockState = CursorLockMode.None;
             }
             else
             {
                 GetComponent<Move>().canUse = true;
                 GetComponent<LookAround>().canUse = true;
-                Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }
