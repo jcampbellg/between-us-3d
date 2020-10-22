@@ -15,3 +15,4 @@ MonoBehaviour:
   label: Game Settings
   instructions: '[E] Edit settings'
   id: 1
+  type: 1

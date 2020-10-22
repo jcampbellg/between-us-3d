@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - Move
     - Pause
     - Pointer
+    - Readme
     - Settings
     - Skin
     - SkinRenderer
@@ -277,49 +278,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16162}
     - Class: 114
-      Script: {instanceID: 16336}
+      Script: {instanceID: 16224}
     - Class: 114
-      Script: {instanceID: 16398}
+      Script: {instanceID: 16338}
     - Class: 114
-      Script: {instanceID: 16414}
+      Script: {instanceID: 16400}
     - Class: 114
-      Script: {instanceID: 16476}
+      Script: {instanceID: 16416}
     - Class: 114
-      Script: {instanceID: 16534}
+      Script: {instanceID: 16478}
     - Class: 114
-      Script: {instanceID: 16580}
+      Script: {instanceID: 16536}
     - Class: 114
-      Script: {instanceID: 16640}
+      Script: {instanceID: 16582}
     - Class: 114
-      Script: {instanceID: 16764}
+      Script: {instanceID: 16642}
     - Class: 114
-      Script: {instanceID: 16830}
+      Script: {instanceID: 16766}
     - Class: 114
-      Script: {instanceID: 16900}
+      Script: {instanceID: 16832}
     - Class: 114
-      Script: {instanceID: 16906}
+      Script: {instanceID: 16902}
     - Class: 114
-      Script: {instanceID: 16938}
+      Script: {instanceID: 16908}
     - Class: 114
-      Script: {instanceID: 16946}
+      Script: {instanceID: 16940}
     - Class: 114
-      Script: {instanceID: 16986}
+      Script: {instanceID: 16948}
     - Class: 114
-      Script: {instanceID: 17024}
+      Script: {instanceID: 16988}
     - Class: 114
-      Script: {instanceID: 17028}
+      Script: {instanceID: 17026}
     - Class: 114
-      Script: {instanceID: 17104}
+      Script: {instanceID: 17030}
     - Class: 114
-      Script: {instanceID: 17132}
+      Script: {instanceID: 17106}
     - Class: 114
-      Script: {instanceID: 17136}
+      Script: {instanceID: 17134}
     - Class: 114
-      Script: {instanceID: 17150}
+      Script: {instanceID: 17138}
     - Class: 114
-      Script: {instanceID: 17158}
+      Script: {instanceID: 17152}
     - Class: 114
-      Script: {instanceID: 36880}
+      Script: {instanceID: 17160}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -815,7 +816,7 @@ ScriptsOnlyBuild:
     className: z_AdditionalVertexStreams
   - hash:
       serializedVersion: 2
-      Hash: 55619128abfb2aa0de147f430b821098
+      Hash: de46972c54bc51ebd29f608aa191787e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Task
@@ -1235,6 +1236,12 @@ ScriptsOnlyBuild:
     className: NetworkDiscoveryHUD
   - hash:
       serializedVersion: 2
+      Hash: 5975121764d07cd1fee4483ad707464c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapUI
+  - hash:
+      serializedVersion: 2
       Hash: 36112b0a16753cab0931521e4de67ef6
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1509,12 +1516,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 5975121764d07cd1fee4483ad707464c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MapUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity

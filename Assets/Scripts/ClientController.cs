@@ -29,6 +29,7 @@ public class ClientController : NetworkBehaviour
             CmdUpdateSettings();
             canvas.SetActive(true);
             mapCanvas.SetActive(true);
+            gameObject.tag = "LocalPlayer";
 
             GameObject.FindGameObjectWithTag("MenuController").GetComponent<Pause>().client = this.gameObject;
         }
@@ -67,9 +68,9 @@ public class ClientController : NetworkBehaviour
     }
     
     // Tasks
-    public void ActionTask(Task.Tasks id)
+    public void ActionTask(Task.Tasks type)
 	{
-		switch (id)
+		switch (type)
 		{
 			case Task.Tasks.changeSkin:
                 CmdChangeSkin();

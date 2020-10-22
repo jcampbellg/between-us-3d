@@ -30,7 +30,7 @@ public class BeetweenUsNetworkManager : NetworkManager
 	{
 		if (playerName == "")
 		{
-			playerName = "Player " + numPlayers+1;
+			playerName = "Player " + (int)Random.Range(1, 101);
 		}
 		player.GetComponent<ClientController>().playerName = playerName;
 	}

@@ -10,14 +10,12 @@ public class TaskController : MonoBehaviour
 	public GameObject panelToOpen;
     public void ActionTask(GameObject client)
 	{
-		switch (task.id)
+		switch (task.type)
 		{
 			case Task.Tasks.changeSkin:
-				client.GetComponent<ClientController>().ActionTask(task.id);
+				client.GetComponent<ClientController>().ActionTask(task.type);
 				break;
-			case Task.Tasks.changeSettings:
-			case Task.Tasks.fixWires:
-			case Task.Tasks.unlockButtons:
+			case Task.Tasks.openUIPanel:
 				if (panelToOpen)
 				{
 					settings.OpenTask();

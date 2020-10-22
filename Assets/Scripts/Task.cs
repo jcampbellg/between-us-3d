@@ -8,12 +8,10 @@ public class Task : ScriptableObject
     public enum Tasks
 	{
 		changeSkin,
-		changeSettings,
-		fixWires,
-		unlockButtons
+		openUIPanel
 	};
 
     public string label;
     public string instructions;
-	public Tasks id;
+	public Tasks type;
 }

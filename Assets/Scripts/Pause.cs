@@ -24,7 +24,8 @@ public class Pause : MonoBehaviour
             }
             else
 			{
-                Cursor.lockState = CursorLockMode.Locked;
+                if (client)
+                    Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
@@ -56,13 +57,14 @@ public class Pause : MonoBehaviour
 
     public void ToggleFullscreen()
 	{
-        if (!Screen.fullScreen)
+		switch (Screen.fullScreenMode)
 		{
-            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
-		}
-        else
-		{
-            Screen.fullScreen = false;
+			case FullScreenMode.ExclusiveFullScreen:
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+				break;
+			default:
+                Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.ExclusiveFullScreen);
+				break;
 		}
 	}
 
