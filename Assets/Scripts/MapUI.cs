@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapUI : MonoBehaviour
 {
-	public Settings settings;
 	public GameObject mapCamera;
 	public GameObject client;
 	public RectTransform mapUI;

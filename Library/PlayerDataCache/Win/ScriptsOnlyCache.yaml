@@ -9,7 +9,6 @@ ScriptsOnlyBuild:
     - Move
     - Pause
     - Pointer
-    - Readme
     - Settings
     - Skin
     - SkinRenderer
@@ -87,8 +86,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -408,7 +409,7 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: f5a76c5080c0937079d7f60c555b70fd
+      Hash: 7eb5df8ee0e0811c4001c89f570b1765
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TaskController
@@ -624,7 +625,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: bc5cc2666938052bf6a0630deb1df218
+      Hash: 4f916d79291eff81cd2193e1655166ff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LookAround
@@ -750,7 +751,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 308e6970aff85b58ca9e508306426da8
+      Hash: 7f05bbb82aeea74d70d623d0e2fb5464
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameSettingsUI
@@ -840,7 +841,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: 44469191d6ea24804fdd2f5a00ebe7d0
+      Hash: a30d86a17e02d7f50b8e31fa15cd9a9b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -1224,7 +1225,7 @@ ScriptsOnlyBuild:
     className: NetworkLogSettings
   - hash:
       serializedVersion: 2
-      Hash: fb9e56d4cc5f7f8b58196a4338cfc222
+      Hash: 693979f225637187d58ffd528bb663c5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientController
@@ -1236,7 +1237,7 @@ ScriptsOnlyBuild:
     className: NetworkDiscoveryHUD
   - hash:
       serializedVersion: 2
-      Hash: 5975121764d07cd1fee4483ad707464c
+      Hash: 478f33bb7d52c8af4bc91a99db4c1973
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapUI
@@ -1434,7 +1435,7 @@ ScriptsOnlyBuild:
     className: FreeCamera
   - hash:
       serializedVersion: 2
-      Hash: 040311d695c8ec73b43ecc9fc94e4890
+      Hash: b38696be91353f3d7a6b30e6b57eb2aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pause
@@ -1458,7 +1459,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 7b4753fe8abebd9a4418d8ec995a0a20
+      Hash: 695dd6cd27d0cd56541fbfb342f76e13
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BeetweenUsNetworkManager

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6031440111245707552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -328,8 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5971840335f061a43ab2012234998714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
-  animator: {fileID: 543714690375816499}
+  settings: {fileID: 0}
   bone: {fileID: 8806195435386731877}
   canUse: 0
 --- !u!114 &543714690375816497
@@ -345,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 4623190277759735649}
-  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  settings: {fileID: 0}
   animator: {fileID: 543714690375816499}
   canUse: 0
 --- !u!114 &1924879477825613453
@@ -378,10 +377,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  settings: {fileID: 0}
   canvas: {fileID: 1079011654540044009}
   mapCanvas: {fileID: 1281766336548685016}
   playerName: 
+  playerRole: 0
 --- !u!114 &4203354839292279431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1536
   info: {fileID: 734953391366457264}
-  settings: {fileID: 11400000, guid: c0bb914df91572340a0db13780dc8b29, type: 2}
+  settings: {fileID: 0}
   pointerCanvas: {fileID: 1079011654540044009}
   canUse: 0
 --- !u!1 &3109856129864255258

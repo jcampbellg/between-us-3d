@@ -5,35 +5,51 @@ using UnityEngine.UI;
 
 public class GameSettingsUI : MonoBehaviour
 {
-	public Slider fogDistance;
+	public Slider fogDensity;
 	public Slider playerSpeed;
+	public Slider killDistance;
 
 	private void OnEnable()
 	{
 		Settings settings = this.GetComponent<TaskUI>().settings;
-		fogDistance.value = settings.fogDensity;
+		fogDensity.value = settings.fogDensity;
 		playerSpeed.value = settings.playerSpeed;
+		killDistance.value = settings.killDistance;
 	}
-	public void ChangeFogDistance()
+	public void ChangeFogDistance(float value)
 	{
-		Settings settings = this.GetComponent<TaskUI>().settings;
 		GameObject client = this.GetComponent<TaskUI>().client;
 
-		settings.fogDensity = fogDistance.value;
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeSetting(Settings.Setting.fogDensity);
+			client.GetComponent<ClientController>().ChangeFloatSetting(Settings.Setting.fogDensity, value);
 		}
 	}
-	public void ChangePlayerSpeed()
+	public void ChangePlayerSpeed(float value)
 	{
-		Settings settings = this.GetComponent<TaskUI>().settings;
 		GameObject client = this.GetComponent<TaskUI>().client;
 
-		settings.playerSpeed = playerSpeed.value;
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeSetting(Settings.Setting.playerSpeed);
+			client.GetComponent<ClientController>().ChangeFloatSetting(Settings.Setting.playerSpeed, value);
+		}
+	}
+	public void ChangeKillDistance(float value)
+	{
+		GameObject client = this.GetComponent<TaskUI>().client;
+		
+		if (client)
+		{
+			client.GetComponent<ClientController>().ChangeFloatSetting(Settings.Setting.killDistance, value);
+		}
+	}
+	public void ResetSettings()
+	{
+		GameObject client = this.GetComponent<TaskUI>().client;
+
+		if (client)
+		{
+			client.GetComponent<ClientController>().ResetSettings();
 		}
 	}
 }

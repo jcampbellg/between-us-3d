@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TaskController : MonoBehaviour
 {
-	public Settings settings;
     public Task task;
 	public GameObject panelToOpen;
     public void ActionTask(GameObject client)
@@ -18,7 +17,6 @@ public class TaskController : MonoBehaviour
 			case Task.Tasks.openUIPanel:
 				if (panelToOpen)
 				{
-					settings.OpenTask();
 					panelToOpen.GetComponent<TaskUI>().client = client;
 					panelToOpen.SetActive(true);
 				}

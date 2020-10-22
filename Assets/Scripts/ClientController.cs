@@ -5,13 +5,26 @@ using Mirror;
 
 public class ClientController : NetworkBehaviour
 {
+    public enum Role
+	{
+        lobby,
+        crew,
+        impostor
+	};
     public Settings settings;
     public GameObject canvas;
     public GameObject mapCanvas;
     [SyncVar]
     public string playerName = "";
+    [SyncVar]
+    public Role playerRole = Role.lobby;
+
     void Start()
     {
+        settings = GameObject.FindGameObjectWithTag("GameState").GetComponent<Settings>();
+        gameObject.GetComponent<Move>().settings = settings;
+        gameObject.GetComponent<LookAround>().settings = settings;
+        gameObject.GetComponent<Pointer>().settings = settings;
         if (isLocalPlayer)
 		{
             GetComponent<Move>().canUse = true;
@@ -26,7 +39,6 @@ public class ClientController : NetworkBehaviour
 			{
                 CmdUpdatePlayerName(inputName);
             }
-            CmdUpdateSettings();
             canvas.SetActive(true);
             mapCanvas.SetActive(true);
             gameObject.tag = "LocalPlayer";
@@ -39,33 +51,6 @@ public class ClientController : NetworkBehaviour
 	{
         playerName = inputName;
 	}
-
-    [Command]
-    public void CmdUpdateSettings()
-    {
-        RpcUpdateSettings(settings.fogDensity, settings.playerSpeed);
-    }
-    [ClientRpc]
-    public void RpcUpdateSettings(float fog, float playerSpeed)
-	{
-        settings.UpdateSettings(fog, playerSpeed);
-	}
-    private void Update()
-	{
-        if (isLocalPlayer)
-        {
-            if (settings.isMenuOpen)
-            {
-                GetComponent<Move>().canUse = false;
-                GetComponent<LookAround>().canUse = false;
-            }
-            else
-            {
-                GetComponent<Move>().canUse = true;
-                GetComponent<LookAround>().canUse = true;
-            }
-        }
-    }
     
     // Tasks
     public void ActionTask(Task.Tasks type)
@@ -86,20 +71,22 @@ public class ClientController : NetworkBehaviour
         networkManager.GetComponent<BeetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
     }
 
-    public void ChangeSetting(Settings.Setting id)
+    public void ChangeFloatSetting(Settings.Setting id, float value)
 	{
 		switch (id)
 		{
 			case Settings.Setting.fogDensity:
-                CmdChangeFloatSetting(id, settings.fogDensity);
+                CmdChangeFloatSetting(id, value);
                 break;
 			case Settings.Setting.playerSpeed:
-                CmdChangeFloatSetting(id, settings.playerSpeed);
+                CmdChangeFloatSetting(id, value);
                 break;
-			default:
+            case Settings.Setting.killDistance:
+                CmdChangeFloatSetting(id, value);
+                break;
+            default:
 				break;
 		}
-		
     }
     [Command]
     void CmdChangeFloatSetting(Settings.Setting id, float value)
@@ -107,29 +94,25 @@ public class ClientController : NetworkBehaviour
         switch (id)
         {
             case Settings.Setting.fogDensity:
-                settings.ChangeFog(value);
+                settings.fogDensity = value;
                 break;
             case Settings.Setting.playerSpeed:
                 settings.playerSpeed = value;
                 break;
+            case Settings.Setting.killDistance:
+                settings.killDistance = value;
+                break;
             default:
                 break;
         }
-        RpcChangeFloatSetting(id, value);
     }
-    [ClientRpc]
-    void RpcChangeFloatSetting(Settings.Setting id, float value)
+    public void ResetSettings()
 	{
-        switch (id)
-        {
-            case Settings.Setting.fogDensity:
-                settings.ChangeFog(value);
-                break;
-            case Settings.Setting.playerSpeed:
-                settings.playerSpeed = value;
-                break;
-            default:
-                break;
-        }
+        CmdResetSettings();
     }
+    [Command]
+	void CmdResetSettings()
+	{
+        settings.Restart();
+	}
 }

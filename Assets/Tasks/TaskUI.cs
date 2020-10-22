@@ -12,9 +12,20 @@ public class TaskUI : MonoBehaviour
 		{
 			if (Input.GetButtonDown("Cancel"))
 			{
-				settings.CloseTask();
 				gameObject.SetActive(false);
 			}
 		}
+	}
+	private void OnEnable()
+	{
+		settings.isMenuOpen = true;
+		settings.isTaskOpen = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
+	private void OnDisable()
+	{
+		settings.isMenuOpen = false;
+		settings.isTaskOpen = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 }

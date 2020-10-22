@@ -6,18 +6,12 @@ using Mirror;
 
 public class BeetweenUsNetworkManager : NetworkManager
 {
-	public Settings settings;
 	public List<Skin> skins;
 	public TMP_InputField ipInput;
 	public TMP_InputField playerNameInput;
 	public GameObject clickableCanvas;
 	public string playerName = "";
 
-	public override void Start()
-	{
-		settings.Restart();
-		base.Start();
-	}
 	public override void OnServerAddPlayer(NetworkConnection conn)
 	{
 		GameObject newPlayer = Instantiate(playerPrefab);

@@ -14,16 +14,21 @@ public class Move : MonoBehaviour
         if (canUse)
         {
             float speed = settings.playerSpeed;
-            Vector3 move = GetInputMovement();
 
-            characterController.Move(move * speed * Time.deltaTime);
+            if (!settings.isMenuOpen)
+			{
+                Vector3 move = GetInputMovement();
+                characterController.Move(move * speed * Time.deltaTime);
+
+                Transform camPivot = Camera.main.transform.parent;
+                camPivot.position = transform.position;
+
+                animator.SetFloat("speed", move.magnitude);
+			}
+
             characterController.Move(Vector3.up * -10f * Time.deltaTime);
-
-            Transform camPivot = Camera.main.transform.parent;
-            camPivot.position = transform.position;
-
-            animator.SetFloat("speed", move.magnitude);
         }
+        
     }
     private Vector3 GetInputMovement()
     {

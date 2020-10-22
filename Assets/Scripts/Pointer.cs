@@ -17,11 +17,12 @@ public class Pointer : MonoBehaviour
 		{
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             float clickPlayerDistance = settings.clickPlayerDistance;
+
             if (!settings.isMenuOpen && Physics.Raycast(ray, out RaycastHit hit, clickPlayerDistance, clickableObjects))
             {
                 string layer = LayerMask.LayerToName(hit.transform.gameObject.layer);
 
-                if (layer == "Clickable")
+                if (layer == "Task")
 				{
                     if (hit.distance < clickActionDistance)
                         OnTask(hit);
@@ -38,12 +39,12 @@ public class Pointer : MonoBehaviour
                 info.text = "";
             }
 
-            if (!settings.isMenuOpen && !pointerCanvas.activeSelf)
-			{
+            if (!settings.isMenuOpen && !pointerCanvas.activeSelf && canUse)
+            {
                 pointerCanvas.SetActive(true);
             }
             else if (settings.isMenuOpen && pointerCanvas.activeSelf)
-			{
+            {
                 pointerCanvas.SetActive(false);
             }
         }
@@ -63,8 +64,17 @@ public class Pointer : MonoBehaviour
     void OnPlayer(RaycastHit hit)
     {
         GameObject player = hit.transform.gameObject;
+        float killDistance = settings.clickPlayerDistance * settings.killDistance;
 
-        string playerName = player.GetComponent<ClientController>().playerName;
-        info.text = playerName;
+        if ( hit.distance < killDistance && this.GetComponent<ClientController>().playerRole != ClientController.Role.crew)
+		{
+            string playerName = player.GetComponent<ClientController>().playerName;
+            info.text = playerName + "\n" + "[Q] Kill";
+        }
+        else
+		{
+            string playerName = player.GetComponent<ClientController>().playerName;
+            info.text = playerName;
+        }
     }
 }

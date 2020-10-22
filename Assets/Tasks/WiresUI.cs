@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class WiresUI : MonoBehaviour
@@ -11,7 +12,7 @@ public class WiresUI : MonoBehaviour
 	public List<Color> colorsLeft;
 
 	[SerializeField] GameObject wireDragging = null;
-	private void OnEnable()
+	private void Start()
 	{
 		SetWiresColors();
 		SetEndingsColors();
@@ -50,13 +51,13 @@ public class WiresUI : MonoBehaviour
 		RectTransform rect = wire.GetComponent<RectTransform>();
 		Vector3 distance = rect.InverseTransformPoint(Input.mousePosition);
 
-		float stretch = distance.magnitude-1;
+		float stretch = distance.magnitude - 1;
 		float angle = Vector2.Angle(Vector2.right, distance);
 		if (distance.y < 0)
 		{
 			angle = -angle;
 		}
-		
+
 		rect.sizeDelta = new Vector2(stretch, 10f);
 		Vector3 euler = rect.rotation.eulerAngles;
 		rect.rotation = Quaternion.Euler(new Vector3(0f, 0f, euler.z + angle));

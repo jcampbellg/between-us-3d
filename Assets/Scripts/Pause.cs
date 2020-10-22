@@ -8,7 +8,6 @@ public class Pause : MonoBehaviour
     public GameObject pausePanel;
     public GameObject mapPanel;
     public Settings settings;
-    public Slider slider;
     public GameObject client;
     void Update()
     {
@@ -50,9 +49,9 @@ public class Pause : MonoBehaviour
         }
     }
 
-    public void OnMouseSensitivityChange()
+    public void OnMouseSensitivityChange(float value)
     {
-        settings.mouseSensitivity = slider.value;
+        settings.mouseSensitivity = value;
     }
 
     public void ToggleFullscreen()

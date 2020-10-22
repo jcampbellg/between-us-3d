@@ -5,7 +5,6 @@ using UnityEngine;
 public class LookAround : MonoBehaviour
 {
     public Settings settings;
-    public Animator animator;
     public Transform bone;
     public bool canUse = false;
 
@@ -13,7 +12,7 @@ public class LookAround : MonoBehaviour
 
 	void Update()
     {
-        if (canUse)
+        if (canUse && !settings.isMenuOpen)
         {
             float mouseSensitivity = settings.mouseSensitivity;
             Transform cam = Camera.main.transform;
@@ -35,7 +34,6 @@ public class LookAround : MonoBehaviour
             bone.localRotation = Quaternion.Euler(currentBoneRotation);
 
             transform.Rotate(Vector3.up * mouseX);
-            animator.SetFloat("verticalRotation", xRotation);
         }
     }
 }
