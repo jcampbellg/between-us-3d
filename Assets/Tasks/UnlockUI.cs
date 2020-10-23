@@ -11,19 +11,14 @@ public class UnlockUI : MonoBehaviour
 	private void Start()
 	{
 		atButton = 1;
-		List<string> numbersLeft = new List<string>(10);
-		numbersLeft.Add("1");
-		numbersLeft.Add("2");
-		numbersLeft.Add("3");
-		numbersLeft.Add("4");
-		numbersLeft.Add("5");
-		numbersLeft.Add("6");
-		numbersLeft.Add("7");
-		numbersLeft.Add("8");
-		numbersLeft.Add("9");
-		numbersLeft.Add("10");
+		List<string> numbersLeft = new List<string>();
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < buttons.Length; i++)
+		{
+			numbersLeft.Add(""+(i+1));
+		}
+
+		for (int i = 0; i < buttons.Length; i++)
 		{
 			int n = Random.Range(0, numbersLeft.Count);
 			string text = numbersLeft[n];
@@ -39,6 +34,14 @@ public class UnlockUI : MonoBehaviour
 		{
 			button.GetComponent<Button>().interactable = false;
 			atButton += 1;
+		}
+		else
+		{
+			atButton = 1;
+			foreach (GameObject but in buttons)
+			{
+				but.GetComponent<Button>().interactable = true;
+			}
 		}
 	}
 }

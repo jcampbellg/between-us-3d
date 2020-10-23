@@ -76,11 +76,7 @@ public class ClientController : NetworkBehaviour
 		switch (id)
 		{
 			case Settings.Setting.fogDensity:
-                CmdChangeFloatSetting(id, value);
-                break;
 			case Settings.Setting.playerSpeed:
-                CmdChangeFloatSetting(id, value);
-                break;
             case Settings.Setting.killDistance:
                 CmdChangeFloatSetting(id, value);
                 break;
@@ -101,6 +97,29 @@ public class ClientController : NetworkBehaviour
                 break;
             case Settings.Setting.killDistance:
                 settings.killDistance = value;
+                break;
+            default:
+                break;
+        }
+    }
+    public void ChangeIntSetting(Settings.Setting id, int value)
+    {
+        switch (id)
+        {
+            case Settings.Setting.impostorsCount:
+                CmdChangeIntSetting(id, value);
+                break;
+            default:
+                break;
+        }
+    }
+    [Command]
+    void CmdChangeIntSetting(Settings.Setting id, int value)
+    {
+        switch (id)
+        {
+            case Settings.Setting.impostorsCount:
+                settings.impostorsCount = value;
                 break;
             default:
                 break;

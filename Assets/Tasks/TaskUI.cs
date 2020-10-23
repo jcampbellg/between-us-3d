@@ -10,7 +10,7 @@ public class TaskUI : MonoBehaviour
 	{
 		if (settings.isTaskOpen)
 		{
-			if (Input.GetButtonDown("Cancel"))
+			if (Input.GetButtonDown("Cancel") || Input.GetButtonDown("Action"))
 			{
 				gameObject.SetActive(false);
 			}

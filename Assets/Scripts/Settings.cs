@@ -9,7 +9,8 @@ public class Settings : NetworkBehaviour
 	{
         fogDensity,
         playerSpeed,
-        killDistance
+        killDistance,
+        impostorsCount
     };
     public float mouseSensitivity;
     public bool isMenuOpen;
@@ -25,12 +26,15 @@ public class Settings : NetworkBehaviour
     public float playerSpeed = 10.0f;
     [SyncVar]
     public float killDistance = 0.5f;
+    [SyncVar]
+    public int impostorsCount = 1;
 
     public void Restart()
 	{
         ChangeFog(0.09f);
         playerSpeed = 10.0f;
         killDistance = 0.5f;
+        impostorsCount = 1;
     }
     public void HookChangeFog(float oldFog, float newFog)
 	{

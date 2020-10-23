@@ -56,15 +56,14 @@ public class Pause : MonoBehaviour
 
     public void ToggleFullscreen()
 	{
-		switch (Screen.fullScreenMode)
+        if (Screen.fullScreenMode == FullScreenMode.Windowed || Screen.fullScreenMode == FullScreenMode.MaximizedWindow)
 		{
-			case FullScreenMode.ExclusiveFullScreen:
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-				break;
-			default:
-                Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.ExclusiveFullScreen);
-				break;
-		}
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.FullScreenWindow);
+        }
+        else
+		{
+            Screen.SetResolution(1024, 769, FullScreenMode.Windowed);
+        }
 	}
 
     public void ExitGame()
