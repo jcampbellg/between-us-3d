@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinName: Spiderman
   texture: {fileID: 2800000, guid: 3d5d8c6060905c0429f22e3c94223223, type: 3}
-  logo: {fileID: 2800000, guid: ba797c0856207024d8d4547926e4f604, type: 3}
-  inUse: 0
+  logo: {fileID: 21300000, guid: ba797c0856207024d8d4547926e4f604, type: 3}

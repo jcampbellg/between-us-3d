@@ -6,6 +6,7 @@ using Mirror;
 
 public class BeetweenUsNetworkManager : NetworkManager
 {
+	public Settings settings;
 	public List<Skin> skins;
 	public TMP_InputField ipInput;
 	public TMP_InputField playerNameInput;
@@ -19,6 +20,7 @@ public class BeetweenUsNetworkManager : NetworkManager
 		SelectRandomSkin(newPlayer);
 		SetPlayerName(newPlayer);
 		NetworkServer.AddPlayerForConnection(conn, newPlayer);
+		settings.playersList.Add(newPlayer);
 	}
 	void SetPlayerName(GameObject player)
 	{
@@ -68,13 +70,17 @@ public class BeetweenUsNetworkManager : NetworkManager
 		NetworkIdentity identity = conn.identity;
 		uint netId = identity.netId;
 
-		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-		foreach (GameObject player in players)
+		SyncListPlayers players = settings.playersList;
+		for (int i = 0; i < players.Count; i++)
 		{
+			GameObject player = players[i];
+
 			if (player.GetComponent<NetworkIdentity>().netId == netId)
 			{
 				// Player Who Left The Game
 				skins.Add(player.GetComponent<SkinRenderer>().skin);
+				players.RemoveAt(i);
+				break;
 			}
 		}
 

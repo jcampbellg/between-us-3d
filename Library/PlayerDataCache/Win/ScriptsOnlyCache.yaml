@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - LookAround
     - MapUI
     - Move
+    - NameUI
     - Pause
     - Pointer
     - Settings
@@ -86,8 +87,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -320,6 +323,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17152}
     - Class: 114
       Script: {instanceID: 17160}
+    - Class: 114
+      Script: {instanceID: 62096}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -839,7 +844,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: 85e0cc6a60d334f80e273700532975c5
+      Hash: 61a28c3e30b294b3d52f15d6ba084177
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -1457,7 +1462,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 695dd6cd27d0cd56541fbfb342f76e13
+      Hash: 7b4753fe8abebd9a4418d8ec995a0a20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BeetweenUsNetworkManager
@@ -1481,7 +1486,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 5c031abfabf178ec42d9291e4ff489eb
+      Hash: cdbc22255add0aec5ce093c45e018311
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Skin
@@ -1515,7 +1520,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 276dea16105f605c83a25ae54f08ad30
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NameUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe

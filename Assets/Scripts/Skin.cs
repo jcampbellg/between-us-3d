@@ -8,7 +8,7 @@ public class Skin : ScriptableObject
 {
     public string skinName;
     public Texture texture;
-    public Texture logo;
+    public Sprite logo;
     public void SetSkin(Renderer bodyRenderer)
     {
         bodyRenderer.material.SetTexture("_BaseMap", texture);

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinName: Black Widow
   texture: {fileID: 2800000, guid: 92e6e18008eed7941b18129632b3f407, type: 3}
-  logo: {fileID: 2800000, guid: 211477557a7306d47858363be24816d3, type: 3}
+  logo: {fileID: 21300000, guid: 211477557a7306d47858363be24816d3, type: 3}
