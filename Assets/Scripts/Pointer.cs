@@ -63,22 +63,27 @@ public class Pointer : MonoBehaviour
     }
     void OnPlayer(RaycastHit hit)
     {
-        GameObject player = hit.transform.gameObject;
+        GameObject playerHit = hit.transform.gameObject;
         float killDistance = settings.clickPlayerDistance * settings.killDistance;
 
         if ( hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.lobby)
 		{
-            string playerName = player.GetComponent<ClientController>().playerName;
+            string playerName = playerHit.GetComponent<ClientController>().playerName;
             info.text = playerName + "\n" + "On Kill Distance";
         }
-        else if (hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.impostor && player.GetComponent<ClientController>().playerRole != ClientController.Role.impostor)
+        else if (hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.impostor && playerHit.GetComponent<ClientController>().playerRole != ClientController.Role.impostor)
 		{
-            string playerName = player.GetComponent<ClientController>().playerName;
+            string playerName = playerHit.GetComponent<ClientController>().playerName;
             info.text = playerName + "\n" + "[Q] Kill";
         }
-        else
+        else if (this.GetComponent<ClientController>().playerRole == ClientController.Role.impostor && playerHit.GetComponent<ClientController>().playerRole == ClientController.Role.impostor)
 		{
-            string playerName = player.GetComponent<ClientController>().playerName;
+            string playerName = playerHit.GetComponent<ClientController>().playerName;
+            info.text = playerName + "\n" + "He is Impostor";
+        }
+        else
+        {
+            string playerName = playerHit.GetComponent<ClientController>().playerName;
             info.text = playerName;
         }
     }

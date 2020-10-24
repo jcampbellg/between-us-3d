@@ -37,7 +37,7 @@ public class NameUI : MonoBehaviour
 
                 ClientController client = playersList[i].GetComponent<ClientController>();
 
-                if (client.isReady)
+                if (!client.isReady)
                     text.text = client.playerName;
                 else
                     text.text = client.playerName + " [READY]";

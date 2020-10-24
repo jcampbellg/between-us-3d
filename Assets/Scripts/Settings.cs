@@ -106,8 +106,13 @@ public class Settings : NetworkBehaviour
     }
     public void GameStart()
 	{
-        int numPlayers = playersList.Count;
+        //Change seed
+        var randomizer = new System.Random();
+        int seed = randomizer.Next(int.MinValue, int.MaxValue);
+        Random.InitState(seed);
 
+        int numPlayers = playersList.Count;
+        
 		while (impostorsCount >= numPlayers - impostorsCount)
 		{
             impostorsCount -= 1;
@@ -126,7 +131,7 @@ public class Settings : NetworkBehaviour
         }
 
 		// Give Crew to the rest
-		foreach (GameObject crew in playersList)
+		foreach (GameObject crew in playersCopy)
 		{
             crew.GetComponent<ClientController>().playerRole = ClientController.Role.crew;
 		}
