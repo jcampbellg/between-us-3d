@@ -382,6 +382,7 @@ MonoBehaviour:
   mapCanvas: {fileID: 1281766336548685016}
   playerName: 
   playerRole: 0
+  isReady: 0
 --- !u!114 &4203354839292279431
 MonoBehaviour:
   m_ObjectHideFlags: 0

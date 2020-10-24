@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using TMPro;
-
-[System.Serializable]
-public class SyncListPlayers : SyncList<GameObject> { };
 
 public class Settings : NetworkBehaviour
 {
@@ -34,6 +30,7 @@ public class Settings : NetworkBehaviour
     public GameObject impostorsUI;
     public GameObject crewUI;
     public GameObject localPlayer;
+    public GameObject[] gameObjectsOnlyOnLobby;
 
     [SyncVar(hook = nameof(OnGameStart))]
     public GameState gameState = GameState.onLobby;
@@ -90,7 +87,10 @@ public class Settings : NetworkBehaviour
 	{
         if (oldState == GameState.onLobby && newState == GameState.onGame)
 		{
-            namesUI.SetActive(false);
+			foreach (GameObject item in gameObjectsOnlyOnLobby)
+			{
+                item.SetActive(false);
+			}
         }
     }
     public void OpenRoleUI(GameObject player)

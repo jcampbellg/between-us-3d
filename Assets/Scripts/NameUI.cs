@@ -25,24 +25,24 @@ public class NameUI : MonoBehaviour
     {
         playersList = new List<GameObject>(settings.playersList);
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 1; i < 13; i++)
         {
             GameObject playerName = this.transform.GetChild(i).gameObject;
 
-            if (i < playersList.Count && playersList[i] != null)
+            if (i-1 < playersList.Count && playersList[i-1] != null)
             {
                 playerName.SetActive(true);
                 TextMeshProUGUI text = playerName.GetComponent<TextMeshProUGUI>();
                 Image logo = playerName.transform.GetChild(0).GetComponent<Image>();
 
-                ClientController client = playersList[i].GetComponent<ClientController>();
+                ClientController client = playersList[i-1].GetComponent<ClientController>();
 
                 if (!client.isReady)
                     text.text = client.playerName;
                 else
                     text.text = client.playerName + " [READY]";
 
-                logo.sprite = playersList[i].GetComponent<SkinRenderer>().skin.logo;
+                logo.sprite = playersList[i-1].GetComponent<SkinRenderer>().skin.logo;
             }
             else
             {

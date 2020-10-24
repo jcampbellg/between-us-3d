@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
+    <Compile Include="Assets\Scripts\DoorsManager.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

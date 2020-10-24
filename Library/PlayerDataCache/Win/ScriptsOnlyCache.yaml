@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BetweenUsNetworkManager
     - ClientController
+    - Door
     - GameSettingsUI
     - ImpostorsUI
     - LookAround
@@ -88,8 +89,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -326,6 +329,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17156}
     - Class: 114
       Script: {instanceID: 17164}
+    - Class: 114
+      Script: {instanceID: 42010}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -845,7 +850,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: 1c3c7855cc5812321d9ec18f6bd6c627
+      Hash: 23b0ac4c7012ebae77d8803de85c63d0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -1533,7 +1538,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: ea121416d627566aedfc1ac7cf05148d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DoorsManager
+  - hash:
+      serializedVersion: 2
+      Hash: 0df3dadb4e489e2c12b6a15071b6e125
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Door
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe
