@@ -39,7 +39,7 @@ public class Pointer : MonoBehaviour
                 info.text = "";
             }
 
-            if (!settings.isMenuOpen && !pointerCanvas.activeSelf && canUse)
+            if (!settings.isMenuOpen && !pointerCanvas.activeSelf)
             {
                 pointerCanvas.SetActive(true);
             }
@@ -66,7 +66,12 @@ public class Pointer : MonoBehaviour
         GameObject player = hit.transform.gameObject;
         float killDistance = settings.clickPlayerDistance * settings.killDistance;
 
-        if ( hit.distance < killDistance && this.GetComponent<ClientController>().playerRole != ClientController.Role.crew)
+        if ( hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.lobby)
+		{
+            string playerName = player.GetComponent<ClientController>().playerName;
+            info.text = playerName + "\n" + "On Kill Distance";
+        }
+        else if (hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.impostor && player.GetComponent<ClientController>().playerRole != ClientController.Role.impostor)
 		{
             string playerName = player.GetComponent<ClientController>().playerName;
             info.text = playerName + "\n" + "[Q] Kill";

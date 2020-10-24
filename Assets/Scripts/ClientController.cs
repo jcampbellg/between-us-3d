@@ -16,12 +16,15 @@ public class ClientController : NetworkBehaviour
     public GameObject mapCanvas;
     [SyncVar]
     public string playerName = "";
-    [SyncVar]
+    [SyncVar(hook = nameof(OnGameStart))]
     public Role playerRole = Role.lobby;
+    [SyncVar]
+    public bool isReady = false;
 
     void Start()
     {
         settings = GameObject.FindGameObjectWithTag("GameState").GetComponent<Settings>();
+        settings.localPlayer = this.gameObject;
         gameObject.GetComponent<Move>().settings = settings;
         gameObject.GetComponent<LookAround>().settings = settings;
         gameObject.GetComponent<Pointer>().settings = settings;
@@ -33,23 +36,78 @@ public class ClientController : NetworkBehaviour
             Cursor.lockState = CursorLockMode.Locked;
 
             GameObject networkManager = GameObject.FindGameObjectWithTag("GameController");
-            string inputName = networkManager.GetComponent<BeetweenUsNetworkManager>().playerName;
-
-            if ( inputName != "")
-			{
-                CmdUpdatePlayerName(inputName);
-            }
+            string inputName = networkManager.GetComponent<BetweenUsNetworkManager>().playerName;
+            CmdUpdatePlayerName(inputName);
             canvas.SetActive(true);
             mapCanvas.SetActive(true);
-            gameObject.tag = "LocalPlayer";
-
+            
             GameObject.FindGameObjectWithTag("MenuController").GetComponent<Pause>().client = this.gameObject;
         }
+        settings.AddPlayersList(this.gameObject);
     }
+
+	private void OnDestroy()
+	{
+        if (!isLocalPlayer)
+        {
+            settings.RemovePlayersList(this.gameObject);
+        }
+    }
+
+    public void OnGameStart(Role oldRole, Role newRole)
+    {
+        if (oldRole == Role.lobby)
+		{
+            if (isLocalPlayer)
+            {
+                settings.OpenRoleUI(this.gameObject);
+            }
+
+            if (newRole == Role.impostor)
+			{
+                settings.impostorsList.Add(this.gameObject);
+			}
+        }
+    }
+
+    private void Update()
+	{
+		if (isLocalPlayer && Input.GetButtonDown("Ready") && playerRole == Role.lobby)
+		{
+            CmdToggleReady();
+        }
+	}
     [Command]
+    public void CmdToggleReady()
+	{
+        isReady = !isReady;
+        bool allReady = true;
+
+		for (int i = 0; i < settings.playersList.Count; i++)
+		{
+            if (!settings.playersList[i].GetComponent<ClientController>().isReady)
+			{
+                allReady = false;
+            }
+		}
+
+        if (allReady && settings.playersList.Count > 3)
+		{
+            settings.GameStart();
+		}
+	}
+	[Command]
 	public void CmdUpdatePlayerName(string inputName)
 	{
-        playerName = inputName;
+        int n = Random.Range(0, 100);
+        if (inputName == "")
+        {
+            playerName = "Player " + n;
+        }
+		else
+		{
+            playerName = inputName;
+		}
 	}
     
     // Tasks
@@ -68,7 +126,7 @@ public class ClientController : NetworkBehaviour
     void CmdChangeSkin()
     {
         GameObject networkManager = GameObject.FindGameObjectWithTag("GameController");
-        networkManager.GetComponent<BeetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
+        networkManager.GetComponent<BetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
     }
 
     public void ChangeFloatSetting(Settings.Setting id, float value)

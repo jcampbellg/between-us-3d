@@ -1,9 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - BeetweenUsNetworkManager
+    - BetweenUsNetworkManager
     - ClientController
     - GameSettingsUI
+    - ImpostorsUI
     - LookAround
     - MapUI
     - Move
@@ -87,10 +88,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -246,85 +245,87 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14824}
     - Class: 114
-      Script: {instanceID: 14880}
+      Script: {instanceID: 14846}
     - Class: 114
-      Script: {instanceID: 15154}
+      Script: {instanceID: 14882}
     - Class: 114
-      Script: {instanceID: 15184}
+      Script: {instanceID: 15156}
     - Class: 114
-      Script: {instanceID: 15236}
+      Script: {instanceID: 15186}
     - Class: 114
-      Script: {instanceID: 15242}
+      Script: {instanceID: 15238}
     - Class: 114
-      Script: {instanceID: 15260}
+      Script: {instanceID: 15244}
     - Class: 114
-      Script: {instanceID: 15272}
+      Script: {instanceID: 15262}
     - Class: 114
-      Script: {instanceID: 15422}
+      Script: {instanceID: 15274}
     - Class: 114
-      Script: {instanceID: 15468}
+      Script: {instanceID: 15424}
     - Class: 114
-      Script: {instanceID: 15476}
+      Script: {instanceID: 15470}
     - Class: 114
-      Script: {instanceID: 15538}
+      Script: {instanceID: 15478}
     - Class: 114
-      Script: {instanceID: 15758}
+      Script: {instanceID: 15540}
     - Class: 114
-      Script: {instanceID: 15804}
+      Script: {instanceID: 15760}
     - Class: 114
-      Script: {instanceID: 15898}
+      Script: {instanceID: 15806}
     - Class: 114
-      Script: {instanceID: 15996}
+      Script: {instanceID: 15900}
     - Class: 114
-      Script: {instanceID: 16062}
+      Script: {instanceID: 15998}
     - Class: 114
-      Script: {instanceID: 16162}
+      Script: {instanceID: 16064}
     - Class: 114
-      Script: {instanceID: 16224}
+      Script: {instanceID: 16164}
     - Class: 114
-      Script: {instanceID: 16338}
+      Script: {instanceID: 16226}
     - Class: 114
-      Script: {instanceID: 16400}
+      Script: {instanceID: 16340}
     - Class: 114
-      Script: {instanceID: 16416}
+      Script: {instanceID: 16402}
     - Class: 114
-      Script: {instanceID: 16478}
+      Script: {instanceID: 16418}
     - Class: 114
-      Script: {instanceID: 16536}
+      Script: {instanceID: 16480}
     - Class: 114
-      Script: {instanceID: 16582}
+      Script: {instanceID: 16538}
     - Class: 114
-      Script: {instanceID: 16642}
+      Script: {instanceID: 16584}
     - Class: 114
-      Script: {instanceID: 16766}
+      Script: {instanceID: 16644}
     - Class: 114
-      Script: {instanceID: 16832}
+      Script: {instanceID: 16768}
     - Class: 114
-      Script: {instanceID: 16902}
+      Script: {instanceID: 16782}
     - Class: 114
-      Script: {instanceID: 16908}
+      Script: {instanceID: 16836}
     - Class: 114
-      Script: {instanceID: 16940}
+      Script: {instanceID: 16906}
     - Class: 114
-      Script: {instanceID: 16948}
+      Script: {instanceID: 16912}
     - Class: 114
-      Script: {instanceID: 16988}
+      Script: {instanceID: 16944}
     - Class: 114
-      Script: {instanceID: 17026}
+      Script: {instanceID: 16952}
+    - Class: 114
+      Script: {instanceID: 16992}
     - Class: 114
       Script: {instanceID: 17030}
     - Class: 114
-      Script: {instanceID: 17106}
+      Script: {instanceID: 17034}
     - Class: 114
-      Script: {instanceID: 17134}
+      Script: {instanceID: 17110}
     - Class: 114
       Script: {instanceID: 17138}
     - Class: 114
-      Script: {instanceID: 17152}
+      Script: {instanceID: 17142}
     - Class: 114
-      Script: {instanceID: 17160}
+      Script: {instanceID: 17156}
     - Class: 114
-      Script: {instanceID: 62096}
+      Script: {instanceID: 17164}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -844,7 +845,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: 61a28c3e30b294b3d52f15d6ba084177
+      Hash: 1c3c7855cc5812321d9ec18f6bd6c627
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -974,6 +975,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
     className: NetworkAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: b47ce430de337ae3d5482525559e1721
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NameUI
   - hash:
       serializedVersion: 2
       Hash: 8996336a1113af80862107545b719922
@@ -1228,7 +1235,7 @@ ScriptsOnlyBuild:
     className: NetworkLogSettings
   - hash:
       serializedVersion: 2
-      Hash: 693979f225637187d58ffd528bb663c5
+      Hash: 589924ef97fdee43149d1f367b9aeb54
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientController
@@ -1372,6 +1379,12 @@ ScriptsOnlyBuild:
     className: NetworkTransformChild
   - hash:
       serializedVersion: 2
+      Hash: b47ce430de337ae3d5482525559e1721
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ImpostorsUI
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1465,7 +1478,7 @@ ScriptsOnlyBuild:
       Hash: 7b4753fe8abebd9a4418d8ec995a0a20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: BeetweenUsNetworkManager
+    className: BetweenUsNetworkManager
   - hash:
       serializedVersion: 2
       Hash: 0c05f2bfb402def3f0a85a62a2323c7f
@@ -1520,13 +1533,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 276dea16105f605c83a25ae54f08ad30
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NameUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe

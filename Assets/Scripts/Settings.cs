@@ -16,14 +16,27 @@ public class Settings : NetworkBehaviour
         killDistance,
         impostorsCount
     };
+    public enum GameState
+    {
+        onLobby,
+        onGame,
+        onMeeting
+    };
     public float mouseSensitivity;
     public bool isMenuOpen;
     public bool isPauseOpen;
     public bool isTaskOpen;
     public bool isMapOpen;
 
-    public SyncListPlayers playersList = new SyncListPlayers();
+    public List<GameObject> playersList = new List<GameObject>();
+    public List<GameObject> impostorsList = new List<GameObject>();
     public GameObject namesUI;
+    public GameObject impostorsUI;
+    public GameObject crewUI;
+    public GameObject localPlayer;
+
+    [SyncVar(hook = nameof(OnGameStart))]
+    public GameState gameState = GameState.onLobby;
 
     [SyncVar(hook = nameof(HookChangeFog))]
     public float fogDensity = 0.09f;
@@ -36,36 +49,18 @@ public class Settings : NetworkBehaviour
     [SyncVar]
     public int impostorsCount = 1;
 
-    void Start()
-    {
-        playersList.Callback += OnPlayersUpdated;
-    }
-
-    void OnPlayersUpdated(SyncListPlayers.Operation op, int index, GameObject oldItem, GameObject newItem)
+    public void AddPlayersList(GameObject player)
 	{
-        switch (op)
-		{
-			case SyncList<GameObject>.Operation.OP_ADD:
-			case SyncList<GameObject>.Operation.OP_CLEAR:
-			case SyncList<GameObject>.Operation.OP_INSERT:
-			case SyncList<GameObject>.Operation.OP_REMOVEAT:
-			case SyncList<GameObject>.Operation.OP_SET:
-			default:
-                for (int i = 0; i < namesUI.transform.childCount; i++)
-                {
-                    if (playersList.Count > i)
-					{
-                        Debug.Log(i);
-                        namesUI.transform.GetChild(i).gameObject.SetActive(true);
-                    }
-                    else
-					{
-                        namesUI.transform.GetChild(i).gameObject.SetActive(false);
-                    }
-                }
-                break;
-		}
+        playersList.Add(player);
 	}
+    public void RemovePlayersList(GameObject player)
+    {
+        if (isServer)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<BetweenUsNetworkManager>().skins.Add(player.GetComponent<SkinRenderer>().skin);
+        }
+        playersList.Remove(player);
+    }
 
     public void Restart()
 	{
@@ -89,5 +84,53 @@ public class Settings : NetworkBehaviour
         ChangeFog(_fogDistance);
         playerSpeed = _playerSpeed;
         killDistance = _killDistance;
+    }
+
+    public void OnGameStart(GameState oldState, GameState newState)
+	{
+        if (oldState == GameState.onLobby && newState == GameState.onGame)
+		{
+            namesUI.SetActive(false);
+        }
+    }
+    public void OpenRoleUI(GameObject player)
+	{
+        if (player.GetComponent<ClientController>().playerRole == ClientController.Role.impostor)
+        {
+            impostorsUI.SetActive(true);
+        }
+        else
+        {
+            crewUI.SetActive(true);
+        }
+    }
+    public void GameStart()
+	{
+        int numPlayers = playersList.Count;
+
+		while (impostorsCount >= numPlayers - impostorsCount)
+		{
+            impostorsCount -= 1;
+		}
+
+        List<GameObject> playersCopy = new List<GameObject>(playersList);
+
+        // Assign Impostors
+        for (int i = 0; i < impostorsCount; i++)
+		{
+            int n = Random.Range(0, playersCopy.Count);
+            GameObject newImpostor = playersCopy[n];
+            playersCopy.RemoveAt(n);
+
+            newImpostor.GetComponent<ClientController>().playerRole = ClientController.Role.impostor;
+        }
+
+		// Give Crew to the rest
+		foreach (GameObject crew in playersList)
+		{
+            crew.GetComponent<ClientController>().playerRole = ClientController.Role.crew;
+		}
+
+        gameState = GameState.onGame;
     }
 }
