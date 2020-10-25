@@ -8,6 +8,7 @@ public class Task : ScriptableObject
     public enum Tasks
 	{
 		changeSkin,
+		openGameSettings,
 		openUIPanel
 	};
 

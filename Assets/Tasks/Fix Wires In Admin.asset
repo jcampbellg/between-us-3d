@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: Fix Wires In Admin
   instructions: '[E] Interact'
-  type: 1
+  type: 2

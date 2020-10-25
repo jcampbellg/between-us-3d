@@ -9,13 +9,7 @@ public class TaskController : MonoBehaviour
 	public GameObject panelToOpen;
 	public GameObject mapUI;
 	public bool hideOnLobby = true;
-	private void Start()
-	{
-		if (hideOnLobby)
-			this.gameObject.SetActive(false);
-		else
-			mapUI.SetActive(true);
-	}
+
 	public void ActionTask(GameObject client)
 	{
 		switch (task.type)
@@ -23,10 +17,13 @@ public class TaskController : MonoBehaviour
 			case Task.Tasks.changeSkin:
 				client.GetComponent<ClientController>().ActionTask(task.type);
 				break;
+			case Task.Tasks.openGameSettings:
 			case Task.Tasks.openUIPanel:
 				if (panelToOpen)
 				{
-					panelToOpen.GetComponent<TaskUI>().client = client;
+					TaskUI taskUI = panelToOpen.GetComponent<TaskUI>();
+					taskUI.client = client;
+					taskUI.taskObject = this;
 					panelToOpen.SetActive(true);
 				}
 				break;
@@ -34,13 +31,10 @@ public class TaskController : MonoBehaviour
 				break;
 		}
 	}
-	private void OnEnable()
-	{
-		mapUI.SetActive(true);
-	}
-	private void OnDisable()
+	public void HideTask()
 	{
 		if (mapUI)
 			mapUI.SetActive(false);
+		this.gameObject.layer = LayerMask.NameToLayer("Task Finish");
 	}
 }

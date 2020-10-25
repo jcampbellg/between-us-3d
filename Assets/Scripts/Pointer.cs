@@ -52,39 +52,71 @@ public class Pointer : MonoBehaviour
     void OnTask(RaycastHit hit)
 	{
         GameObject taskObject = hit.transform.gameObject;
-
         TaskController taskCtl = taskObject.GetComponent<TaskController>();
-        info.text = taskCtl.task.label + "\n" + taskCtl.task.instructions;
 
-        if (Input.GetButtonDown("Action"))
-        {
-            taskCtl.ActionTask(this.gameObject);
-        }
+        ClientController.Role playerRole = this.GetComponent<ClientController>().playerRole;
+
+		switch (playerRole)
+		{
+			case ClientController.Role.lobby:
+                if (taskCtl.task.type == Task.Tasks.changeSkin || taskCtl.task.type == Task.Tasks.openGameSettings)
+				{
+                    info.text = taskCtl.task.label + "\n" + taskCtl.task.instructions;
+                    if (Input.GetButtonDown("Action"))
+                    {
+                        taskCtl.ActionTask(this.gameObject);
+                    }
+                }
+                break;
+			case ClientController.Role.crew:
+                info.text = taskCtl.task.label + "\n" + taskCtl.task.instructions;
+                if (Input.GetButtonDown("Action"))
+                {
+                    taskCtl.ActionTask(this.gameObject);
+                }
+                break;
+			case ClientController.Role.impostor:
+                info.text = taskCtl.task.label + "\n" + "Don't move to pretend";
+                break;
+			default:
+				break;
+		}
     }
     void OnPlayer(RaycastHit hit)
     {
         GameObject playerHit = hit.transform.gameObject;
         float killDistance = settings.clickPlayerDistance * settings.killDistance;
 
-        if ( hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.lobby)
-		{
-            string playerName = playerHit.GetComponent<ClientController>().playerName;
-            info.text = playerName + "\n" + "On Kill Distance";
-        }
-        else if (hit.distance < killDistance && this.GetComponent<ClientController>().playerRole == ClientController.Role.impostor && playerHit.GetComponent<ClientController>().playerRole != ClientController.Role.impostor)
-		{
-            string playerName = playerHit.GetComponent<ClientController>().playerName;
-            info.text = playerName + "\n" + "[Q] Kill";
-        }
-        else if (this.GetComponent<ClientController>().playerRole == ClientController.Role.impostor && playerHit.GetComponent<ClientController>().playerRole == ClientController.Role.impostor)
-		{
-            string playerName = playerHit.GetComponent<ClientController>().playerName;
-            info.text = playerName + "\n" + "He is Impostor";
-        }
-        else
+        ClientController.Role playerRole = this.GetComponent<ClientController>().playerRole;
+        ClientController.Role playerHitRole = playerHit.GetComponent<ClientController>().playerRole;
+        string playerHitName = playerHit.GetComponent<ClientController>().playerName;
+
+        switch (playerRole)
         {
-            string playerName = playerHit.GetComponent<ClientController>().playerName;
-            info.text = playerName;
+            case ClientController.Role.lobby:
+                if (hit.distance < killDistance)
+                    info.text = info.text = playerHitName + "\n" + "On Kill Distance";
+                else
+                    info.text = info.text = playerHitName;
+                break;
+            case ClientController.Role.crew:
+                info.text = info.text = playerHitName;
+                break;
+            case ClientController.Role.impostor:
+                if (playerHitRole == ClientController.Role.impostor)
+                {
+                    info.text = playerHitName + "\n" + "He is Impostor";
+                }
+                else
+                {
+                    if (hit.distance < killDistance)
+                        info.text = info.text = playerHitName + "\n" + "[Q] Kill";
+                    else
+                        info.text = info.text = playerHitName;
+                }
+                break;
+            default:
+                break;
         }
     }
 }

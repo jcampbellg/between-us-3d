@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BetweenUsNetworkManager
     - ClientController
+    - CrewUI
     - Door
     - DoorsManager
     - GameSettingsUI
@@ -19,6 +20,7 @@ ScriptsOnlyBuild:
     - Task
     - TaskController
     - TaskUI
+    - TasksState
     - UnlockUI
     - WiresUI
     Mirror.Components.dll:
@@ -291,47 +293,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16344}
     - Class: 114
-      Script: {instanceID: 16406}
+      Script: {instanceID: 16352}
     - Class: 114
-      Script: {instanceID: 16422}
+      Script: {instanceID: 16408}
     - Class: 114
-      Script: {instanceID: 16484}
+      Script: {instanceID: 16424}
     - Class: 114
-      Script: {instanceID: 16542}
+      Script: {instanceID: 16486}
     - Class: 114
-      Script: {instanceID: 16588}
+      Script: {instanceID: 16544}
     - Class: 114
-      Script: {instanceID: 16648}
+      Script: {instanceID: 16590}
     - Class: 114
-      Script: {instanceID: 16772}
+      Script: {instanceID: 16650}
     - Class: 114
-      Script: {instanceID: 16786}
+      Script: {instanceID: 16774}
     - Class: 114
-      Script: {instanceID: 16840}
+      Script: {instanceID: 16788}
     - Class: 114
-      Script: {instanceID: 16910}
+      Script: {instanceID: 16842}
     - Class: 114
-      Script: {instanceID: 16916}
+      Script: {instanceID: 16872}
     - Class: 114
-      Script: {instanceID: 16948}
+      Script: {instanceID: 16914}
     - Class: 114
-      Script: {instanceID: 16956}
+      Script: {instanceID: 16920}
     - Class: 114
-      Script: {instanceID: 16996}
+      Script: {instanceID: 16952}
     - Class: 114
-      Script: {instanceID: 17034}
+      Script: {instanceID: 16960}
+    - Class: 114
+      Script: {instanceID: 17000}
     - Class: 114
       Script: {instanceID: 17038}
     - Class: 114
-      Script: {instanceID: 17114}
+      Script: {instanceID: 17042}
     - Class: 114
-      Script: {instanceID: 17142}
+      Script: {instanceID: 17118}
     - Class: 114
       Script: {instanceID: 17146}
     - Class: 114
-      Script: {instanceID: 17160}
+      Script: {instanceID: 17150}
     - Class: 114
-      Script: {instanceID: 17168}
+      Script: {instanceID: 17164}
+    - Class: 114
+      Script: {instanceID: 17172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1055,7 +1061,7 @@ ScriptsOnlyBuild:
     className: InputField
   - hash:
       serializedVersion: 2
-      Hash: f8df3ab9bf3cd172b08c5910439543d7
+      Hash: 17ca80b9aa2ae8c621b3fd056eeb15f3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TaskUI
@@ -1301,6 +1307,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerUIntField
   - hash:
       serializedVersion: 2
+      Hash: 6ed79e38b80204cec55ee14d865c638f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CrewUI
+  - hash:
+      serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1425,6 +1437,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
+  - hash:
+      serializedVersion: 2
+      Hash: a70aa96652c983d800c177695632e2f5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TasksState
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f

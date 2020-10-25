@@ -179,4 +179,14 @@ public class ClientController : NetworkBehaviour
 	{
         settings.Restart();
 	}
+
+    public void AddToFinishTasks()
+	{
+        CmdAddToFinishTasks();
+    }
+    [Command]
+    public void CmdAddToFinishTasks()
+    {
+        settings.gameObject.GetComponent<TasksState>().totalTasksDone += 1;
+    }
 }

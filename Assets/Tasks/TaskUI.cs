@@ -6,6 +6,7 @@ public class TaskUI : MonoBehaviour
 {
 	public Settings settings;
 	public GameObject client;
+	public TaskController taskObject;
 	void Update()
 	{
 		if (settings.isTaskOpen)
@@ -27,5 +28,11 @@ public class TaskUI : MonoBehaviour
 		settings.isMenuOpen = false;
 		settings.isTaskOpen = false;
 		Cursor.lockState = CursorLockMode.Locked;
+	}
+	public void FinishUI()
+	{
+		gameObject.SetActive(false);
+		taskObject.HideTask();
+		client.GetComponent<ClientController>().AddToFinishTasks();
 	}
 }

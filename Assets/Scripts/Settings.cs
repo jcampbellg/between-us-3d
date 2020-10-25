@@ -99,6 +99,7 @@ public class Settings : NetworkBehaviour
     }
     public void OpenRoleUI(GameObject player)
 	{
+        // On Client Side
         if (player.GetComponent<ClientController>().playerRole == ClientController.Role.impostor)
         {
             impostorsUI.SetActive(true);
@@ -106,11 +107,14 @@ public class Settings : NetworkBehaviour
         else
         {
             crewUI.SetActive(true);
+            crewUI.GetComponent<CrewUI>().AssignTasks();
         }
+
     }
     public void GameStart()
 	{
-        //Change seed
+        // On Server
+        // Change seed
         var randomizer = new System.Random();
         int seed = randomizer.Next(int.MinValue, int.MaxValue);
         Random.InitState(seed);
@@ -139,6 +143,9 @@ public class Settings : NetworkBehaviour
 		{
             crew.GetComponent<ClientController>().playerRole = ClientController.Role.crew;
 		}
+
+        // Calculate Total Tasks
+        this.GetComponent<TasksState>().totalTasks = playersCopy.Count * tasksCount;
 
         gameState = GameState.onGame;
         this.GetComponent<DoorsManager>().OpenLobby(true);
