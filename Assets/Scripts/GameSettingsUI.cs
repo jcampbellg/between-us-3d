@@ -8,6 +8,8 @@ public class GameSettingsUI : MonoBehaviour
 {
 	public Slider fogDensity;
 	public Slider playerSpeed;
+	public Slider tasksCount;
+	public TextMeshProUGUI tasksCountText;
 	public Slider killDistance;
 	public Slider impostorsCount;
 	public TextMeshProUGUI impostorsCountText;
@@ -17,6 +19,7 @@ public class GameSettingsUI : MonoBehaviour
 		Settings settings = this.GetComponent<TaskUI>().settings;
 		fogDensity.value = -(settings.fogDensity / 0.4f) + 1.0f;
 		playerSpeed.value = settings.playerSpeed;
+		tasksCount.value = settings.tasksCount;
 		killDistance.value = settings.killDistance;
 		impostorsCount.value = settings.impostorsCount;
 		impostorsCountText.text = settings.impostorsCount + " Impostors";
@@ -59,6 +62,17 @@ public class GameSettingsUI : MonoBehaviour
 		if (client)
 		{
 			client.GetComponent<ClientController>().ChangeIntSetting(Settings.Setting.impostorsCount, (int) value);
+		}
+	}
+	public void ChangeTasksCounts(float value)
+	{
+		GameObject client = this.GetComponent<TaskUI>().client;
+
+		tasksCountText.text = value + " Tasks";
+
+		if (client)
+		{
+			client.GetComponent<ClientController>().ChangeIntSetting(Settings.Setting.tasksCount, (int)value);
 		}
 	}
 	public void ResetSettings()

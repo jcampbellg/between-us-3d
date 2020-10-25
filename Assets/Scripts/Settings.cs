@@ -10,7 +10,8 @@ public class Settings : NetworkBehaviour
         fogDensity,
         playerSpeed,
         killDistance,
-        impostorsCount
+        impostorsCount,
+        tasksCount
     };
     public enum GameState
     {
@@ -42,6 +43,8 @@ public class Settings : NetworkBehaviour
     [SyncVar]
     public float playerSpeed = 10.0f;
     [SyncVar]
+    public int tasksCount = 2;
+    [SyncVar]
     public float killDistance = 0.5f;
     [SyncVar]
     public int impostorsCount = 1;
@@ -63,6 +66,7 @@ public class Settings : NetworkBehaviour
 	{
         ChangeFog(0.09f);
         playerSpeed = 10.0f;
+        tasksCount = 2;
         killDistance = 0.5f;
         impostorsCount = 1;
     }
@@ -137,5 +141,6 @@ public class Settings : NetworkBehaviour
 		}
 
         gameState = GameState.onGame;
+        this.GetComponent<DoorsManager>().OpenLobby(true);
     }
 }

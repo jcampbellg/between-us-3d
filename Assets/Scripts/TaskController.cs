@@ -7,7 +7,16 @@ public class TaskController : MonoBehaviour
 {
     public Task task;
 	public GameObject panelToOpen;
-    public void ActionTask(GameObject client)
+	public GameObject mapUI;
+	public bool hideOnLobby = true;
+	private void Start()
+	{
+		if (hideOnLobby)
+			this.gameObject.SetActive(false);
+		else
+			mapUI.SetActive(true);
+	}
+	public void ActionTask(GameObject client)
 	{
 		switch (task.type)
 		{
@@ -24,5 +33,14 @@ public class TaskController : MonoBehaviour
 			default:
 				break;
 		}
+	}
+	private void OnEnable()
+	{
+		mapUI.SetActive(true);
+	}
+	private void OnDisable()
+	{
+		if (mapUI)
+			mapUI.SetActive(false);
 	}
 }

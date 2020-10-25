@@ -131,16 +131,7 @@ public class ClientController : NetworkBehaviour
 
     public void ChangeFloatSetting(Settings.Setting id, float value)
 	{
-		switch (id)
-		{
-			case Settings.Setting.fogDensity:
-			case Settings.Setting.playerSpeed:
-            case Settings.Setting.killDistance:
-                CmdChangeFloatSetting(id, value);
-                break;
-            default:
-				break;
-		}
+        CmdChangeFloatSetting(id, value);
     }
     [Command]
     void CmdChangeFloatSetting(Settings.Setting id, float value)
@@ -162,14 +153,7 @@ public class ClientController : NetworkBehaviour
     }
     public void ChangeIntSetting(Settings.Setting id, int value)
     {
-        switch (id)
-        {
-            case Settings.Setting.impostorsCount:
-                CmdChangeIntSetting(id, value);
-                break;
-            default:
-                break;
-        }
+        CmdChangeIntSetting(id, value);
     }
     [Command]
     void CmdChangeIntSetting(Settings.Setting id, int value)
@@ -178,6 +162,9 @@ public class ClientController : NetworkBehaviour
         {
             case Settings.Setting.impostorsCount:
                 settings.impostorsCount = value;
+                break;
+            case Settings.Setting.tasksCount:
+                settings.tasksCount = value;
                 break;
             default:
                 break;

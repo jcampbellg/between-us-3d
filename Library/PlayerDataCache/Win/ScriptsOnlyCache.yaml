@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - BetweenUsNetworkManager
     - ClientController
     - Door
+    - DoorsManager
     - GameSettingsUI
     - ImpostorsUI
     - LookAround
@@ -89,10 +90,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -222,115 +221,117 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13460}
     - Class: 114
-      Script: {instanceID: 13618}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13712}
+      Script: {instanceID: 13620}
     - Class: 114
-      Script: {instanceID: 13768}
+      Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 13924}
+      Script: {instanceID: 13770}
     - Class: 114
-      Script: {instanceID: 14060}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 14098}
+      Script: {instanceID: 14062}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 14100}
     - Class: 114
-      Script: {instanceID: 14192}
+      Script: {instanceID: 14118}
     - Class: 114
-      Script: {instanceID: 14342}
+      Script: {instanceID: 14194}
     - Class: 114
-      Script: {instanceID: 14680}
+      Script: {instanceID: 14344}
     - Class: 114
-      Script: {instanceID: 14744}
+      Script: {instanceID: 14622}
     - Class: 114
-      Script: {instanceID: 14764}
+      Script: {instanceID: 14684}
     - Class: 114
-      Script: {instanceID: 14824}
+      Script: {instanceID: 14748}
     - Class: 114
-      Script: {instanceID: 14846}
+      Script: {instanceID: 14768}
     - Class: 114
-      Script: {instanceID: 14882}
+      Script: {instanceID: 14828}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 14850}
     - Class: 114
-      Script: {instanceID: 15186}
+      Script: {instanceID: 14886}
     - Class: 114
-      Script: {instanceID: 15238}
+      Script: {instanceID: 15160}
     - Class: 114
-      Script: {instanceID: 15244}
+      Script: {instanceID: 15190}
     - Class: 114
-      Script: {instanceID: 15262}
+      Script: {instanceID: 15242}
     - Class: 114
-      Script: {instanceID: 15274}
+      Script: {instanceID: 15248}
     - Class: 114
-      Script: {instanceID: 15424}
+      Script: {instanceID: 15266}
     - Class: 114
-      Script: {instanceID: 15470}
+      Script: {instanceID: 15278}
     - Class: 114
-      Script: {instanceID: 15478}
+      Script: {instanceID: 15428}
     - Class: 114
-      Script: {instanceID: 15540}
+      Script: {instanceID: 15474}
     - Class: 114
-      Script: {instanceID: 15760}
+      Script: {instanceID: 15482}
     - Class: 114
-      Script: {instanceID: 15806}
+      Script: {instanceID: 15544}
     - Class: 114
-      Script: {instanceID: 15900}
+      Script: {instanceID: 15764}
     - Class: 114
-      Script: {instanceID: 15998}
+      Script: {instanceID: 15810}
     - Class: 114
-      Script: {instanceID: 16064}
+      Script: {instanceID: 15904}
     - Class: 114
-      Script: {instanceID: 16164}
+      Script: {instanceID: 16002}
     - Class: 114
-      Script: {instanceID: 16226}
+      Script: {instanceID: 16068}
     - Class: 114
-      Script: {instanceID: 16340}
+      Script: {instanceID: 16168}
     - Class: 114
-      Script: {instanceID: 16402}
+      Script: {instanceID: 16230}
     - Class: 114
-      Script: {instanceID: 16418}
+      Script: {instanceID: 16344}
     - Class: 114
-      Script: {instanceID: 16480}
+      Script: {instanceID: 16406}
     - Class: 114
-      Script: {instanceID: 16538}
+      Script: {instanceID: 16422}
     - Class: 114
-      Script: {instanceID: 16584}
+      Script: {instanceID: 16484}
     - Class: 114
-      Script: {instanceID: 16644}
+      Script: {instanceID: 16542}
     - Class: 114
-      Script: {instanceID: 16768}
+      Script: {instanceID: 16588}
     - Class: 114
-      Script: {instanceID: 16782}
+      Script: {instanceID: 16648}
     - Class: 114
-      Script: {instanceID: 16836}
+      Script: {instanceID: 16772}
     - Class: 114
-      Script: {instanceID: 16906}
+      Script: {instanceID: 16786}
     - Class: 114
-      Script: {instanceID: 16912}
+      Script: {instanceID: 16840}
     - Class: 114
-      Script: {instanceID: 16944}
+      Script: {instanceID: 16910}
     - Class: 114
-      Script: {instanceID: 16952}
+      Script: {instanceID: 16916}
     - Class: 114
-      Script: {instanceID: 16992}
+      Script: {instanceID: 16948}
     - Class: 114
-      Script: {instanceID: 17030}
+      Script: {instanceID: 16956}
+    - Class: 114
+      Script: {instanceID: 16996}
     - Class: 114
       Script: {instanceID: 17034}
     - Class: 114
-      Script: {instanceID: 17110}
+      Script: {instanceID: 17038}
     - Class: 114
-      Script: {instanceID: 17138}
+      Script: {instanceID: 17114}
     - Class: 114
       Script: {instanceID: 17142}
     - Class: 114
-      Script: {instanceID: 17156}
+      Script: {instanceID: 17146}
     - Class: 114
-      Script: {instanceID: 17164}
+      Script: {instanceID: 17160}
     - Class: 114
-      Script: {instanceID: 42010}
+      Script: {instanceID: 17168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -418,7 +419,7 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: 7eb5df8ee0e0811c4001c89f570b1765
+      Hash: 55c222e01612bf8724dcadb7fd3d2885
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TaskController
@@ -760,7 +761,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: cc95253d5a3a5dda2d6fa2df788402d2
+      Hash: e421f9560c49bae004322b5dae926c00
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameSettingsUI
@@ -770,6 +771,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: UIFoldout
+  - hash:
+      serializedVersion: 2
+      Hash: 0df3dadb4e489e2c12b6a15071b6e125
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Door
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -850,7 +857,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: 23b0ac4c7012ebae77d8803de85c63d0
+      Hash: 78055688e247edb832117e5c8cfcf27f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -926,6 +933,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.ProGrids.dll
     namespaceName: UnityEngine.ProGrids
     className: IgnoreSnap
+  - hash:
+      serializedVersion: 2
+      Hash: 7f59b1fdb9d3c396688a25babcde28cb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DoorsManager
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -1480,7 +1493,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 7b4753fe8abebd9a4418d8ec995a0a20
+      Hash: 4753a8815bd9985ec147f6de50aed83a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BetweenUsNetworkManager
@@ -1538,19 +1551,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: ea121416d627566aedfc1ac7cf05148d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DoorsManager
-  - hash:
-      serializedVersion: 2
-      Hash: 0df3dadb4e489e2c12b6a15071b6e125
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Door
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe

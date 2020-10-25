@@ -10,7 +10,6 @@ public class BetweenUsNetworkManager : NetworkManager
 	public List<Skin> skins;
 	public TMP_InputField ipInput;
 	public TMP_InputField playerNameInput;
-	public GameObject clickableCanvas;
 	public string playerName = "";
 
 	public override void OnServerAddPlayer(NetworkConnection conn)
@@ -32,13 +31,6 @@ public class BetweenUsNetworkManager : NetworkManager
 		player.GetComponent<SkinRenderer>().skin = skin;
 		skins.RemoveAt(n);
 	}
-	public override void OnClientConnect(NetworkConnection conn)
-	{
-		clickableCanvas.SetActive(true);
-		
-		base.OnClientConnect(conn);
-	}
-
 	public void OnEndEditIp()
 	{
 		networkAddress = ipInput.text;

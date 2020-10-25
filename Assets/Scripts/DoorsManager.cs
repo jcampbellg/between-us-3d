@@ -5,6 +5,12 @@ using UnityEngine;
 public class DoorsManager : MonoBehaviour
 {
     public GameObject[] lobby;
-    public Vector3[] lobbyOpenPos;
-    public Vector3[] lobbyClosePos;
+
+    public void OpenLobby(bool isOpen)
+	{
+		foreach (GameObject door in lobby)
+		{
+			door.GetComponent<Door>().isOpen = true;
+		}
+	}
 }
