@@ -109,7 +109,7 @@ public class Settings : NetworkBehaviour
             crewUI.SetActive(true);
             crewUI.GetComponent<CrewUI>().AssignTasks();
         }
-
+        this.GetComponent<TasksState>().taskbarPanel.SetActive(true);
     }
     public void GameStart()
 	{

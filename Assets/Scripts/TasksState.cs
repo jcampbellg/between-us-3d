@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class TasksState : NetworkBehaviour
 {
     public Slider taskbar;
-    [SyncVar(hook = nameof(OnTaskDone))]
+    public float animSpeed = 0.5f;
+    public GameObject taskbarPanel;
+    [SyncVar]
     public int totalTasksDone = 0;
     [SyncVar(hook = nameof(OnTotalTask))]
     public int totalTasks = 0;
@@ -17,8 +19,13 @@ public class TasksState : NetworkBehaviour
         taskbar.maxValue = newInt;
 	}
 
-    public void OnTaskDone(int oldInt, int newInt)
-    {
-        taskbar.value = newInt;
+	private void Update()
+	{
+        if (Mathf.Abs(totalTasksDone - taskbar.value) > 0.1f)
+        {
+            taskbar.value = Mathf.Lerp(taskbar.value, totalTasksDone, animSpeed * Time.deltaTime);
+        }
+        else
+            taskbar.value = totalTasksDone;
     }
 }

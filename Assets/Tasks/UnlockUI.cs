@@ -28,6 +28,13 @@ public class UnlockUI : MonoBehaviour
 			buttons[i].GetComponent<Button>().interactable = true;
 		}
 	}
+	private void Update()
+	{
+		if (atButton == buttons.Length+1)
+		{
+			this.GetComponent<TaskUI>().FinishUI();
+		}
+	}
 	public void OnPress(GameObject button)
 	{
 		if (button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text == ""+atButton)

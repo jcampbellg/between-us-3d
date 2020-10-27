@@ -70,14 +70,15 @@
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\ClientController.cs" />
     <Compile Include="Assets\Scripts\MapUI.cs" />
+    <Compile Include="Assets\Scripts\CrewUI.cs" />
     <Compile Include="Assets\Tasks\UnlockUI.cs" />
     <Compile Include="Assets\Scripts\SkinRenderer.cs" />
     <Compile Include="Assets\Scripts\ImpostorsUI.cs" />
+    <Compile Include="Assets\Scripts\TasksState.cs" />
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Scripts\CrewUI.cs" />
-    <Compile Include="Assets\Scripts\TasksState.cs" />
+    <Compile Include="Assets\Tasks\WiresUIWire.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
