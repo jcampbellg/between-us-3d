@@ -8,7 +8,7 @@ public class UnlockUI : MonoBehaviour
 {
 	public GameObject[] buttons;
 	[SerializeField] int atButton = 1;
-	private void Start()
+	private void OnEnable()
 	{
 		atButton = 1;
 		List<string> numbersLeft = new List<string>();

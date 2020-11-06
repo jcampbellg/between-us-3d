@@ -6,18 +6,18 @@ using TMPro;
 
 public class ImpostorsUI : MonoBehaviour
 {
-    public Settings settings;
+    public GameState gameState;
     List<GameObject> impostorsList = new List<GameObject>();
     
 
     void Start()
     {
-        impostorsList = new List<GameObject>(settings.impostorsList);
+        impostorsList = new List<GameObject>(gameState.impostorsList);
     }
 
     void Update()
     {
-        if (impostorsList != settings.impostorsList)
+        if (impostorsList != gameState.impostorsList)
 		{
             RefreshUI();
         }
@@ -25,7 +25,7 @@ public class ImpostorsUI : MonoBehaviour
 
     void RefreshUI()
 	{
-        impostorsList = new List<GameObject>(settings.impostorsList);
+        impostorsList = new List<GameObject>(gameState.impostorsList);
 
 		for (int i = 1; i < 5; i++)
 		{

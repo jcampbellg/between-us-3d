@@ -6,7 +6,6 @@ using Mirror;
 
 public class BetweenUsNetworkManager : NetworkManager
 {
-	public Settings settings;
 	public List<Skin> skins;
 	public TMP_InputField ipInput;
 	public TMP_InputField playerNameInput;
@@ -15,7 +14,9 @@ public class BetweenUsNetworkManager : NetworkManager
 	public override void OnServerAddPlayer(NetworkConnection conn)
 	{
 		GameObject newPlayer = Instantiate(playerPrefab);
-		newPlayer.transform.position = Vector3.zero;
+		Transform spawn = startPositions[numPlayers];
+		newPlayer.transform.position = spawn.position;
+		newPlayer.transform.rotation = spawn.rotation;
 		SetPlayerName(newPlayer);
 		SelectRandomSkin(newPlayer);
 		NetworkServer.AddPlayerForConnection(conn, newPlayer);

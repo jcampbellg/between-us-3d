@@ -15,21 +15,21 @@ public class Door : NetworkBehaviour
 	{
         if (isOpen)
 		{
-            if ((openVector - transform.position).magnitude > 0.01f)
+            if ((openVector - transform.localPosition).magnitude > 0.01f)
             {
-                transform.position = Vector3.Slerp(transform.position, openVector, speed * Time.deltaTime);
+                transform.localPosition = Vector3.Slerp(transform.localPosition, openVector, speed * Time.deltaTime);
             }
             else
-                transform.position = openVector;
+                transform.localPosition = openVector;
         }
         else
 		{
-            if ((closeVector - transform.position).magnitude > 0.01f)
+            if ((closeVector - transform.localPosition).magnitude > 0.01f)
             {
-                transform.position = Vector3.Slerp(transform.position, closeVector, speed * Time.deltaTime);
+                transform.localPosition = Vector3.Slerp(transform.localPosition, closeVector, speed * Time.deltaTime);
             }
             else
-                transform.position = closeVector;
+                transform.localPosition = closeVector;
         }
     }
 }

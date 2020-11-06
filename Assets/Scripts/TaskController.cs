@@ -7,8 +7,6 @@ public class TaskController : MonoBehaviour
 {
     public Task task;
 	public GameObject panelToOpen;
-	public GameObject mapUI;
-	public bool hideOnLobby = true;
 
 	public void ActionTask(GameObject client)
 	{
@@ -33,8 +31,6 @@ public class TaskController : MonoBehaviour
 	}
 	public void HideTask()
 	{
-		if (mapUI)
-			mapUI.SetActive(false);
-		this.gameObject.layer = LayerMask.NameToLayer("Task Finish");
+		this.gameObject.SetActive(false);
 	}
 }

@@ -11,7 +11,10 @@ public class ClientController : NetworkBehaviour
         crew,
         impostor
 	};
-    public Settings settings;
+    Transform meetingPosition;
+    PlayerSettings playerSettings;
+    GameSettings gameSettings;
+    GameState gameState;
     public GameObject canvas;
     public GameObject mapCanvas;
     [SyncVar]
@@ -23,11 +26,12 @@ public class ClientController : NetworkBehaviour
 
     void Start()
     {
-        settings = GameObject.FindGameObjectWithTag("GameState").GetComponent<Settings>();
-        settings.localPlayer = this.gameObject;
-        gameObject.GetComponent<Move>().settings = settings;
-        gameObject.GetComponent<LookAround>().settings = settings;
-        gameObject.GetComponent<Pointer>().settings = settings;
+        meetingPosition = transform;
+        GameObject gameStateObject = GameObject.FindGameObjectWithTag("GameState");
+        playerSettings = gameStateObject.GetComponent<PlayerSettings>();
+        gameSettings = gameStateObject.GetComponent<GameSettings>();
+        gameState = gameStateObject.GetComponent<GameState>();
+
         if (isLocalPlayer)
 		{
             GetComponent<Move>().canUse = true;
@@ -43,14 +47,14 @@ public class ClientController : NetworkBehaviour
             
             GameObject.FindGameObjectWithTag("MenuController").GetComponent<Pause>().client = this.gameObject;
         }
-        settings.AddPlayersList(this.gameObject);
+        gameState.AddPlayersList(this.gameObject);
     }
 
 	private void OnDestroy()
 	{
         if (!isLocalPlayer)
         {
-            settings.RemovePlayersList(this.gameObject);
+            gameState.RemovePlayersList(this.gameObject);
         }
     }
 
@@ -60,16 +64,23 @@ public class ClientController : NetworkBehaviour
 		{
             if (isLocalPlayer)
             {
-                settings.OpenRoleUI(this.gameObject);
+                gameState.OpenRoleUI(this.gameObject);
             }
 
             if (newRole == Role.impostor)
 			{
-                settings.impostorsList.Add(this.gameObject);
+                gameState.impostorsList.Add(this.gameObject);
 			}
         }
     }
 
+    [ClientRpc]
+    public void RpcGoToMeeting()
+	{
+        transform.position = meetingPosition.position;
+        transform.rotation = meetingPosition.rotation;
+        gameObject.GetComponent<LookAround>().RefreshXRotation();
+	}
     private void Update()
 	{
 		if (isLocalPlayer && Input.GetButtonDown("Ready") && playerRole == Role.lobby)
@@ -83,17 +94,17 @@ public class ClientController : NetworkBehaviour
         isReady = !isReady;
         bool allReady = true;
 
-		for (int i = 0; i < settings.playersList.Count; i++)
+		for (int i = 0; i < gameState.playersList.Count; i++)
 		{
-            if (!settings.playersList[i].GetComponent<ClientController>().isReady)
+            if (!gameState.playersList[i].GetComponent<ClientController>().isReady)
 			{
                 allReady = false;
             }
 		}
 
-        if (allReady && settings.playersList.Count > 3)
+        if (allReady && gameState.playersList.Count > 3)
 		{
-            settings.GameStart();
+            gameState.GameStart();
 		}
 	}
 	[Command]
@@ -129,42 +140,42 @@ public class ClientController : NetworkBehaviour
         networkManager.GetComponent<BetweenUsNetworkManager>().SelectFirstSkin(this.gameObject);
     }
 
-    public void ChangeFloatSetting(Settings.Setting id, float value)
+    public void ChangeFloatSetting(GameSettings.Setting id, float value)
 	{
         CmdChangeFloatSetting(id, value);
     }
     [Command]
-    void CmdChangeFloatSetting(Settings.Setting id, float value)
+    void CmdChangeFloatSetting(GameSettings.Setting id, float value)
 	{
         switch (id)
         {
-            case Settings.Setting.fogDensity:
-                settings.fogDensity = value;
+            case GameSettings.Setting.fogDensity:
+                gameSettings.fogDensity = value;
                 break;
-            case Settings.Setting.playerSpeed:
-                settings.playerSpeed = value;
+            case GameSettings.Setting.playerSpeed:
+                gameSettings.playerSpeed = value;
                 break;
-            case Settings.Setting.killDistance:
-                settings.killDistance = value;
+            case GameSettings.Setting.killDistance:
+                gameSettings.killDistance = value;
                 break;
             default:
                 break;
         }
     }
-    public void ChangeIntSetting(Settings.Setting id, int value)
+    public void ChangeIntSetting(GameSettings.Setting id, int value)
     {
         CmdChangeIntSetting(id, value);
     }
     [Command]
-    void CmdChangeIntSetting(Settings.Setting id, int value)
+    void CmdChangeIntSetting(GameSettings.Setting id, int value)
     {
         switch (id)
         {
-            case Settings.Setting.impostorsCount:
-                settings.impostorsCount = value;
+            case GameSettings.Setting.impostorsCount:
+                gameSettings.impostorsCount = value;
                 break;
-            case Settings.Setting.tasksCount:
-                settings.tasksCount = value;
+            case GameSettings.Setting.tasksCount:
+                gameSettings.tasksCount = value;
                 break;
             default:
                 break;
@@ -177,7 +188,7 @@ public class ClientController : NetworkBehaviour
     [Command]
 	void CmdResetSettings()
 	{
-        settings.Restart();
+        gameSettings.Restart();
 	}
 
     public void AddToFinishTasks()
@@ -187,6 +198,6 @@ public class ClientController : NetworkBehaviour
     [Command]
     public void CmdAddToFinishTasks()
     {
-        settings.gameObject.GetComponent<TasksState>().totalTasksDone += 1;
+        gameState.gameObject.GetComponent<TasksState>().totalTasksDone += 1;
     }
 }

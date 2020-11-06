@@ -59,26 +59,29 @@
     <Compile Include="Assets\Tasks\WiresUI.cs" />
     <Compile Include="Assets\Scripts\Pointer.cs" />
     <Compile Include="Assets\Scripts\LookAround.cs" />
+    <Compile Include="Assets\Tasks\WiresUIWire.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\GameSettingsUI.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
-    <Compile Include="Assets\Scripts\Settings.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\DoorsManager.cs" />
     <Compile Include="Assets\Scripts\NameUI.cs" />
     <Compile Include="Assets\Tasks\TaskUI.cs" />
-    <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\LocationTrigger.cs" />
+    <Compile Include="Assets\Scripts\GameSettings.cs" />
     <Compile Include="Assets\Scripts\ClientController.cs" />
     <Compile Include="Assets\Scripts\MapUI.cs" />
+    <Compile Include="Assets\Scripts\CompasUI.cs" />
     <Compile Include="Assets\Scripts\CrewUI.cs" />
     <Compile Include="Assets\Tasks\UnlockUI.cs" />
     <Compile Include="Assets\Scripts\SkinRenderer.cs" />
+    <Compile Include="Assets\Scripts\PlayerSettings.cs" />
     <Compile Include="Assets\Scripts\ImpostorsUI.cs" />
     <Compile Include="Assets\Scripts\TasksState.cs" />
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Tasks\WiresUIWire.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
@@ -311,9 +314,6 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Polybrush.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Polybrush.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
@@ -713,9 +713,6 @@
     </Reference>
     <Reference Include="Unity.ProBuilder">
       <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Polybrush">
-      <HintPath>Library\ScriptAssemblies\Unity.Polybrush.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>

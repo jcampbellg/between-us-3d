@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DoorsManager : MonoBehaviour
 {
-    public GameObject[] lobby;
+    public Door[] cafeteria;
 
-    public void OpenLobby(bool isOpen)
+    public void OpenCafeteria(bool isOpen)
 	{
-		foreach (GameObject door in lobby)
+		foreach (Door door in cafeteria)
 		{
-			door.GetComponent<Door>().isOpen = true;
+			door.isOpen = isOpen;
 		}
 	}
 }

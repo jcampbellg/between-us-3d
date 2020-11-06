@@ -7,15 +7,15 @@ public class Pause : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject mapPanel;
-    public Settings settings;
+    public PlayerSettings playerSettings;
     public GameObject client;
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && !settings.isTaskOpen && !settings.isMapOpen)
+        if (Input.GetButtonDown("Cancel") && !playerSettings.isTaskOpen && !playerSettings.isMapOpen)
 		{
-            bool active = !settings.isPauseOpen;
-            settings.isPauseOpen = active;
-            settings.isMenuOpen = active;
+            bool active = !playerSettings.isPauseOpen;
+            playerSettings.isPauseOpen = active;
+            playerSettings.isMenuOpen = active;
             pausePanel.SetActive(active);
             if (active)
 			{
@@ -28,11 +28,11 @@ public class Pause : MonoBehaviour
             }
         }
 
-        if ( client && ((Input.GetButtonDown("Map") && !settings.isPauseOpen) || (settings.isMapOpen && Input.GetButtonDown("Cancel"))))
+        if ( client && ((Input.GetButtonDown("Map") && !playerSettings.isPauseOpen) || (playerSettings.isMapOpen && Input.GetButtonDown("Cancel"))))
         {
-            bool active = !settings.isMapOpen;
-            settings.isMapOpen = active;
-            settings.isMenuOpen = active;
+            bool active = !playerSettings.isMapOpen;
+            playerSettings.isMapOpen = active;
+            playerSettings.isMenuOpen = active;
             if (!mapPanel.GetComponent<MapUI>().client)
 			{
                 mapPanel.GetComponent<MapUI>().client = client;
@@ -51,7 +51,7 @@ public class Pause : MonoBehaviour
 
     public void OnMouseSensitivityChange(float value)
     {
-        settings.mouseSensitivity = value;
+        playerSettings.mouseSensitivity = value;
     }
 
     public void ToggleFullscreen()

@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class LookAround : MonoBehaviour
 {
-    public Settings settings;
+    PlayerSettings playerSettings;
     public Transform bone;
     public bool canUse = false;
 
     float xRotation = 0f;
-
-	void Update()
+    private void Start()
     {
-        if (canUse && !settings.isMenuOpen)
+        playerSettings = GameObject.FindGameObjectWithTag("GameState").GetComponent<PlayerSettings>();
+        xRotation = gameObject.transform.rotation.eulerAngles.x;
+    }
+    public void RefreshXRotation()
+	{
+        xRotation = gameObject.transform.rotation.eulerAngles.x;
+    }
+    void Update()
+    {
+        if (canUse && !playerSettings.isMenuOpen)
         {
-            float mouseSensitivity = settings.mouseSensitivity;
+            float mouseSensitivity = playerSettings.mouseSensitivity;
             Transform cam = Camera.main.transform;
             Transform camPivot = Camera.main.transform.parent;
 
@@ -22,13 +30,12 @@ public class LookAround : MonoBehaviour
             float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -30f, 45f);
+            xRotation = Mathf.Clamp(xRotation, -30f, 30f);
             Vector3 currentRotation = cam.localRotation.eulerAngles;
             currentRotation.x = xRotation;
             cam.localRotation = Quaternion.Euler(currentRotation);
             camPivot.rotation = transform.rotation;
 
-            xRotation = Mathf.Clamp(xRotation, -30f, 30f);
             Vector3 currentBoneRotation = bone.localRotation.eulerAngles;
             currentBoneRotation.x = xRotation;
             bone.localRotation = Quaternion.Euler(currentBoneRotation);

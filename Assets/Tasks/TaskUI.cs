@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class TaskUI : MonoBehaviour
 {
-	public Settings settings;
+	public PlayerSettings playerSettings;
 	public GameObject client;
 	public TaskController taskObject;
+
 	void Update()
 	{
-		if (settings.isTaskOpen)
+		if (playerSettings.isTaskOpen)
 		{
 			if (Input.GetButtonDown("Cancel") || Input.GetButtonDown("Action"))
 			{
@@ -19,14 +20,14 @@ public class TaskUI : MonoBehaviour
 	}
 	private void OnEnable()
 	{
-		settings.isMenuOpen = true;
-		settings.isTaskOpen = true;
+		playerSettings.isMenuOpen = true;
+		playerSettings.isTaskOpen = true;
 		Cursor.lockState = CursorLockMode.None;
 	}
 	private void OnDisable()
 	{
-		settings.isMenuOpen = false;
-		settings.isTaskOpen = false;
+		playerSettings.isMenuOpen = false;
+		playerSettings.isTaskOpen = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 	public void FinishUI()

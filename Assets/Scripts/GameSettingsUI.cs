@@ -6,6 +6,7 @@ using TMPro;
 
 public class GameSettingsUI : MonoBehaviour
 {
+	public GameSettings gameSettings;
 	public Slider fogDensity;
 	public Slider playerSpeed;
 	public Slider tasksCount;
@@ -13,16 +14,15 @@ public class GameSettingsUI : MonoBehaviour
 	public Slider killDistance;
 	public Slider impostorsCount;
 	public TextMeshProUGUI impostorsCountText;
-
+	
 	private void OnEnable()
 	{
-		Settings settings = this.GetComponent<TaskUI>().settings;
-		fogDensity.value = -(settings.fogDensity / 0.4f) + 1.0f;
-		playerSpeed.value = settings.playerSpeed;
-		tasksCount.value = settings.tasksCount;
-		killDistance.value = settings.killDistance;
-		impostorsCount.value = settings.impostorsCount;
-		impostorsCountText.text = settings.impostorsCount + " Impostors";
+		fogDensity.value = -(gameSettings.fogDensity / 0.4f) + 1.0f;
+		playerSpeed.value = gameSettings.playerSpeed;
+		tasksCount.value = gameSettings.tasksCount;
+		killDistance.value = gameSettings.killDistance;
+		impostorsCount.value = gameSettings.impostorsCount;
+		impostorsCountText.text = gameSettings.impostorsCount + " Impostors";
 	}
 	public void ChangeFogDistance(float value)
 	{
@@ -32,7 +32,7 @@ public class GameSettingsUI : MonoBehaviour
 
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeFloatSetting(Settings.Setting.fogDensity, fogValue);
+			client.GetComponent<ClientController>().ChangeFloatSetting(GameSettings.Setting.fogDensity, fogValue);
 		}
 	}
 	public void ChangePlayerSpeed(float value)
@@ -41,7 +41,7 @@ public class GameSettingsUI : MonoBehaviour
 
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeFloatSetting(Settings.Setting.playerSpeed, value);
+			client.GetComponent<ClientController>().ChangeFloatSetting(GameSettings.Setting.playerSpeed, value);
 		}
 	}
 	public void ChangeKillDistance(float value)
@@ -50,7 +50,7 @@ public class GameSettingsUI : MonoBehaviour
 		
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeFloatSetting(Settings.Setting.killDistance, value);
+			client.GetComponent<ClientController>().ChangeFloatSetting(GameSettings.Setting.killDistance, value);
 		}
 	}
 	public void ChangeImpostorsCounts(float value)
@@ -61,7 +61,7 @@ public class GameSettingsUI : MonoBehaviour
 
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeIntSetting(Settings.Setting.impostorsCount, (int) value);
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.impostorsCount, (int) value);
 		}
 	}
 	public void ChangeTasksCounts(float value)
@@ -72,7 +72,7 @@ public class GameSettingsUI : MonoBehaviour
 
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeIntSetting(Settings.Setting.tasksCount, (int)value);
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.tasksCount, (int)value);
 		}
 	}
 	public void ResetSettings()

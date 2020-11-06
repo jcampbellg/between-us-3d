@@ -7,13 +7,13 @@ public class CrewUI : MonoBehaviour
 {
 	public List<GameObject> allTasks;
 	public List<GameObject> tasksList;
-	public Settings settings;
+	public GameSettings gameSettings;
 	public TextMeshProUGUI taskListUI;
 	bool showTask = true;
 
 	public void AssignTasks()
 	{
-		int count = settings.tasksCount;
+		int count = gameSettings.tasksCount;
 
 		List<GameObject> tasksAvalaible = new List<GameObject>(allTasks);
 		tasksList = new List<GameObject>();

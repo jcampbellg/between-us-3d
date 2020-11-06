@@ -8,17 +8,24 @@ public class Pointer : MonoBehaviour
     public float clickActionDistance = 2.5f;
     public LayerMask clickableObjects;
     public TextMeshProUGUI info;
-    public Settings settings;
+    PlayerSettings playerSettings;
+    GameSettings gameSettings;
     public GameObject pointerCanvas;
     public bool canUse = false;
-    private void Update()
+	private void Start()
+	{
+        GameObject gameStateObject = GameObject.FindGameObjectWithTag("GameState");
+        playerSettings = gameStateObject.GetComponent<PlayerSettings>();
+        gameSettings = gameStateObject.GetComponent<GameSettings>();
+    }
+	private void Update()
 	{
         if (canUse)
 		{
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            float clickPlayerDistance = settings.clickPlayerDistance;
+            float clickPlayerDistance = gameSettings.clickPlayerDistance;
 
-            if (!settings.isMenuOpen && Physics.Raycast(ray, out RaycastHit hit, clickPlayerDistance, clickableObjects))
+            if (!playerSettings.isMenuOpen && Physics.Raycast(ray, out RaycastHit hit, clickPlayerDistance, clickableObjects))
             {
                 string layer = LayerMask.LayerToName(hit.transform.gameObject.layer);
 
@@ -39,11 +46,11 @@ public class Pointer : MonoBehaviour
                 info.text = "";
             }
 
-            if (!settings.isMenuOpen && !pointerCanvas.activeSelf)
+            if (!playerSettings.isMenuOpen && !pointerCanvas.activeSelf)
             {
                 pointerCanvas.SetActive(true);
             }
-            else if (settings.isMenuOpen && pointerCanvas.activeSelf)
+            else if (playerSettings.isMenuOpen && pointerCanvas.activeSelf)
             {
                 pointerCanvas.SetActive(false);
             }
@@ -59,15 +66,6 @@ public class Pointer : MonoBehaviour
 		switch (playerRole)
 		{
 			case ClientController.Role.lobby:
-                if (taskCtl.task.type == Task.Tasks.changeSkin || taskCtl.task.type == Task.Tasks.openGameSettings)
-				{
-                    info.text = taskCtl.task.label + "\n" + taskCtl.task.instructions;
-                    if (Input.GetButtonDown("Action"))
-                    {
-                        taskCtl.ActionTask(this.gameObject);
-                    }
-                }
-                break;
 			case ClientController.Role.crew:
                 info.text = taskCtl.task.label + "\n" + taskCtl.task.instructions;
                 if (Input.GetButtonDown("Action"))
@@ -85,7 +83,7 @@ public class Pointer : MonoBehaviour
     void OnPlayer(RaycastHit hit)
     {
         GameObject playerHit = hit.transform.gameObject;
-        float killDistance = settings.clickPlayerDistance * settings.killDistance;
+        float killDistance = gameSettings.clickPlayerDistance * gameSettings.killDistance;
 
         ClientController.Role playerRole = this.GetComponent<ClientController>().playerRole;
         ClientController.Role playerHitRole = playerHit.GetComponent<ClientController>().playerRole;

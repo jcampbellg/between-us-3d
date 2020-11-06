@@ -5,28 +5,34 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public CharacterController characterController;
-    public Settings settings;
+    public PlayerSettings playerSettings;
+    GameSettings gameSettings;
     public Animator animator;
     public bool canUse = false;
 
+    private void Start()
+    {
+        GameObject gameStateObject = GameObject.FindGameObjectWithTag("GameState");
+        playerSettings = gameStateObject.GetComponent<PlayerSettings>();
+        gameSettings = gameStateObject.GetComponent<GameSettings>();
+    }
     void Update()
     {
         if (canUse)
         {
-            float speed = settings.playerSpeed;
+            float speed = gameSettings.playerSpeed;
             Vector3 move = Vector3.zero;
 
-            if (!settings.isMenuOpen)
+            if (!playerSettings.isMenuOpen)
 			{
                 move = GetInputMovement();
                 characterController.Move(move * speed * Time.deltaTime);
-
-                Transform camPivot = Camera.main.transform.parent;
-                camPivot.position = transform.position;
 			}
 
             animator.SetFloat("speed", move.magnitude);
             characterController.Move(Vector3.up * -10f * Time.deltaTime);
+            Transform camPivot = Camera.main.transform.parent;
+            camPivot.position = transform.position;
         }
         
     }

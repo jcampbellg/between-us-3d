@@ -6,24 +6,24 @@ using TMPro;
 
 public class NameUI : MonoBehaviour
 {
-    public Settings settings;
+    public GameState gameState;
     List<GameObject> playersList = new List<GameObject>();
 
     void Start()
     {
-        playersList = new List<GameObject>(settings.playersList);
+        playersList = new List<GameObject>(gameState.playersList);
     }
 
     void Update()
     {
-        if (playersList != settings.playersList)
+        if (playersList != gameState.playersList)
         {
             RefreshUI();
         }
     }
     void RefreshUI()
     {
-        playersList = new List<GameObject>(settings.playersList);
+        playersList = new List<GameObject>(gameState.playersList);
 
         for (int i = 1; i < 13; i++)
         {
@@ -37,10 +37,15 @@ public class NameUI : MonoBehaviour
 
                 ClientController client = playersList[i-1].GetComponent<ClientController>();
 
-                if (!client.isReady)
-                    text.text = client.playerName;
+                if (client.isLocalPlayer)
+                    text.text = "[Me] ";
                 else
-                    text.text = client.playerName + " [READY]";
+                    text.text = "";
+
+                if (!client.isReady)
+                    text.text += client.playerName;
+                else
+                    text.text += client.playerName + " [READY]";
 
                 logo.sprite = playersList[i-1].GetComponent<SkinRenderer>().skin.logo;
             }
