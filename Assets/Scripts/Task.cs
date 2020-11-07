@@ -9,10 +9,14 @@ public class Task : ScriptableObject
 	{
 		changeSkin,
 		openGameSettings,
-		openUIPanel
+		openUIPanel,
+		parentTask
 	};
 
     public string label;
     public string instructions;
 	public Tasks type;
+	public string step;
+	public int stepsAdd;
+	public int stepsSubtract;
 }

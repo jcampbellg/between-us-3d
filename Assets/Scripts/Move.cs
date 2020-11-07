@@ -9,6 +9,7 @@ public class Move : MonoBehaviour
     GameSettings gameSettings;
     public Animator animator;
     public bool canUse = false;
+    public bool hasGravity = true;
 
     private void Start()
     {
@@ -30,7 +31,10 @@ public class Move : MonoBehaviour
 			}
 
             animator.SetFloat("speed", move.magnitude);
-            characterController.Move(Vector3.up * -10f * Time.deltaTime);
+
+            if (hasGravity)
+                characterController.Move(Vector3.up * -10f * Time.deltaTime);
+
             Transform camPivot = Camera.main.transform.parent;
             camPivot.position = transform.position;
         }

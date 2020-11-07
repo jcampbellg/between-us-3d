@@ -68,13 +68,17 @@
     <Compile Include="Assets\Scripts\DoorsManager.cs" />
     <Compile Include="Assets\Scripts\NameUI.cs" />
     <Compile Include="Assets\Tasks\TaskUI.cs" />
+    <Compile Include="Assets\Tasks\Upload\DownloadUI.cs" />
     <Compile Include="Assets\Scripts\LocationTrigger.cs" />
     <Compile Include="Assets\Scripts\GameSettings.cs" />
+    <Compile Include="Assets\Tasks\Fix Wiring\FixWiring.cs" />
     <Compile Include="Assets\Scripts\ClientController.cs" />
     <Compile Include="Assets\Scripts\MapUI.cs" />
     <Compile Include="Assets\Scripts\CompasUI.cs" />
     <Compile Include="Assets\Scripts\CrewUI.cs" />
+    <Compile Include="Assets\Tasks\Upload\DownloadData.cs" />
     <Compile Include="Assets\Tasks\UnlockUI.cs" />
+    <Compile Include="Assets\Tasks\Diverted Power\DivertedUI.cs" />
     <Compile Include="Assets\Scripts\SkinRenderer.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
     <Compile Include="Assets\Scripts\ImpostorsUI.cs" />
@@ -82,8 +86,7 @@
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Tasks\Diverted Power\DivertedUI.cs" />
-    <Compile Include="Assets\Tasks\Upload\DownloadUI.cs" />
+    <Compile Include="Assets\Tasks\Diverted Power\DivertedPower.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

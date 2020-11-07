@@ -43,7 +43,7 @@ public class MapUI : MonoBehaviour
 			OnMapDrag();
 		}
 
-		if (Input.GetButtonDown("Action"))
+		if ( Input.GetButtonDown("Action"))
 		{
 			//Center to player
 			mapCamera.transform.position = new Vector3(client.transform.position.x, mapCamera.transform.position.y, client.transform.position.z);

@@ -10,8 +10,10 @@ public class GameSettings : NetworkBehaviour
         fogDensity,
         playerSpeed,
         killDistance,
-        impostorsCount,
-        tasksCount
+        impostorCount,
+        commonTaskCount,
+        shortTaskCount,
+        longTaskCount
     };
 
     [SyncVar(hook = nameof(HookChangeFog))]
@@ -21,19 +23,25 @@ public class GameSettings : NetworkBehaviour
     [SyncVar]
     public float playerSpeed = 10.0f;
     [SyncVar]
-    public int tasksCount = 2;
+    public int commonTaskCount = 2;
+    [SyncVar]
+    public int shortTaskCount = 2;
+    [SyncVar]
+    public int longTaskCount = 1;
     [SyncVar]
     public float killDistance = 0.5f;
     [SyncVar]
-    public int impostorsCount = 1;
+    public int impostorCount = 1;
 
     public void Restart()
 	{
         ChangeFog(0.09f);
         playerSpeed = 10.0f;
-        tasksCount = 2;
+        commonTaskCount = 2;
+        shortTaskCount = 2;
+        longTaskCount = 1;
         killDistance = 0.5f;
-        impostorsCount = 1;
+        impostorCount = 1;
     }
     public void HookChangeFog(float oldFog, float newFog)
 	{

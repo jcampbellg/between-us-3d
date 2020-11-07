@@ -31,6 +31,8 @@ public class WiresUI : MonoBehaviour
 
 		if (allFinish)
 		{
+			// Move to next Wire
+			this.GetComponent<TaskUI>().taskObject.GetComponentInParent<FixWiring>().NextFixWire();
 			this.GetComponent<TaskUI>().FinishUI();
 		}
 	}

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6031440111245707552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -313,7 +313,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.4
+  m_Height: 2.2
   m_Radius: 0.95
   m_SlopeLimit: 45
   m_StepOffset: 0
@@ -350,6 +350,7 @@ MonoBehaviour:
   playerSettings: {fileID: 0}
   animator: {fileID: 543714690375816499}
   canUse: 0
+  hasGravity: 1
 --- !u!114 &1924879477825613453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,11 +381,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  deadBody: {fileID: 225680056645134625, guid: d218809cc9eeb5e4fac42bff64b0b1f4, type: 3}
+  ghostLayerView:
+    serializedVersion: 2
+    m_Bits: 30519
+  playerLayerView:
+    serializedVersion: 2
+    m_Bits: 14135
   canvas: {fileID: 1079011654540044009}
   mapCanvas: {fileID: 1281766336548685016}
   playerName: 
   playerRole: 0
   isReady: 0
+  taskCount: 0
+  isGhost: 0
 --- !u!114 &4203354839292279431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +426,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   bodyRenderer: {fileID: 2461590626053880112}
+  ghostMaterial: {fileID: 0}
   skin: {fileID: 0}
 --- !u!114 &6116708057245324832
 MonoBehaviour:

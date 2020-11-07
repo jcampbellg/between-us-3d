@@ -12,6 +12,7 @@ public class Pointer : MonoBehaviour
     GameSettings gameSettings;
     public GameObject pointerCanvas;
     public bool canUse = false;
+
 	private void Start()
 	{
         GameObject gameStateObject = GameObject.FindGameObjectWithTag("GameState");
@@ -108,7 +109,12 @@ public class Pointer : MonoBehaviour
                 else
                 {
                     if (hit.distance < killDistance)
+					{
                         info.text = info.text = playerHitName + "\n" + "[Q] Kill";
+
+                        if (Input.GetButtonDown("Kill"))
+                            this.GetComponent<ClientController>().KillCrew(playerHit);
+                    }
                     else
                         info.text = info.text = playerHitName;
                 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Mirror.Websocket;
 
 public class ClientController : NetworkBehaviour
 {
@@ -11,18 +12,26 @@ public class ClientController : NetworkBehaviour
         crew,
         impostor
 	};
+    public GameObject deadBody;
+    public LayerMask ghostLayerView;
+    public LayerMask playerLayerView;
     Transform meetingPosition;
     PlayerSettings playerSettings;
     GameSettings gameSettings;
     GameState gameState;
+    TasksState taskState;
     public GameObject canvas;
     public GameObject mapCanvas;
     [SyncVar]
     public string playerName = "";
-    [SyncVar(hook = nameof(OnGameStart))]
+    [SyncVar(hook = nameof(OnRoleChange))]
     public Role playerRole = Role.lobby;
     [SyncVar]
     public bool isReady = false;
+    [SyncVar]
+    public int taskCount = 0;
+    [SyncVar(hook = nameof(OnGhost))]
+    public bool isGhost = false;
 
     void Start()
     {
@@ -31,9 +40,11 @@ public class ClientController : NetworkBehaviour
         playerSettings = gameStateObject.GetComponent<PlayerSettings>();
         gameSettings = gameStateObject.GetComponent<GameSettings>();
         gameState = gameStateObject.GetComponent<GameState>();
+        taskState = gameStateObject.GetComponent<TasksState>();
 
         if (isLocalPlayer)
 		{
+            playerSettings.localPlayer = this.gameObject;
             GetComponent<Move>().canUse = true;
             GetComponent<LookAround>().canUse = true;
             GetComponent<Pointer>().canUse = true;
@@ -58,13 +69,15 @@ public class ClientController : NetworkBehaviour
         }
     }
 
-    public void OnGameStart(Role oldRole, Role newRole)
+    public void OnRoleChange(Role oldRole, Role newRole)
     {
         if (oldRole == Role.lobby)
 		{
             if (isLocalPlayer)
             {
                 gameState.OpenRoleUI(this.gameObject);
+                taskState.AssignShortTasks();
+                taskState.ActiveCommonTasks();
             }
 
             if (newRole == Role.impostor)
@@ -102,7 +115,7 @@ public class ClientController : NetworkBehaviour
             }
 		}
 
-        if (allReady && gameState.playersList.Count > 3)
+        if (allReady)
 		{
             gameState.GameStart();
 		}
@@ -121,6 +134,43 @@ public class ClientController : NetworkBehaviour
 		}
 	}
     
+    public void KillCrew(GameObject victim)
+	{
+        CmdKillCrew(victim);
+    }
+    [Command]
+    void CmdKillCrew(GameObject victim)
+	{
+        GameObject deadVictim = Instantiate(deadBody, victim.transform.position, victim.transform.rotation);
+        deadVictim.GetComponent<SkinRenderer>().skin = victim.GetComponent<SkinRenderer>().skin;
+        NetworkServer.Spawn(deadVictim);
+        victim.GetComponent<ClientController>().isGhost = true;
+    }
+    public void OnGhost(bool oldValue, bool newValue)
+	{
+        if (newValue)
+		{
+            this.gameObject.layer = LayerMask.NameToLayer("Ghost");
+            this.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
+
+            Camera.main.cullingMask = ghostLayerView;
+
+            this.GetComponent<Move>().hasGravity = false;
+            this.GetComponent<SkinRenderer>().GhostUp();
+
+            this.transform.position = new Vector3(transform.position.x, 2.71f, transform.position.z);
+        }
+        else
+		{
+            this.gameObject.layer = LayerMask.NameToLayer("Player");
+            this.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Player");
+
+            Camera.main.cullingMask = playerLayerView;
+
+            this.GetComponent<Move>().hasGravity = true;
+            this.GetComponent<SkinRenderer>().GhostUp();
+        }
+    }
     // Tasks
     public void ActionTask(Task.Tasks type)
 	{
@@ -171,11 +221,17 @@ public class ClientController : NetworkBehaviour
     {
         switch (id)
         {
-            case GameSettings.Setting.impostorsCount:
-                gameSettings.impostorsCount = value;
+            case GameSettings.Setting.impostorCount:
+                gameSettings.impostorCount = value;
                 break;
-            case GameSettings.Setting.tasksCount:
-                gameSettings.tasksCount = value;
+            case GameSettings.Setting.commonTaskCount:
+                gameSettings.commonTaskCount = value;
+                break;
+            case GameSettings.Setting.shortTaskCount:
+                gameSettings.shortTaskCount = value;
+                break;
+            case GameSettings.Setting.longTaskCount:
+                gameSettings.longTaskCount = value;
                 break;
             default:
                 break;
@@ -199,5 +255,16 @@ public class ClientController : NetworkBehaviour
     public void CmdAddToFinishTasks()
     {
         gameState.gameObject.GetComponent<TasksState>().totalTasksDone += 1;
+    }
+
+    public void AddToTotalTaskCount(int add)
+	{
+        CmdAddToTotalTaskCount(add);
+    }
+    [Command]
+    public void CmdAddToTotalTaskCount(int add)
+    {
+        taskCount += add;
+        taskState.totalTasks += add;
     }
 }

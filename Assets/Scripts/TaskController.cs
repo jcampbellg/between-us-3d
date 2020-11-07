@@ -33,4 +33,38 @@ public class TaskController : MonoBehaviour
 	{
 		this.gameObject.SetActive(false);
 	}
+
+	private void OnEnable()
+	{
+		GameObject gameState = GameObject.FindGameObjectWithTag("GameState");
+		if (gameState)
+		{
+			GameObject localPlayer = GameObject.FindGameObjectWithTag("GameState").GetComponent<PlayerSettings>().localPlayer;
+			if (localPlayer)
+			{
+				if (localPlayer.GetComponent<ClientController>().playerRole == ClientController.Role.crew)
+				{
+					localPlayer.GetComponent<ClientController>().AddToTotalTaskCount(task.stepsAdd);
+					if (task.type == Task.Tasks.openUIPanel)
+						gameState.GetComponent<TasksState>().localTaskList.Add(task);
+				}
+			}
+		}
+	}
+	private void OnDisable()
+	{
+		GameObject gameState = GameObject.FindGameObjectWithTag("GameState");
+		if (gameState)
+		{
+			GameObject localPlayer = GameObject.FindGameObjectWithTag("GameState").GetComponent<PlayerSettings>().localPlayer;
+			if (localPlayer)
+			{
+				if (localPlayer.GetComponent<ClientController>().playerRole == ClientController.Role.crew)
+				{
+					if (task.type == Task.Tasks.openUIPanel)
+						gameState.GetComponent<TasksState>().localTaskList.Remove(task);
+				}
+			}
+		}
+	}
 }

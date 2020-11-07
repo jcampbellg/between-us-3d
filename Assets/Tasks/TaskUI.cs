@@ -7,10 +7,11 @@ public class TaskUI : MonoBehaviour
 	public PlayerSettings playerSettings;
 	public GameObject client;
 	public TaskController taskObject;
+	public bool canClose = true;
 
 	void Update()
 	{
-		if (playerSettings.isTaskOpen)
+		if (playerSettings.isTaskOpen && canClose)
 		{
 			if (Input.GetButtonDown("Cancel") || Input.GetButtonDown("Action"))
 			{

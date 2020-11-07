@@ -9,20 +9,32 @@ public class GameSettingsUI : MonoBehaviour
 	public GameSettings gameSettings;
 	public Slider fogDensity;
 	public Slider playerSpeed;
-	public Slider tasksCount;
-	public TextMeshProUGUI tasksCountText;
+	public Slider commonTaskCountSlider;
+	public TextMeshProUGUI commonTaskCountText;
+	public Slider shortTaskCountSlider;
+	public TextMeshProUGUI shortTaskCountText;
+	public Slider longTaskCountSlider;
+	public TextMeshProUGUI longTaskCountText;
 	public Slider killDistance;
-	public Slider impostorsCount;
-	public TextMeshProUGUI impostorsCountText;
+	public Slider impostorCount;
+	public TextMeshProUGUI impostorCountText;
 	
 	private void OnEnable()
 	{
 		fogDensity.value = -(gameSettings.fogDensity / 0.4f) + 1.0f;
 		playerSpeed.value = gameSettings.playerSpeed;
-		tasksCount.value = gameSettings.tasksCount;
+
+		commonTaskCountSlider.value = gameSettings.commonTaskCount;
+		commonTaskCountText.text= gameSettings.commonTaskCount + " Common Tasks";
+		shortTaskCountSlider.value = gameSettings.shortTaskCount;
+		shortTaskCountText.text= gameSettings.shortTaskCount + " Short Tasks";
+		longTaskCountSlider.value = gameSettings.longTaskCount;
+		longTaskCountText.text = gameSettings.longTaskCount + " Long Tasks";
+
 		killDistance.value = gameSettings.killDistance;
-		impostorsCount.value = gameSettings.impostorsCount;
-		impostorsCountText.text = gameSettings.impostorsCount + " Impostors";
+
+		impostorCount.value = gameSettings.impostorCount;
+		impostorCountText.text = gameSettings.impostorCount + " Impostors";
 	}
 	public void ChangeFogDistance(float value)
 	{
@@ -53,26 +65,49 @@ public class GameSettingsUI : MonoBehaviour
 			client.GetComponent<ClientController>().ChangeFloatSetting(GameSettings.Setting.killDistance, value);
 		}
 	}
-	public void ChangeImpostorsCounts(float value)
+	public void ChangeImpostorCount(float value)
 	{
 		GameObject client = this.GetComponent<TaskUI>().client;
 
-		impostorsCountText.text = value + " Impostors";
+		impostorCountText.text = value + " Impostors";
 
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.impostorsCount, (int) value);
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.impostorCount, (int) value);
 		}
 	}
-	public void ChangeTasksCounts(float value)
+
+	public void ChangeCommonTaskCount(float value)
 	{
 		GameObject client = this.GetComponent<TaskUI>().client;
 
-		tasksCountText.text = value + " Tasks";
+		commonTaskCountText.text = value + " Common Tasks";
 
 		if (client)
 		{
-			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.tasksCount, (int)value);
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.commonTaskCount, (int)value);
+		}
+	}
+	public void ChangeShortTaskCount(float value)
+	{
+		GameObject client = this.GetComponent<TaskUI>().client;
+
+		shortTaskCountText.text = value + " Short Tasks";
+
+		if (client)
+		{
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.shortTaskCount, (int)value);
+		}
+	}
+	public void ChangeLongTaskCount(float value)
+	{
+		GameObject client = this.GetComponent<TaskUI>().client;
+
+		longTaskCountText.text = value + " Long Tasks";
+
+		if (client)
+		{
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.longTaskCount, (int)value);
 		}
 	}
 	public void ResetSettings()

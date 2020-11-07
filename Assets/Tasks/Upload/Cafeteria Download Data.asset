@@ -15,3 +15,6 @@ MonoBehaviour:
   label: 'Cafeteria: Download Data'
   instructions: '[E] To Interact'
   type: 2
+  step: (1)
+  stepsAdd: 0
+  stepsSubtract: 1

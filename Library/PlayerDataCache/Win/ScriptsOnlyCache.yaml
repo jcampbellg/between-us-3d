@@ -5,10 +5,13 @@ ScriptsOnlyBuild:
     - ClientController
     - CompasUI
     - CrewUI
+    - DivertedPower
     - DivertedUI
     - Door
     - DoorsManager
+    - DownloadData
     - DownloadUI
+    - FixWiring
     - GameSettings
     - GameSettingsUI
     - GameState
@@ -149,6 +152,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
@@ -254,115 +259,121 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14250}
     - Class: 114
-      Script: {instanceID: 14510}
+      Script: {instanceID: 14512}
     - Class: 114
-      Script: {instanceID: 14570}
+      Script: {instanceID: 14572}
     - Class: 114
-      Script: {instanceID: 14632}
+      Script: {instanceID: 14634}
     - Class: 114
-      Script: {instanceID: 14652}
+      Script: {instanceID: 14654}
     - Class: 114
-      Script: {instanceID: 14710}
+      Script: {instanceID: 14712}
     - Class: 114
-      Script: {instanceID: 14730}
+      Script: {instanceID: 14732}
     - Class: 114
-      Script: {instanceID: 14762}
+      Script: {instanceID: 14764}
     - Class: 114
-      Script: {instanceID: 15034}
+      Script: {instanceID: 15036}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 15066}
     - Class: 114
-      Script: {instanceID: 15112}
+      Script: {instanceID: 15114}
     - Class: 114
-      Script: {instanceID: 15118}
+      Script: {instanceID: 15120}
     - Class: 114
-      Script: {instanceID: 15136}
+      Script: {instanceID: 15138}
     - Class: 114
-      Script: {instanceID: 15148}
+      Script: {instanceID: 15150}
     - Class: 114
-      Script: {instanceID: 15288}
+      Script: {instanceID: 15290}
     - Class: 114
-      Script: {instanceID: 15330}
+      Script: {instanceID: 15332}
     - Class: 114
-      Script: {instanceID: 15338}
+      Script: {instanceID: 15340}
     - Class: 114
-      Script: {instanceID: 15396}
+      Script: {instanceID: 15398}
     - Class: 114
-      Script: {instanceID: 15504}
+      Script: {instanceID: 15404}
     - Class: 114
-      Script: {instanceID: 15606}
+      Script: {instanceID: 15508}
     - Class: 114
-      Script: {instanceID: 15612}
+      Script: {instanceID: 15610}
     - Class: 114
-      Script: {instanceID: 15652}
+      Script: {instanceID: 15616}
     - Class: 114
-      Script: {instanceID: 15738}
+      Script: {instanceID: 15656}
     - Class: 114
-      Script: {instanceID: 15832}
+      Script: {instanceID: 15710}
     - Class: 114
-      Script: {instanceID: 15896}
+      Script: {instanceID: 15744}
     - Class: 114
-      Script: {instanceID: 15992}
+      Script: {instanceID: 15838}
     - Class: 114
-      Script: {instanceID: 16050}
+      Script: {instanceID: 15902}
     - Class: 114
-      Script: {instanceID: 16102}
+      Script: {instanceID: 15998}
     - Class: 114
-      Script: {instanceID: 16164}
+      Script: {instanceID: 16056}
     - Class: 114
-      Script: {instanceID: 16172}
+      Script: {instanceID: 16108}
     - Class: 114
-      Script: {instanceID: 16228}
+      Script: {instanceID: 16170}
     - Class: 114
-      Script: {instanceID: 16244}
+      Script: {instanceID: 16178}
     - Class: 114
-      Script: {instanceID: 16304}
+      Script: {instanceID: 16212}
     - Class: 114
-      Script: {instanceID: 16330}
+      Script: {instanceID: 16236}
     - Class: 114
-      Script: {instanceID: 16362}
+      Script: {instanceID: 16252}
     - Class: 114
-      Script: {instanceID: 16380}
+      Script: {instanceID: 16300}
     - Class: 114
-      Script: {instanceID: 16410}
+      Script: {instanceID: 16314}
     - Class: 114
-      Script: {instanceID: 16468}
+      Script: {instanceID: 16340}
     - Class: 114
-      Script: {instanceID: 16586}
+      Script: {instanceID: 16372}
     - Class: 114
-      Script: {instanceID: 16598}
+      Script: {instanceID: 16390}
     - Class: 114
-      Script: {instanceID: 16648}
+      Script: {instanceID: 16420}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16478}
     - Class: 114
-      Script: {instanceID: 16720}
+      Script: {instanceID: 16596}
     - Class: 114
-      Script: {instanceID: 16726}
+      Script: {instanceID: 16608}
     - Class: 114
-      Script: {instanceID: 16758}
+      Script: {instanceID: 16658}
     - Class: 114
-      Script: {instanceID: 16764}
+      Script: {instanceID: 16688}
     - Class: 114
-      Script: {instanceID: 16802}
+      Script: {instanceID: 16730}
     - Class: 114
-      Script: {instanceID: 16840}
+      Script: {instanceID: 16736}
     - Class: 114
-      Script: {instanceID: 16844}
+      Script: {instanceID: 16768}
     - Class: 114
-      Script: {instanceID: 16918}
+      Script: {instanceID: 16774}
     - Class: 114
-      Script: {instanceID: 16944}
+      Script: {instanceID: 16812}
     - Class: 114
-      Script: {instanceID: 16948}
+      Script: {instanceID: 16850}
     - Class: 114
-      Script: {instanceID: 16962}
+      Script: {instanceID: 16854}
     - Class: 114
-      Script: {instanceID: 16970}
+      Script: {instanceID: 16928}
     - Class: 114
-      Script: {instanceID: 197420}
+      Script: {instanceID: 16954}
     - Class: 114
-      Script: {instanceID: 570578}
+      Script: {instanceID: 16958}
+    - Class: 114
+      Script: {instanceID: 16972}
+    - Class: 114
+      Script: {instanceID: 16980}
+    - Class: 114
+      Script: {instanceID: 1696226}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -746,7 +757,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 59ed54b9641a100d6f35c66ed7ee4d19
+      Hash: 372ade8605228c5c2629cc39eb4ec21b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Move
@@ -788,7 +799,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: b22579ad12739d04874e19af01f0371b
+      Hash: 77d119925e916fb520789619ff61ed17
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameSettingsUI
@@ -854,7 +865,7 @@ ScriptsOnlyBuild:
     className: FilmGrain
   - hash:
       serializedVersion: 2
-      Hash: de46972c54bc51ebd29f608aa191787e
+      Hash: 5cc2083c3fc0bb073fca962037efb3ba
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Task
@@ -1076,7 +1087,7 @@ ScriptsOnlyBuild:
     className: InputField
   - hash:
       serializedVersion: 2
-      Hash: e42da2b86f373e6805b47c2f92113971
+      Hash: 42e574743f293da28cd498fdd69ef033
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TaskUI
@@ -1196,6 +1207,12 @@ ScriptsOnlyBuild:
     className: Tonemapping
   - hash:
       serializedVersion: 2
+      Hash: 016eff079876e837ec7fa53121a1dedd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DownloadUI
+  - hash:
+      serializedVersion: 2
       Hash: 23b81d05a0ad0499613fc3e1a4a0501b
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1226,7 +1243,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 51afafed55ddc3ada184b1800f9c5e93
+      Hash: 3b27d02a25f1ee4c5116d8813561eaab
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameSettings
@@ -1236,6 +1253,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ColorAdjustments
+  - hash:
+      serializedVersion: 2
+      Hash: 3584b7501fb66bf05204876bacfdf414
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixWiring
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -1280,7 +1303,7 @@ ScriptsOnlyBuild:
     className: NetworkLogSettings
   - hash:
       serializedVersion: 2
-      Hash: 2e9fdfb44373062fe7e058502e746aee
+      Hash: 1e618b6061e6faae1f941e2e9b0b42fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientController
@@ -1334,10 +1357,16 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerUIntField
   - hash:
       serializedVersion: 2
-      Hash: f040c2e22f4d12d11d0c0091ee4769c9
+      Hash: 05a2f25bb3f15a84a582960e30c8c7fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CrewUI
+  - hash:
+      serializedVersion: 2
+      Hash: cd248951447ac86ecdcdfb242621edbf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DownloadData
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -1352,6 +1381,12 @@ ScriptsOnlyBuild:
     className: UnlockUI
   - hash:
       serializedVersion: 2
+      Hash: 2e6d05e2f22d9b28e57103efbd34b5f8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DivertedUI
+  - hash:
+      serializedVersion: 2
       Hash: 2bca67b5b15bd74f4ed58264903bca65
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
@@ -1364,7 +1399,7 @@ ScriptsOnlyBuild:
     className: DepthOfField
   - hash:
       serializedVersion: 2
-      Hash: c808837ddd729d832a254e02944dffe9
+      Hash: f809ac8b85c6d54a99d50633dd1d6fa6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkinRenderer
@@ -1376,7 +1411,7 @@ ScriptsOnlyBuild:
     className: ShadowCaster2D
   - hash:
       serializedVersion: 2
-      Hash: 1545a7be3145dab9166f5609b37ad14f
+      Hash: e8d4a4b2d22a54b6e0025e1efeb70996
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerSettings
@@ -1466,7 +1501,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: ebd96de8586158c52009e3b23ca937e8
+      Hash: 4697914dc110c7a89803af2e198f26a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TasksState
@@ -1598,17 +1633,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 0ad0c462e466bad8a3971a6d98e97674
+      Hash: 745f04d0161b953df73cb65ccb389f5c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: DivertedUI
-  - hash:
-      serializedVersion: 2
-      Hash: 016eff079876e837ec7fa53121a1dedd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DownloadUI
+    className: DivertedPower
   platform: 5
   scenePathNames:
   - Assets/Scenes/BetweenUs.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe

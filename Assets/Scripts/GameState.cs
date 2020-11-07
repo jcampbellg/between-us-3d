@@ -65,7 +65,6 @@ public class GameState : NetworkBehaviour
         else
         {
             crewUI.SetActive(true);
-            crewUI.GetComponent<CrewUI>().AssignTasks();
         }
         this.GetComponent<TasksState>().taskbarPanel.SetActive(true);
     }
@@ -77,17 +76,19 @@ public class GameState : NetworkBehaviour
         int seed = randomizer.Next(int.MinValue, int.MaxValue);
         Random.InitState(seed);
 
+        tasksState.AssignCommonTasks();
+
         int numPlayers = playersList.Count;
         
-		while (gameSettings.impostorsCount >= numPlayers - gameSettings.impostorsCount)
+		while (gameSettings.impostorCount >= numPlayers - gameSettings.impostorCount)
 		{
-            gameSettings.impostorsCount -= 1;
+            gameSettings.impostorCount -= 1;
 		}
 
         List<GameObject> playersCopy = new List<GameObject>(playersList);
 
         // Assign Impostors
-        for (int i = 0; i < gameSettings.impostorsCount; i++)
+        for (int i = 0; i < gameSettings.impostorCount; i++)
 		{
             int n = Random.Range(0, playersCopy.Count);
             GameObject newImpostor = playersCopy[n];
@@ -101,9 +102,6 @@ public class GameState : NetworkBehaviour
 		{
             crew.GetComponent<ClientController>().playerRole = ClientController.Role.crew;
 		}
-
-        // Calculate Total Tasks
-        tasksState.totalTasks = playersCopy.Count * gameSettings.tasksCount;
 
         gameState = State.onGame;
         doorsManager.OpenCafeteria(true);

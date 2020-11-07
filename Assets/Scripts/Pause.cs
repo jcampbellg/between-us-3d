@@ -28,7 +28,7 @@ public class Pause : MonoBehaviour
             }
         }
 
-        if ( client && ((Input.GetButtonDown("Map") && !playerSettings.isPauseOpen) || (playerSettings.isMapOpen && Input.GetButtonDown("Cancel"))))
+        if ( client && ((Input.GetButtonDown("Map") && !playerSettings.isPauseOpen && !playerSettings.isTaskOpen) || (playerSettings.isMapOpen && Input.GetButtonDown("Cancel"))))
         {
             bool active = !playerSettings.isMapOpen;
             playerSettings.isMapOpen = active;
