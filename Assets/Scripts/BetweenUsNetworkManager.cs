@@ -27,6 +27,11 @@ public class BetweenUsNetworkManager : NetworkManager
 	}
 	void SelectRandomSkin(GameObject player)
 	{
+		// Change seed
+		var randomizer = new System.Random();
+		int seed = randomizer.Next(int.MinValue, int.MaxValue);
+		Random.InitState(seed);
+
 		int n = Random.Range(0, skins.Count);
 		Skin skin = skins[n];
 		player.GetComponent<SkinRenderer>().skin = skin;

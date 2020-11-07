@@ -56,10 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TaskController.cs" />
-    <Compile Include="Assets\Tasks\WiresUI.cs" />
+    <Compile Include="Assets\Tasks\Fix Wiring\WiresUI.cs" />
     <Compile Include="Assets\Scripts\Pointer.cs" />
     <Compile Include="Assets\Scripts\LookAround.cs" />
-    <Compile Include="Assets\Tasks\WiresUIWire.cs" />
+    <Compile Include="Assets\Tasks\Fix Wiring\WiresUIWire.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\GameSettingsUI.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
@@ -82,6 +82,8 @@
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
+    <Compile Include="Assets\Tasks\Diverted Power\DivertedUI.cs" />
+    <Compile Include="Assets\Tasks\Upload\DownloadUI.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

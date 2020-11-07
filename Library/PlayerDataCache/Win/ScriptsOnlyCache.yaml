@@ -5,8 +5,10 @@ ScriptsOnlyBuild:
     - ClientController
     - CompasUI
     - CrewUI
+    - DivertedUI
     - Door
     - DoorsManager
+    - DownloadUI
     - GameSettings
     - GameSettingsUI
     - GameState
@@ -357,6 +359,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16962}
     - Class: 114
       Script: {instanceID: 16970}
+    - Class: 114
+      Script: {instanceID: 197420}
+    - Class: 114
+      Script: {instanceID: 570578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1590,7 +1596,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 0ad0c462e466bad8a3971a6d98e97674
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DivertedUI
+  - hash:
+      serializedVersion: 2
+      Hash: 016eff079876e837ec7fa53121a1dedd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DownloadUI
   platform: 5
   scenePathNames:
   - Assets/Scenes/BetweenUs.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe
