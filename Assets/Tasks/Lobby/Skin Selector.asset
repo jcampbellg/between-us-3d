@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Skin Selector
   m_EditorClassIdentifier: 
   label: Skin Selector
-  instructions: '[E] Change Skin'
+  instructions: Change Skin
   type: 0
+  step: 
   stepsAdd: 0
   stepsSubtract: 0

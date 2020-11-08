@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - DownloadData
     - DownloadUI
     - FixWiring
+    - FollowPlayerMap
     - GameSettings
     - GameSettingsUI
     - GameState
@@ -103,10 +104,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -344,41 +343,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16476}
     - Class: 114
-      Script: {instanceID: 16594}
+      Script: {instanceID: 16576}
     - Class: 114
-      Script: {instanceID: 16606}
+      Script: {instanceID: 16596}
     - Class: 114
-      Script: {instanceID: 16656}
+      Script: {instanceID: 16608}
     - Class: 114
-      Script: {instanceID: 16686}
+      Script: {instanceID: 16658}
     - Class: 114
-      Script: {instanceID: 16728}
+      Script: {instanceID: 16688}
     - Class: 114
-      Script: {instanceID: 16734}
+      Script: {instanceID: 16730}
     - Class: 114
-      Script: {instanceID: 16766}
+      Script: {instanceID: 16736}
     - Class: 114
-      Script: {instanceID: 16772}
+      Script: {instanceID: 16768}
     - Class: 114
-      Script: {instanceID: 16810}
+      Script: {instanceID: 16774}
     - Class: 114
-      Script: {instanceID: 16848}
+      Script: {instanceID: 16812}
     - Class: 114
-      Script: {instanceID: 16852}
+      Script: {instanceID: 16850}
     - Class: 114
-      Script: {instanceID: 16920}
+      Script: {instanceID: 16854}
     - Class: 114
-      Script: {instanceID: 16928}
+      Script: {instanceID: 16922}
     - Class: 114
-      Script: {instanceID: 16954}
+      Script: {instanceID: 16930}
     - Class: 114
-      Script: {instanceID: 16958}
+      Script: {instanceID: 16956}
     - Class: 114
-      Script: {instanceID: 16972}
+      Script: {instanceID: 16960}
     - Class: 114
-      Script: {instanceID: 16980}
+      Script: {instanceID: 16974}
     - Class: 114
-      Script: {instanceID: 39150}
+      Script: {instanceID: 16982}
+    - Class: 114
+      Script: {instanceID: 152472}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -582,7 +583,7 @@ ScriptsOnlyBuild:
     className: WiresUI
   - hash:
       serializedVersion: 2
-      Hash: 8bd7cdebdd2be8d9629854d0d33a36e3
+      Hash: 41bfb766f8e0dfc31dc47747137190d8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pointer
@@ -1465,6 +1466,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeadBody
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
@@ -1644,10 +1651,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 82487e4bc00f5fadfac38f6ff35b3aa9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: DeadBody
+    className: FollowPlayerMap
   platform: 5
   scenePathNames:
   - Assets/Scenes/BetweenUs.unity

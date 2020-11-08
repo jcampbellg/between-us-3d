@@ -81,13 +81,14 @@
     <Compile Include="Assets\Tasks\Diverted Power\DivertedUI.cs" />
     <Compile Include="Assets\Scripts\SkinRenderer.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
+    <Compile Include="Assets\Scripts\DeadBody.cs" />
     <Compile Include="Assets\Scripts\ImpostorsUI.cs" />
     <Compile Include="Assets\Scripts\TasksState.cs" />
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\BetweenUsNetworkManager.cs" />
     <Compile Include="Assets\Tasks\Diverted Power\DivertedPower.cs" />
     <Compile Include="Assets\Scripts\Skin.cs" />
-    <Compile Include="Assets\Scripts\DeadBody.cs" />
+    <Compile Include="Assets\Scripts\FollowPlayerMap.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Reactor Unlock Manifolds
   m_EditorClassIdentifier: 
   label: 'Reactor: Unlock Manifolds'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
+  step: 
   stepsAdd: 1
   stepsSubtract: 1

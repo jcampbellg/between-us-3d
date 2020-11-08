@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Cafeteria Fix Wiring
   m_EditorClassIdentifier: 
   label: 'Cafeteria: Fix Wiring'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
+  step: 
   stepsAdd: 0
   stepsSubtract: 1

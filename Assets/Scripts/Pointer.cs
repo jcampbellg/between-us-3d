@@ -8,6 +8,9 @@ public class Pointer : MonoBehaviour
     public float clickActionDistance = 2.5f;
     public LayerMask clickableObjects;
     public TextMeshProUGUI info;
+    public GameObject interactLayout;
+    public TextMeshProUGUI instructions;
+    public TextMeshProUGUI key;
     PlayerSettings playerSettings;
     GameSettings gameSettings;
     public GameObject pointerCanvas;
@@ -35,7 +38,10 @@ public class Pointer : MonoBehaviour
                     if (hit.distance < clickActionDistance)
                         OnTask(hit);
                     else
+					{
+                        interactLayout.SetActive(false);
                         info.text = "";
+                    }
                 } 
                 else if (layer == "Player")
 				{
@@ -44,6 +50,7 @@ public class Pointer : MonoBehaviour
             }
             else
             {
+                interactLayout.SetActive(false);
                 info.text = "";
             }
 
@@ -68,7 +75,10 @@ public class Pointer : MonoBehaviour
 		{
 			case ClientController.Role.lobby:
 			case ClientController.Role.crew:
-                info.text = taskCtl.task.label + "\n" + taskCtl.task.instructions;
+                info.text = taskCtl.task.label;
+                interactLayout.SetActive(true);
+                key.text = "E";
+                instructions.text = taskCtl.task.instructions;
                 if (Input.GetButtonDown("Action"))
                 {
                     taskCtl.ActionTask(this.gameObject);
@@ -76,6 +86,7 @@ public class Pointer : MonoBehaviour
                 break;
 			case ClientController.Role.impostor:
                 info.text = taskCtl.task.label + "\n" + "Don't move to pretend";
+                interactLayout.SetActive(false);
                 break;
 			default:
 				break;
@@ -94,29 +105,39 @@ public class Pointer : MonoBehaviour
         {
             case ClientController.Role.lobby:
                 if (hit.distance < killDistance)
-                    info.text = info.text = playerHitName + "\n" + "On Kill Distance";
+				{
+                    info.text = playerHitName + "\n" + "On Kill Distance";
+                    interactLayout.SetActive(false);
+				}
                 else
-                    info.text = info.text = playerHitName;
+				{
+                    info.text = playerHitName;
+                    interactLayout.SetActive(false);
+				}
                 break;
             case ClientController.Role.crew:
-                info.text = info.text = playerHitName;
+                info.text = playerHitName;
                 break;
             case ClientController.Role.impostor:
                 if (playerHitRole == ClientController.Role.impostor)
                 {
                     info.text = playerHitName + "\n" + "He is Impostor";
+                    interactLayout.SetActive(false);
                 }
                 else
                 {
                     if (hit.distance < killDistance)
 					{
-                        info.text = info.text = playerHitName + "\n" + "[Q] Kill";
+                        info.text = playerHitName;
+                        interactLayout.SetActive(true);
+                        key.text = "ML";
+                        instructions.text = "Kill";
 
                         if (Input.GetButtonDown("Kill"))
                             this.GetComponent<ClientController>().KillCrew(playerHit);
                     }
                     else
-                        info.text = info.text = playerHitName;
+                        info.text = playerHitName;
                 }
                 break;
             default:

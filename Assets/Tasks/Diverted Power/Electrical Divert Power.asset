@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Electrical Divert Power
   m_EditorClassIdentifier: 
   label: 'Electrical: Divert Power'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
   step: (1)
   stepsAdd: 2

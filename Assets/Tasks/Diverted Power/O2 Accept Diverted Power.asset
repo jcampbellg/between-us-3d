@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: O2 Accept Diverted Power
   m_EditorClassIdentifier: 
   label: 'O2: Accept Diverted Power'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
   step: (2)
   stepsAdd: 0

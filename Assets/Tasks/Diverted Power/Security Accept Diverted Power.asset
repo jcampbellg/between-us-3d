@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Security Accept Diverted Power
   m_EditorClassIdentifier: 
   label: 'Security: Accept Diverted Power'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
   step: (2)
   stepsAdd: 0

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Game Settings
   m_EditorClassIdentifier: 
   label: Game Settings
-  instructions: '[E] Edit settings'
+  instructions: Edit settings
   type: 1
+  step: 
   stepsAdd: 0
   stepsSubtract: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapons Download Data
   m_EditorClassIdentifier: 
   label: 'Weapons: Download Data'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
   step: (1)
   stepsAdd: 0

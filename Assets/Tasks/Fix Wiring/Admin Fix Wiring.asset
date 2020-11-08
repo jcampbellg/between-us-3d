@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Admin Fix Wiring
   m_EditorClassIdentifier: 
   label: 'Admin: Fix Wiring'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
+  step: 
   stepsAdd: 0
   stepsSubtract: 1

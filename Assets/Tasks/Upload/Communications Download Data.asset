@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Communications Download Data
   m_EditorClassIdentifier: 
   label: 'Communications: Download Data'
-  instructions: '[E] To Interact'
+  instructions: Interact
   type: 2
   step: (1)
   stepsAdd: 0
