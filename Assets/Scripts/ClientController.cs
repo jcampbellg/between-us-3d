@@ -13,6 +13,8 @@ public class ClientController : NetworkBehaviour
         impostor
 	};
     public GameObject deadBody;
+    public Vector3 CamAliveOffset;
+    public Vector3 CamDeadOffset;
     public LayerMask ghostLayerView;
     public LayerMask playerLayerView;
     Transform meetingPosition;
@@ -136,15 +138,20 @@ public class ClientController : NetworkBehaviour
     
     public void KillCrew(GameObject victim)
 	{
+        this.GetComponent<CharacterController>().Move(victim.transform.position - transform.position);
         CmdKillCrew(victim);
     }
     [Command]
     void CmdKillCrew(GameObject victim)
 	{
-        GameObject deadVictim = Instantiate(deadBody, victim.transform.position, victim.transform.rotation);
-        deadVictim.GetComponent<SkinRenderer>().skin = victim.GetComponent<SkinRenderer>().skin;
-        NetworkServer.Spawn(deadVictim);
         victim.GetComponent<ClientController>().isGhost = true;
+    }
+    [Command]
+    void CmdSpawnBody()
+	{
+        GameObject deadVictim = Instantiate(deadBody, this.transform.position, this.transform.rotation);
+        deadVictim.GetComponent<SkinRenderer>().skin = this.GetComponent<SkinRenderer>().skin;
+        NetworkServer.Spawn(deadVictim);
     }
     public void OnGhost(bool oldValue, bool newValue)
 	{
@@ -153,19 +160,30 @@ public class ClientController : NetworkBehaviour
             this.gameObject.layer = LayerMask.NameToLayer("Ghost");
             this.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
 
-            Camera.main.cullingMask = ghostLayerView;
+            if (isLocalPlayer)
+			{
+                Camera.main.cullingMask = ghostLayerView;
+                Camera.main.transform.localPosition = CamDeadOffset;
+                this.GetComponent<Pointer>().clickActionDistance = 6f;
+            }
 
             this.GetComponent<Move>().hasGravity = false;
             this.GetComponent<SkinRenderer>().GhostUp();
 
-            this.transform.position = new Vector3(transform.position.x, 2.71f, transform.position.z);
+            this.transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
+            CmdSpawnBody();
         }
         else
 		{
             this.gameObject.layer = LayerMask.NameToLayer("Player");
             this.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Player");
 
-            Camera.main.cullingMask = playerLayerView;
+            if (isLocalPlayer)
+			{
+                Camera.main.cullingMask = playerLayerView;
+                Camera.main.transform.localPosition = CamAliveOffset;
+                this.GetComponent<Pointer>().clickActionDistance = 2.5f;
+            }
 
             this.GetComponent<Move>().hasGravity = true;
             this.GetComponent<SkinRenderer>().GhostUp();

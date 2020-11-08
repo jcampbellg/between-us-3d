@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - ClientController
     - CompasUI
     - CrewUI
+    - DeadBody
     - DivertedPower
     - DivertedUI
     - Door
@@ -102,8 +103,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -259,109 +262,111 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14250}
     - Class: 114
-      Script: {instanceID: 14512}
+      Script: {instanceID: 14510}
     - Class: 114
-      Script: {instanceID: 14572}
+      Script: {instanceID: 14570}
     - Class: 114
-      Script: {instanceID: 14634}
+      Script: {instanceID: 14632}
     - Class: 114
-      Script: {instanceID: 14654}
+      Script: {instanceID: 14652}
     - Class: 114
-      Script: {instanceID: 14712}
+      Script: {instanceID: 14710}
     - Class: 114
-      Script: {instanceID: 14732}
+      Script: {instanceID: 14730}
     - Class: 114
-      Script: {instanceID: 14764}
+      Script: {instanceID: 14762}
     - Class: 114
-      Script: {instanceID: 15036}
+      Script: {instanceID: 15034}
     - Class: 114
-      Script: {instanceID: 15066}
+      Script: {instanceID: 15064}
     - Class: 114
-      Script: {instanceID: 15114}
+      Script: {instanceID: 15112}
     - Class: 114
-      Script: {instanceID: 15120}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15138}
+      Script: {instanceID: 15136}
     - Class: 114
-      Script: {instanceID: 15150}
+      Script: {instanceID: 15148}
     - Class: 114
-      Script: {instanceID: 15290}
+      Script: {instanceID: 15288}
     - Class: 114
-      Script: {instanceID: 15332}
+      Script: {instanceID: 15330}
     - Class: 114
-      Script: {instanceID: 15340}
+      Script: {instanceID: 15338}
     - Class: 114
-      Script: {instanceID: 15398}
+      Script: {instanceID: 15396}
     - Class: 114
-      Script: {instanceID: 15404}
+      Script: {instanceID: 15402}
     - Class: 114
-      Script: {instanceID: 15508}
+      Script: {instanceID: 15506}
     - Class: 114
-      Script: {instanceID: 15610}
+      Script: {instanceID: 15608}
     - Class: 114
-      Script: {instanceID: 15616}
+      Script: {instanceID: 15614}
     - Class: 114
-      Script: {instanceID: 15656}
+      Script: {instanceID: 15654}
     - Class: 114
-      Script: {instanceID: 15710}
+      Script: {instanceID: 15708}
     - Class: 114
-      Script: {instanceID: 15744}
+      Script: {instanceID: 15742}
     - Class: 114
-      Script: {instanceID: 15838}
+      Script: {instanceID: 15836}
     - Class: 114
-      Script: {instanceID: 15902}
+      Script: {instanceID: 15900}
     - Class: 114
-      Script: {instanceID: 15998}
+      Script: {instanceID: 15996}
     - Class: 114
-      Script: {instanceID: 16056}
+      Script: {instanceID: 16054}
     - Class: 114
-      Script: {instanceID: 16108}
+      Script: {instanceID: 16106}
     - Class: 114
-      Script: {instanceID: 16170}
+      Script: {instanceID: 16168}
     - Class: 114
-      Script: {instanceID: 16178}
+      Script: {instanceID: 16176}
     - Class: 114
-      Script: {instanceID: 16212}
+      Script: {instanceID: 16210}
     - Class: 114
-      Script: {instanceID: 16236}
+      Script: {instanceID: 16234}
     - Class: 114
-      Script: {instanceID: 16252}
+      Script: {instanceID: 16250}
     - Class: 114
-      Script: {instanceID: 16300}
+      Script: {instanceID: 16298}
     - Class: 114
-      Script: {instanceID: 16314}
+      Script: {instanceID: 16312}
     - Class: 114
-      Script: {instanceID: 16340}
+      Script: {instanceID: 16338}
     - Class: 114
-      Script: {instanceID: 16372}
+      Script: {instanceID: 16370}
     - Class: 114
-      Script: {instanceID: 16390}
+      Script: {instanceID: 16388}
     - Class: 114
-      Script: {instanceID: 16420}
+      Script: {instanceID: 16418}
     - Class: 114
-      Script: {instanceID: 16478}
+      Script: {instanceID: 16476}
     - Class: 114
-      Script: {instanceID: 16596}
+      Script: {instanceID: 16594}
     - Class: 114
-      Script: {instanceID: 16608}
+      Script: {instanceID: 16606}
     - Class: 114
-      Script: {instanceID: 16658}
+      Script: {instanceID: 16656}
     - Class: 114
-      Script: {instanceID: 16688}
+      Script: {instanceID: 16686}
     - Class: 114
-      Script: {instanceID: 16730}
+      Script: {instanceID: 16728}
     - Class: 114
-      Script: {instanceID: 16736}
+      Script: {instanceID: 16734}
     - Class: 114
-      Script: {instanceID: 16768}
+      Script: {instanceID: 16766}
     - Class: 114
-      Script: {instanceID: 16774}
+      Script: {instanceID: 16772}
     - Class: 114
-      Script: {instanceID: 16812}
+      Script: {instanceID: 16810}
     - Class: 114
-      Script: {instanceID: 16850}
+      Script: {instanceID: 16848}
     - Class: 114
-      Script: {instanceID: 16854}
+      Script: {instanceID: 16852}
+    - Class: 114
+      Script: {instanceID: 16920}
     - Class: 114
       Script: {instanceID: 16928}
     - Class: 114
@@ -373,7 +378,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16980}
     - Class: 114
-      Script: {instanceID: 1696226}
+      Script: {instanceID: 39150}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1303,7 +1308,7 @@ ScriptsOnlyBuild:
     className: NetworkLogSettings
   - hash:
       serializedVersion: 2
-      Hash: 1e618b6061e6faae1f941e2e9b0b42fd
+      Hash: 3ee445a729036b04417a1d7e9837eab1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientController
@@ -1597,6 +1602,12 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: 745f04d0161b953df73cb65ccb389f5c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DivertedPower
+  - hash:
+      serializedVersion: 2
       Hash: cdbc22255add0aec5ce093c45e018311
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1633,10 +1644,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 745f04d0161b953df73cb65ccb389f5c
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: DivertedPower
+    className: DeadBody
   platform: 5
   scenePathNames:
   - Assets/Scenes/BetweenUs.unity

@@ -382,6 +382,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   deadBody: {fileID: 225680056645134625, guid: d218809cc9eeb5e4fac42bff64b0b1f4, type: 3}
+  CamAliveOffset: {x: 0, y: 1.2, z: 0.3}
+  CamDeadOffset: {x: 0, y: 1.81, z: -1.71}
   ghostLayerView:
     serializedVersion: 2
     m_Bits: 30519
@@ -426,7 +428,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   bodyRenderer: {fileID: 2461590626053880112}
-  ghostMaterial: {fileID: 0}
+  ghostMaterial: {fileID: 2100000, guid: e08a0714f8e25fa4abcbb6fa9e6bf27d, type: 2}
   skin: {fileID: 0}
 --- !u!114 &6116708057245324832
 MonoBehaviour:
