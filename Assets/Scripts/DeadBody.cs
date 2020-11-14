@@ -1,25 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class DeadBody : MonoBehaviour
+public class DeadBody : NetworkBehaviour
 {
-    Rigidbody rigidbody;
+    public Rigidbody rb;
     float time = 0f;
     readonly float stopTime = 1f;
+    [SyncVar]
+    public string playerName = "";
 
-    void Start()
-    {
-        rigidbody = this.GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
         if (time > stopTime)
 		{
-            rigidbody.isKinematic = true;
+            rb.isKinematic = true;
 		}
     }
 }

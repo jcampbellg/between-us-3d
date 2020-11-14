@@ -47,6 +47,10 @@ public class Pointer : MonoBehaviour
 				{
                     OnPlayer(hit);
                 }
+                else if (layer == "DeadBody")
+				{
+                    OnDeadBody(hit);
+				}
             }
             else
             {
@@ -76,9 +80,9 @@ public class Pointer : MonoBehaviour
 			case ClientController.Role.lobby:
 			case ClientController.Role.crew:
                 info.text = taskCtl.task.label;
-                interactLayout.SetActive(true);
                 key.text = "E";
                 instructions.text = taskCtl.task.instructions;
+                interactLayout.SetActive(true);
                 if (Input.GetButtonDown("Action"))
                 {
                     taskCtl.ActionTask(this.gameObject);
@@ -129,9 +133,9 @@ public class Pointer : MonoBehaviour
                     if (hit.distance < killDistance)
 					{
                         info.text = playerHitName;
-                        interactLayout.SetActive(true);
-                        key.text = "ML";
+                        key.text = "M1";
                         instructions.text = "Kill";
+                        interactLayout.SetActive(true);
 
                         if (Input.GetButtonDown("Kill"))
                             this.GetComponent<ClientController>().KillCrew(playerHit);
@@ -143,5 +147,18 @@ public class Pointer : MonoBehaviour
             default:
                 break;
         }
+    }
+    void OnDeadBody(RaycastHit hit)
+	{
+        GameObject deadBodyHit = hit.transform.gameObject;
+        string playerHitName = deadBodyHit.GetComponent<DeadBody>().playerName;
+
+        info.text = playerHitName + "'s Body";
+        key.text = "M1";
+        instructions.text = "Report";
+        interactLayout.SetActive(true);
+
+        if (Input.GetButtonDown("Report"))
+            this.GetComponent<ClientController>().CmdReport();
     }
 }

@@ -17,10 +17,12 @@ public class GameState : NetworkBehaviour
     GameSettings gameSettings;
     TasksState tasksState;
     DoorsManager doorsManager;
+    PlayerSettings playerSettings;
     public GameObject namesUI;
     public GameObject impostorsUI;
     public GameObject crewUI;
     public GameObject[] hideOnStart;
+    public GameObject[] showOnMeeting;
 
     [SyncVar(hook = nameof(OnGameState))]
     public State gameState = State.onLobby;
@@ -30,6 +32,7 @@ public class GameState : NetworkBehaviour
         gameSettings = this.GetComponent<GameSettings>();
         tasksState = this.GetComponent<TasksState>();
         doorsManager = this.GetComponent<DoorsManager>();
+        playerSettings = this.GetComponent<PlayerSettings>();
     }
 
     public void AddPlayersList(GameObject player)
@@ -49,10 +52,27 @@ public class GameState : NetworkBehaviour
 	{
         if (oldState == State.onLobby && newState == State.onGame)
 		{
+            // Game Start
 			foreach (GameObject item in hideOnStart)
 			{
                 item.SetActive(false);
 			}
+        }
+        else if (oldState == State.onGame && newState == State.onMeeting)
+		{
+            // Report
+            playerSettings.localPlayer.GetComponent<ClientController>().MoveToMeeting();
+            foreach (GameObject item in showOnMeeting)
+            {
+                item.SetActive(true);
+            }
+        }
+        else if (oldState == State.onMeeting && newState == State.onGame)
+		{
+            foreach (GameObject item in showOnMeeting)
+            {
+                item.SetActive(false);
+            }
         }
     }
     public void OpenRoleUI(GameObject player)

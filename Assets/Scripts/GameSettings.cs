@@ -10,6 +10,7 @@ public class GameSettings : NetworkBehaviour
         fogDensity,
         playerSpeed,
         killDistance,
+        killCooldown,
         impostorCount,
         commonTaskCount,
         shortTaskCount,
@@ -32,6 +33,8 @@ public class GameSettings : NetworkBehaviour
     public float killDistance = 0.5f;
     [SyncVar]
     public int impostorCount = 1;
+    [SyncVar]
+    public int killCooldown = 15;
 
     public void Restart()
 	{
@@ -42,6 +45,7 @@ public class GameSettings : NetworkBehaviour
         longTaskCount = 1;
         killDistance = 0.5f;
         impostorCount = 1;
+        killCooldown = 15;
     }
     public void HookChangeFog(float oldFog, float newFog)
 	{
@@ -52,11 +56,5 @@ public class GameSettings : NetworkBehaviour
         fogDensity = newFog;
         RenderSettings.fogDensity = newFog;
         clickPlayerDistance = ((0.4f - newFog) / 0.4f * 13f)+2.5f;
-    }
-    public void UpdateSettings(float _fogDistance, float _playerSpeed, float _killDistance)
-	{
-        ChangeFog(_fogDistance);
-        playerSpeed = _playerSpeed;
-        killDistance = _killDistance;
     }
 }

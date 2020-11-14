@@ -17,7 +17,8 @@ public class ClientController : NetworkBehaviour
     public Vector3 CamDeadOffset;
     public LayerMask ghostLayerView;
     public LayerMask playerLayerView;
-    Transform meetingPosition;
+    Vector3 meetingPosition;
+    Quaternion meetingRotation;
     PlayerSettings playerSettings;
     GameSettings gameSettings;
     GameState gameState;
@@ -31,13 +32,18 @@ public class ClientController : NetworkBehaviour
     [SyncVar]
     public bool isReady = false;
     [SyncVar]
+    public bool hasVoted = false;
+    [SyncVar]
     public int taskCount = 0;
     [SyncVar(hook = nameof(OnGhost))]
     public bool isGhost = false;
+    public GameObject[] showOnMeeting;
+    public GameObject[] hideOnMeeting;
 
     void Start()
     {
-        meetingPosition = transform;
+        meetingPosition = transform.position;
+        meetingRotation = transform.rotation;
         GameObject gameStateObject = GameObject.FindGameObjectWithTag("GameState");
         playerSettings = gameStateObject.GetComponent<PlayerSettings>();
         gameSettings = gameStateObject.GetComponent<GameSettings>();
@@ -61,6 +67,22 @@ public class ClientController : NetworkBehaviour
             GameObject.FindGameObjectWithTag("MenuController").GetComponent<Pause>().client = this.gameObject;
         }
         gameState.AddPlayersList(this.gameObject);
+    }
+
+    public void MoveToMeeting()
+	{
+        this.GetComponent<CharacterController>().Move(meetingPosition - transform.position);
+        transform.rotation = meetingRotation;
+        this.GetComponent<LookAround>().RefreshXRotation();
+        GetComponent<Move>().canUse = false;
+        foreach (GameObject item in showOnMeeting)
+        {
+            item.SetActive(true);
+        }
+        foreach (GameObject item in hideOnMeeting)
+        {
+            item.SetActive(false);
+        }
     }
 
 	private void OnDestroy()
@@ -88,14 +110,6 @@ public class ClientController : NetworkBehaviour
 			}
         }
     }
-
-    [ClientRpc]
-    public void RpcGoToMeeting()
-	{
-        transform.position = meetingPosition.position;
-        transform.rotation = meetingPosition.rotation;
-        gameObject.GetComponent<LookAround>().RefreshXRotation();
-	}
     private void Update()
 	{
 		if (isLocalPlayer && Input.GetButtonDown("Ready") && playerRole == Role.lobby)
@@ -136,6 +150,12 @@ public class ClientController : NetworkBehaviour
 		}
 	}
     
+    [Command]
+    public void CmdReport()
+	{
+        gameState.gameState = GameState.State.onMeeting;
+    }
+
     public void KillCrew(GameObject victim)
 	{
         this.GetComponent<CharacterController>().Move(victim.transform.position - transform.position);
@@ -151,6 +171,7 @@ public class ClientController : NetworkBehaviour
 	{
         GameObject deadVictim = Instantiate(deadBody, this.transform.position, this.transform.rotation);
         deadVictim.GetComponent<SkinRenderer>().skin = this.GetComponent<SkinRenderer>().skin;
+        deadVictim.GetComponent<DeadBody>().playerName = playerName;
         NetworkServer.Spawn(deadVictim);
     }
     public void OnGhost(bool oldValue, bool newValue)
@@ -241,6 +262,9 @@ public class ClientController : NetworkBehaviour
         {
             case GameSettings.Setting.impostorCount:
                 gameSettings.impostorCount = value;
+                break;
+            case GameSettings.Setting.killCooldown:
+                gameSettings.killCooldown = value;
                 break;
             case GameSettings.Setting.commonTaskCount:
                 gameSettings.commonTaskCount = value;

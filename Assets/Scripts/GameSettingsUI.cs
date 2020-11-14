@@ -18,7 +18,9 @@ public class GameSettingsUI : MonoBehaviour
 	public Slider killDistance;
 	public Slider impostorCount;
 	public TextMeshProUGUI impostorCountText;
-	
+	public Slider killCooldown;
+	public TextMeshProUGUI killCooldownText;
+
 	private void OnEnable()
 	{
 		fogDensity.value = -(gameSettings.fogDensity / 0.4f) + 1.0f;
@@ -35,6 +37,9 @@ public class GameSettingsUI : MonoBehaviour
 
 		impostorCount.value = gameSettings.impostorCount;
 		impostorCountText.text = gameSettings.impostorCount + " Impostors";
+
+		killCooldown.value = gameSettings.killCooldown;
+		killCooldownText.text = gameSettings.killCooldown + "s Kill Cooldown";
 	}
 	public void ChangeFogDistance(float value)
 	{
@@ -76,7 +81,17 @@ public class GameSettingsUI : MonoBehaviour
 			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.impostorCount, (int) value);
 		}
 	}
+	public void ChangeKillCooldown(float value)
+	{
+		GameObject client = this.GetComponent<TaskUI>().client;
 
+		killCooldownText.text = value + "s Kill Cooldown";
+
+		if (client)
+		{
+			client.GetComponent<ClientController>().ChangeIntSetting(GameSettings.Setting.killCooldown, (int)value);
+		}
+	}
 	public void ChangeCommonTaskCount(float value)
 	{
 		GameObject client = this.GetComponent<TaskUI>().client;
