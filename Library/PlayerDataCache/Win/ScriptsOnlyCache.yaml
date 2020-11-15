@@ -26,6 +26,7 @@ ScriptsOnlyBuild:
     - Pause
     - PlayerSettings
     - Pointer
+    - RebuildLayout
     - Skin
     - SkinRenderer
     - Task
@@ -380,6 +381,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16976}
     - Class: 114
       Script: {instanceID: 16984}
+    - Class: 114
+      Script: {instanceID: 210050}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -895,7 +898,7 @@ ScriptsOnlyBuild:
     className: UniversalRenderPipelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 5edb8d48c898c3a53f5554b631176721
+      Hash: 72da06081142ab775b496a0a45bf0d79
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameState
@@ -1655,7 +1658,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 7c0985d135edc8b8d7fbaaf7ae2bea54
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RebuildLayout
   platform: 5
   scenePathNames:
   - Assets/Scenes/BetweenUs.unity
-  playerPath: C:/Users/jcamp/Desktop/builds/client/between-us-3d.exe
+  playerPath: C:/Users/jcamp/Desktop/builds/server/between-us-3d.exe

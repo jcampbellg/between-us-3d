@@ -37,7 +37,14 @@ public class ImpostorsUI : MonoBehaviour
                 TextMeshProUGUI text = impostorName.GetComponent<TextMeshProUGUI>();
                 Image logo = impostorName.transform.GetChild(0).GetComponent<Image>();
 
-                text.text = impostorsList[i - 1].GetComponent<ClientController>().playerName;
+                ClientController client = impostorsList[i - 1].GetComponent<ClientController>();
+
+                if (client.isLocalPlayer)
+                    text.text = "[YOU] ";
+                else
+                    text.text = "";
+
+                text.text += client.playerName;
                 logo.sprite = impostorsList[i - 1].GetComponent<SkinRenderer>().skin.logo;
             }
             else

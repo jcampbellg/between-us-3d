@@ -72,8 +72,9 @@ public class ClientController : NetworkBehaviour
     public void MoveToMeeting()
 	{
         this.GetComponent<CharacterController>().Move(meetingPosition - transform.position);
+        transform.position = meetingPosition;
         transform.rotation = meetingRotation;
-        this.GetComponent<LookAround>().RefreshXRotation();
+        this.GetComponent<LookAround>().SetXRotation(transform.rotation.eulerAngles.x);
         GetComponent<Move>().canUse = false;
         foreach (GameObject item in showOnMeeting)
         {
@@ -117,7 +118,15 @@ public class ClientController : NetworkBehaviour
             CmdToggleReady();
         }
 	}
-    [Command]
+	private void LateUpdate()
+	{
+		if (isLocalPlayer)
+		{
+            Transform camPivot = Camera.main.transform.parent;
+            camPivot.position = transform.position;
+        }
+	}
+	[Command]
     public void CmdToggleReady()
 	{
         isReady = !isReady;

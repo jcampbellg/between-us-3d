@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Pointer : MonoBehaviour
@@ -13,6 +14,7 @@ public class Pointer : MonoBehaviour
     public TextMeshProUGUI key;
     PlayerSettings playerSettings;
     GameSettings gameSettings;
+    GameState gameState;
     public GameObject pointerCanvas;
     public bool canUse = false;
 
@@ -21,6 +23,7 @@ public class Pointer : MonoBehaviour
         GameObject gameStateObject = GameObject.FindGameObjectWithTag("GameState");
         playerSettings = gameStateObject.GetComponent<PlayerSettings>();
         gameSettings = gameStateObject.GetComponent<GameSettings>();
+        gameState = gameStateObject.GetComponent<GameState>();
     }
 	private void Update()
 	{
@@ -102,63 +105,90 @@ public class Pointer : MonoBehaviour
         float killDistance = gameSettings.clickPlayerDistance * gameSettings.killDistance;
 
         ClientController.Role playerRole = this.GetComponent<ClientController>().playerRole;
+        bool isGhost = this.GetComponent<ClientController>().isGhost;
         ClientController.Role playerHitRole = playerHit.GetComponent<ClientController>().playerRole;
         string playerHitName = playerHit.GetComponent<ClientController>().playerName;
 
-        switch (playerRole)
+        if (isGhost)
         {
-            case ClientController.Role.lobby:
-                if (hit.distance < killDistance)
-				{
-                    info.text = playerHitName + "\n" + "On Kill Distance";
-                    interactLayout.SetActive(false);
-				}
-                else
-				{
-                    info.text = playerHitName;
-                    interactLayout.SetActive(false);
-				}
-                break;
-            case ClientController.Role.crew:
+            info.text = playerHitName;
+            interactLayout.SetActive(false);
+        }
+        else
+        {
+            if (gameState.gameState == GameState.State.onMeeting)
+			{
                 info.text = playerHitName;
-                break;
-            case ClientController.Role.impostor:
-                if (playerHitRole == ClientController.Role.impostor)
+                key.text = "M1";
+                instructions.text = "Vote";
+                interactLayout.SetActive(true);
+            }
+            else
+			{
+                switch (playerRole)
                 {
-                    info.text = playerHitName + "\n" + "He is Impostor";
-                    interactLayout.SetActive(false);
-                }
-                else
-                {
-                    if (hit.distance < killDistance)
-					{
+                    case ClientController.Role.lobby:
+                        if (hit.distance < killDistance)
+                        {
+                            info.text = playerHitName + "\n" + "On Kill Distance";
+                            interactLayout.SetActive(false);
+                        }
+                        else
+                        {
+                            info.text = playerHitName;
+                            interactLayout.SetActive(false);
+                        }
+                        break;
+                    case ClientController.Role.crew:
                         info.text = playerHitName;
-                        key.text = "M1";
-                        instructions.text = "Kill";
-                        interactLayout.SetActive(true);
+                        break;
+                    case ClientController.Role.impostor:
+                        if (playerHitRole == ClientController.Role.impostor)
+                        {
+                            info.text = playerHitName + "\n" + "He is Impostor";
+                            interactLayout.SetActive(false);
+                        }
+                        else
+                        {
+                            if (hit.distance < killDistance)
+                            {
+                                info.text = playerHitName;
+                                key.text = "M1";
+                                instructions.text = "Kill";
+                                interactLayout.SetActive(true);
 
-                        if (Input.GetButtonDown("Kill"))
-                            this.GetComponent<ClientController>().KillCrew(playerHit);
-                    }
-                    else
-                        info.text = playerHitName;
+                                if (Input.GetButtonDown("Kill"))
+                                    this.GetComponent<ClientController>().KillCrew(playerHit);
+                            }
+                            else
+                                info.text = playerHitName;
+                        }
+                        break;
+                    default:
+                        break;
                 }
-                break;
-            default:
-                break;
+            }
         }
     }
     void OnDeadBody(RaycastHit hit)
 	{
         GameObject deadBodyHit = hit.transform.gameObject;
         string playerHitName = deadBodyHit.GetComponent<DeadBody>().playerName;
+        bool isGhost = this.GetComponent<ClientController>().isGhost;
 
-        info.text = playerHitName + "'s Body";
-        key.text = "M1";
-        instructions.text = "Report";
-        interactLayout.SetActive(true);
+        if (isGhost)
+		{
+            info.text = playerHitName + "'s Body";
+        }
+        else
+		{
+            info.text = playerHitName + "'s Body";
+            key.text = "M1";
+            instructions.text = "Report";
+            interactLayout.SetActive(true);
 
-        if (Input.GetButtonDown("Report"))
-            this.GetComponent<ClientController>().CmdReport();
+            if (Input.GetButtonDown("Report"))
+                this.GetComponent<ClientController>().CmdReport();
+        }
     }
 }

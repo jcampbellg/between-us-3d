@@ -31,16 +31,16 @@ public class NameUI : MonoBehaviour
             {
                 GameObject playerName = this.transform.GetChild(i).gameObject;
 
-                if (i - 1 < playersList.Count && playersList[i - 1] != null)
+                if (i - 2 < playersList.Count && playersList[i - 2] != null)
                 {
                     playerName.SetActive(true);
                     TextMeshProUGUI text = playerName.GetComponent<TextMeshProUGUI>();
                     Image logo = playerName.transform.GetChild(0).GetComponent<Image>();
 
-                    ClientController client = playersList[i - 1].GetComponent<ClientController>();
+                    ClientController client = playersList[i - 2].GetComponent<ClientController>();
 
                     if (client.isLocalPlayer)
-                        text.text = "[Me] ";
+                        text.text = "[YOU] ";
                     else
                         text.text = "";
 
@@ -49,7 +49,7 @@ public class NameUI : MonoBehaviour
                     else
                         text.text += client.playerName + " [READY]";
 
-                    logo.sprite = playersList[i - 1].GetComponent<SkinRenderer>().skin.logo;
+                    logo.sprite = playersList[i - 2].GetComponent<SkinRenderer>().skin.logo;
                 }
                 else
                 {
@@ -63,13 +63,13 @@ public class NameUI : MonoBehaviour
             {
                 GameObject playerName = this.transform.GetChild(i).gameObject;
 
-                if (i - 1 < playersList.Count && playersList[i - 1] != null)
+                if (i - 2 < playersList.Count && playersList[i - 2] != null)
                 {
                     playerName.SetActive(true);
                     TextMeshProUGUI text = playerName.GetComponent<TextMeshProUGUI>();
                     Image logo = playerName.transform.GetChild(0).GetComponent<Image>();
 
-                    ClientController client = playersList[i - 1].GetComponent<ClientController>();
+                    ClientController client = playersList[i - 2].GetComponent<ClientController>();
 
                     if (client.isLocalPlayer)
                         text.text = "[Me] ";
@@ -88,7 +88,7 @@ public class NameUI : MonoBehaviour
                         text.text += client.playerName + " [DEAD]";
                     }
 
-                    logo.sprite = playersList[i - 1].GetComponent<SkinRenderer>().skin.logo;
+                    logo.sprite = playersList[i - 2].GetComponent<SkinRenderer>().skin.logo;
                 }
                 else
                 {

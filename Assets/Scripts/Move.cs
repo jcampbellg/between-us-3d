@@ -34,9 +34,6 @@ public class Move : MonoBehaviour
 
             if (hasGravity)
                 characterController.Move(Vector3.up * -10f * Time.deltaTime);
-
-            Transform camPivot = Camera.main.transform.parent;
-            camPivot.position = transform.position;
         }
         
     }

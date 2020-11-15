@@ -18,6 +18,10 @@ public class LookAround : MonoBehaviour
 	{
         xRotation = gameObject.transform.rotation.eulerAngles.x;
     }
+    public void SetXRotation(float rot)
+	{
+        xRotation = rot;
+    }
     void Update()
     {
         if (canUse && !playerSettings.isMenuOpen)

@@ -23,6 +23,7 @@ public class GameState : NetworkBehaviour
     public GameObject crewUI;
     public GameObject[] hideOnStart;
     public GameObject[] showOnMeeting;
+    public GameObject[] hideOnMeeting;
 
     [SyncVar(hook = nameof(OnGameState))]
     public State gameState = State.onLobby;
@@ -66,12 +67,20 @@ public class GameState : NetworkBehaviour
             {
                 item.SetActive(true);
             }
+            foreach (GameObject item in hideOnMeeting)
+            {
+                item.SetActive(false);
+            }
         }
         else if (oldState == State.onMeeting && newState == State.onGame)
 		{
             foreach (GameObject item in showOnMeeting)
             {
                 item.SetActive(false);
+            }
+            foreach (GameObject item in hideOnMeeting)
+            {
+                item.SetActive(true);
             }
         }
     }
